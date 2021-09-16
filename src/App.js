@@ -1,6 +1,6 @@
-import react,{Component} from 'react'
+import react, { Component } from 'react';
 import './App.css';
-import { Button,Alert } from 'antd'
+import { Button, Alert } from 'antd';
 import logo from './logo.svg';
 import 'antd/dist/antd.css';
 
@@ -15,26 +15,24 @@ function App() {
     </div>
   );
 }
-class App1 extends Component{
-  constructor(props){
+class App1 extends Component {
+  constructor(props) {
     super(props);
     this.state = {
-      list : [1,'dd',44,'ff']
-    }
+      list: [1, 'dd', 44, 'ff'],
+    };
   }
   
-  render(){
-    return(
+  render() {
+    return (
       <div>
         {
-          this.state.list.map((item)=>{
-            return(
-              <p>{item}</p>
-            )
-          })
-        }
+    this.state.list.map((item) => (
+      <p>{item}</p>
+                ))
+          }
       </div>
-    )
+    );
   }
 }
 
