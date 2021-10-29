@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
-class Sider extends Component {
+// import Menu from "./Menu";
+import { Layout } from 'antd';
+import Logo from './Logo';
+const { Sider } = Layout;
+class LayoutSider extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    return <div>Sider--侧边栏</div>;
+    return (
+      <Sider
+        collapsible
+        collapsed={false}
+        trigger={null}
+        width="300px"
+        style={{ zIndex: '10' }}
+        // eslint-disable-next-line react/jsx-closing-bracket-location
+      >
+        <Logo />
+        {/* <Menu /> */}
+      </Sider>
+    );
   }
 }
 
-export default Sider;
+export default LayoutSider;
