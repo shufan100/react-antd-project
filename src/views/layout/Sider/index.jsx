@@ -14,7 +14,7 @@ class LayoutSider extends Component {
         collapsible
         collapsed={false}
         trigger={null}
-        width="300px"
+        width={200}
         style={{ zIndex: '10' }}
         // eslint-disable-next-line react/jsx-closing-bracket-location
       >

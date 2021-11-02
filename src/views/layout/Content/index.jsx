@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-class Content extends Component {
+import { Layout } from 'antd';
+const { Content } = Layout;
+class LayoutContent extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
     return (
-      <div>
+      <Content>
         中间内如，动态
         <span>2222</span>
-      </div>
+      </Content>
     );
   }
 }
 
-export default Content;
+export default LayoutContent;

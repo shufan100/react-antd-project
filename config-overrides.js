@@ -1,7 +1,7 @@
 const {
   override,
-  fixBabelImports,
-  addLessLoader,
+  // fixBabelImports,
+  // addLessLoader,
   addWebpackAlias,
 } = require('customize-cra');
 const path = require('path');
@@ -40,6 +40,4 @@ module.exports = override(
   addWebpackAlias({
     '@': resolve('src'),
   }),
-//   addCustomize()
-// addLessLoader()
 );
