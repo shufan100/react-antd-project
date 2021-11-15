@@ -6,7 +6,7 @@ import Login from '../views/login';
 import Layout from '../views/layout';
 
 class Router extends React.Component {
-  render() {
+  render () {
     // const props = this.props;
 
     return (
@@ -21,7 +21,7 @@ class Router extends React.Component {
                 return <Layout />;
               }
             }}
-            // eslint-disable-next-line react/jsx-closing-bracket-location
+          // eslint-disable-next-line react/jsx-closing-bracket-location
           />
           <Route exact path="/login" component={Login} />
         </Switch>

@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 // import Menu from "./Menu";
 import { Layout } from 'antd';
 import Logo from './Logo';
@@ -9,20 +11,27 @@ class LayoutSider extends Component {
     this.state = {};
   }
   render() {
+    const { sidebarCollapsed, code } = this.props;
     return (
       <Sider
         collapsible
-        collapsed={false}
+        collapsed={sidebarCollapsed}
         trigger={null}
         width={200}
         style={{ zIndex: '10' }}
-        // eslint-disable-next-line react/jsx-closing-bracket-location
       >
         <Logo />
+
+        <h1 style={{ color: 'red' }}>
+          1111111{sidebarCollapsed}
+          {code}
+        </h1>
         {/* <Menu /> */}
       </Sider>
     );
   }
 }
-
-export default LayoutSider;
+const mapStateToProps = state => ({
+  ...state.app,
+});
+export default connect(mapStateToProps)(LayoutSider);
