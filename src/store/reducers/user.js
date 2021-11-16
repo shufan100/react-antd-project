@@ -1,15 +1,23 @@
-import * as types from '../action-type';
+import * as types from '../action-type'; // 777步
 
 const userState = {
   inputVal: '请输入',
   statelList: ['早上10点', '中午12点', '晚上9点'],
 };
-
+// store.dispatch({...})方法提交就到这里，action接收的是dispatch的对象，而这个对象是action的方法执行后返回的
 export function user (state = userState, action){
   // Reducer里只能接受state，不能改变state,返回新得对象
 
   // input输入 / 传空清除输入
-  if (action.type === 'USER_SET_INPUTCHANGE') {
+  // if (action.type === 'USER_SET_INPUTCHANGE') {
+  //   return {
+  //     ...state,
+  //     inputVal: action.value
+  //   };
+  // }
+
+  // 888步
+  if (action.type === types.USER_SET_INPUTCHANGE) {
     return {
       ...state,
       inputVal: action.value

@@ -3,8 +3,8 @@ import { Layout, Button, List, Avatar, Input } from 'antd';
 import { PlusOutlined,CloseOutlined } from '@ant-design/icons';
 import './index.scss';
 import { connect } from 'react-redux';
-import store from '../../../store';
-import { deleteItemAction } from '@/store/actions';
+import store from '../../../store'; // 11步
+import { deleteItemAction, resetInputAction } from '@/store/actions';  // 444步
 const { Content } = Layout;;
 class LayoutContent extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class LayoutContent extends Component {
     };
   }
   render () {
-    const { statelList , inputVal } = this.props;
+    const { statelList , inputVal } = this.props; // 12步
     return (
       <Content className='main'>
         中间内如，动态
@@ -77,17 +77,22 @@ class LayoutContent extends Component {
     store.dispatch({type:'USER_SET_LISTPUSH'});
   }
   reset(){
-    store.dispatch({
-      type:'USER_SET_INPUTCHANGE',
-      value:''
-    });
+    // 555步
+    store.dispatch(resetInputAction(''));
+    // store.dispatch({
+    //   type:'USER_SET_INPUTCHANGE',
+    //   value:''
+    // });
   }
   // 输入
   inputChange (e) {
-    store.dispatch({
-      type:'USER_SET_INPUTCHANGE',
-      value:e.target.value
-    });
+    // 正常是提交一个对象到reducers里，但是通过封装的action的方法，返回新的对象，然后再提交，和原先的直接提交是一回事
+    // 
+    store.dispatch(resetInputAction(e.target.value));
+    // store.dispatch({
+    //   type:'USER_SET_INPUTCHANGE',
+    //   value:e.target.value
+    // });
   }
   // 删除列表
   // 原始写法
@@ -104,4 +109,5 @@ class LayoutContent extends Component {
 
 }
 
+// connect用这个方法reducers才监听的到 666步
 export default connect(state => state.user)(LayoutContent);

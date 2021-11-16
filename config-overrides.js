@@ -1,3 +1,4 @@
+const { log } = require('console');
 const {
   override,
   // fixBabelImports,
@@ -9,18 +10,19 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 // process.env.CI = 'false';
-// const addCustomize = () => (config) => {
-//   if (config.output.publicPath) {
-//     config.output.publicPath =
-//       process.env.NODE_ENV === 'production'
-//         ? '/react-antd-peoject/'
-//         : '/';
-//   }
-//   if (config.resolve) {
-//     config.resolve.extensions.push('.jsx');
-//   }
-//   return config;
-// };
+const addCustomize = () => (config) => {
+  console.log(config);
+  if (config.output.publicPath) {
+    config.output.publicPath =
+      process.env.NODE_ENV === 'production'
+        ? '/react-antd-peoject/'
+        : '/';
+  }
+  if (config.resolve) {
+    config.resolve.extensions.push('.jsx');
+  }
+  return config;
+};
 // //  在这里使用 customize-cra 里的一些函数来修改配置
 module.exports = override(
   // 针对antd实现按需打包: 根据import来打包(使用babel-plugin-import)
@@ -35,7 +37,7 @@ module.exports = override(
   //   javascriptEnabled: true,
   //   modifyVars: { '@primary-color': '#1DA57A' },
   // }),
-
+  addCustomize(),
   // 配置路径别名
   addWebpackAlias({
     '@': resolve('src'),

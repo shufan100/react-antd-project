@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 // reduxThunk是redux中间件，对store对dispatch方法做一个升级，以前dispatch只接收一个对象，升级后可以接收函数
 
-
+// 10步
 const store =  createStore(reducers,applyMiddleware(reduxThunk));
 
 export default store;
