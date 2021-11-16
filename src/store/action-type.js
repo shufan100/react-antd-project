@@ -4,3 +4,5 @@ export const APP_SET_CODE = 'APP_SET_CODE';
 export const APP_SET_TITLE = 'APP_SET_TITLE';
 // user
 export const USER_SET_INPUTCHANGE = 'USER_SET_INPUTCHANGE';
+export const USER_SET_LISTPUSH = 'USER_SET_LISTPUSH';
+export const USER_DELETE_ITEM = 'USER_DELETE_ITEM';

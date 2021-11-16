@@ -23,7 +23,8 @@ class LayoutSider extends Component {
         <Logo />
 
         <h1 style={{ color: 'red' }}>
-          1111111{sidebarCollapsed}
+          {/* react的布尔值，空字符串，null都不在结构显示 */}
+         {sidebarCollapsed}
           {code}
         </h1>
         {/* <Menu /> */}

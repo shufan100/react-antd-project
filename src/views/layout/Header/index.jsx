@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-closing-bracket-location */
-import React, { Component, useState, memo, useMemo } from 'react';
+
+// import React, { Component, useState, memo, useMemo } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import store from '@/store';
@@ -50,43 +50,40 @@ class LayoutHeader extends Component {
     );
   }
 }
-const LayoutHeader2 = () => {
-  const add = (num = 1) => {
-    console.log(22222, num);
-  };
-  return (
-    <Header>
-      {/* 收缩菜单 */}
-      <MenuFoldOutlined
-        className="header-icon"
-        onClick={() => {
-          add();
-        }}
-      />
-      <MenuUnfoldOutlined
-        className="header-icon"
-        onClick={add.bind(this, 33)}
-      />
-    </Header>
-  );
-};
+// const LayoutHeader2 = () => {
+//   const add = (num = 1) => {
+//     console.log(22222, num);
+//   };
+//   return (
+//     <Header>
+//       {/* 收缩菜单 */}
+//       <MenuFoldOutlined
+//         className="header-icon"
+//         onClick={() => {
+//           add();
+//         }}/>
+//       <MenuUnfoldOutlined
+//         className="header-icon"
+//         onClick={add.bind(this, 33)}/>
+//     </Header>
+//   );
+// };
 
-const LayoutHeader3 = memo(() => {
-  const [count, setCount1] = useState(0);
-  // useMemo(() => count * 2, [count]);
-  return (
-    <div>
-      {count}
-      <button
-        onClick={() => {
-          setCount1(count => count + 1);
-        }}
-      >
-        count+1
-      </button>
-    </div>
-  );
-});
+// const LayoutHeader3 = memo(() => {
+//   const [count, setCount1] = useState(0);
+//   // useMemo(() => count * 2, [count]);
+//   return (
+//     <div>
+//       {count}
+//       <button
+//         onClick={() => {
+//           setCount1(count => count + 1);
+//         }}>
+//         count+1
+//       </button>
+//     </div>
+//   );
+// });
 const stateProps = state => ({
   ...state.app,
 });
