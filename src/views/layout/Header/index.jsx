@@ -15,7 +15,9 @@ class LayoutHeader extends Component {
     super(props);
     this.state = {};
   }
-  componentWillMount() {}
+  // componentWillMount() {
+  //   console.log(111);
+  // }
   componentDidMount() {
     this.add();
   }

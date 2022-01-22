@@ -5,18 +5,22 @@ import Sider from './Sider';
 // import Tags from './Tags';
 import Content from './Content';
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
+  state = {
+    name:'tom',
+    age:18,
+    sex:'女',
+    layoutName:'111'
+  };
+  render () {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider />
         <Layout>
           <Header />
           {/* <Tags /> */}
-          <Content />
+          {/* 批量props传值 */}
+          {/* 展开运算符的写法是一个个写的语法糖 */}
+          <Content layoutName={this.state.layoutName} name='tom' {...this.state} />
         </Layout>
       </Layout>
     );
