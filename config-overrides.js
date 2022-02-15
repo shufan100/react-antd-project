@@ -6,17 +6,15 @@ const {
   addWebpackAlias,
 } = require('customize-cra');
 const path = require('path');
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, dir);
 }
 // process.env.CI = 'false';
 const addCustomize = () => (config) => {
-  console.log(config);
+  log(config);
   if (config.output.publicPath) {
     config.output.publicPath =
-      process.env.NODE_ENV === 'production'
-        ? '/react-antd-peoject/'
-        : '/';
+      process.env.NODE_ENV === 'production' ? '/react-antd-peoject/' : '/';
   }
   if (config.resolve) {
     config.resolve.extensions.push('.jsx');
@@ -32,7 +30,7 @@ module.exports = override(
   //   style: true, // 自动打包相关的样式,true代表运用less
   // }),
 
-  // 使用less-loader对源码中的less的变量进行重新指定
+  // // 使用less-loader对源码中的less的变量进行重新指定
   // addLessLoader({
   //   javascriptEnabled: true,
   //   modifyVars: { '@primary-color': '#1DA57A' },

@@ -6,10 +6,8 @@ import Sider from './Sider';
 import Content from './Content';
 class Home extends Component {
   state = {
-    name:'tom',
-    age:18,
-    sex:'女',
-    layoutName:'111'
+    sex: '女',
+    address: '中国北京。。。'
   };
   render () {
     return (
@@ -18,12 +16,14 @@ class Home extends Component {
         <Layout>
           <Header />
           {/* <Tags /> */}
-          {/* 批量props传值 */}
-          {/* 展开运算符的写法是一个个写的语法糖 */}
-          <Content layoutName={this.state.layoutName} name='tom' {...this.state} />
+          {/* 批量props传值：展开运算符的写法是一个个写的语法糖 */}
+          <Content age={18} name='tom' {...this.state} speak={this.speak} />
         </Layout>
       </Layout>
     );
+  }
+  speak = () => {
+    console.log('你点击了我！');
   }
 }
 
