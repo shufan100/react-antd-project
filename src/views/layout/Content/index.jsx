@@ -9,10 +9,13 @@ import { deleteItemAction, resetInputAction } from '@/store/actions';  // 444步
 const { Content } = Layout;
 
 // ---------------------------------类式组件-----------------------------------------------------------
-class LayoutContent extends Component {
+
+class LayoutContentClass extends Component {
   // 渲染1次 构造器能省略就省略不写
   // constructor(props) {
   //   super(props);
+  // this.state= {name:'11'}
+  // this.add = this.add.bind(this)
   // }
 
   // *********prop校验简写**********************************************************
@@ -51,6 +54,7 @@ class LayoutContent extends Component {
     isShow: true,
     list2: ['Angular', 'React', 'Vue']
   };
+  // 创建ref容器，一个容器对应一个
   myRef = React.createRef()
 
   // 自定义方法(是直接挂在LayoutContent实例对象上)8******************************************
@@ -61,8 +65,8 @@ class LayoutContent extends Component {
     console.log('按钮2', this);
 
   }
-  demo2 = (name) => {
-    console.log('按钮3', name, this);
+  demo2 = (param) => {
+    console.log('按钮3', param, this);
 
   }
   // setState ******************************************
@@ -133,13 +137,17 @@ class LayoutContent extends Component {
   showData4 = () => {
     console.log(this.myRef.current.value);
   }
+  showData5 = (e) => {
+    // e.target指对应的dom节点（input（5））
+    console.log(e.target.value);
+  }
 
   // 1、在class类内部定义的方法已经自动开启了严格模式，类内部方法的this不指向window
   // 2、渲染 1+n次，每次修改数据都会重新渲染 jsx
   render () {
     // render中的this是谁？ —— LayoutContent的实例对象；LayoutContent组件实例对象
     // 组件实例的三大属性：props、refs、state
-    // console.log('LayoutContent实例对象：', this);
+    console.log('LayoutContent实例对象：', this);
     const { statelList, inputVal, sex, address } = this.props; // 12步
     const { list2 } = this.state;
     return ( //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOM转成真正的html标签，变成真实dom显示在页面
@@ -184,14 +192,16 @@ class LayoutContent extends Component {
         </div>
 
         {/* refs: 弃用ref字符串写法，效率不高；建议使用回调函数和createRef写法代替 *****************************************************************/}
-        <input ref='input1' type="text" placeholder='点击提示数据' />&nbsp;
-        <button onClick={this.showData}>提示左侧数据</button>&nbsp;
+        {/* <input ref='input1' type="text" placeholder='点击提示数据' />&nbsp;
+        <button onClick={this.showData}>提示左侧数据</button>&nbsp; */}
         {/*内联: a是input节点， this.input2 = a：this是LayoutContent实例对象，在实例对象上加个input2实例，然后将节点a赋值给input2*/}
-        {/* 不内联：内联会触发2次，要calss绑定的方式就不会 */}
         <input ref={currentNode => this.input2 = currentNode} onBlur={this.showData2} type="text" placeholder='失焦提示数据' />{/* (开发推荐内联) */}
+        {/* 不内联：内联会触发2次，要calss绑定的方式就不会 */}
         <input ref={this.saveInputRef} onBlur={this.showData3} type="text" placeholder='失焦提示数据3' />
         {/* createdRef */}
         <input ref={this.myRef} onBlur={this.showData4} type="text" placeholder='失焦提示数据4' />
+        {/* 避免过度使用ref */}
+        <input onBlur={this.showData5} type="text" placeholder='失焦提示数据5' />
 
 
         <hr />
@@ -232,50 +242,50 @@ class LayoutContent extends Component {
 
 
 // ---------------------------------函数式组件--------------------------------------------------------------
+
 // 1、函数首字母必须大写 2、函数必须有返回值 3、只能使用props,因为props是个函数，其他不可使用(refs.state等等)
-// const LayoutContent = (props) => {
-//   // console.log(this);  // undefined,不是window：因为babel插件编译后开启了严格模式，禁止自定义的函数this指向window
-//   const { age, sex, address } = props;
-//   console.log(props);
-//   let num = 0;
-//   const addNum = e => {
-//     num++;
-//     console.log(num, e);
-//   };
-//   const getName = param => {
-//     console.log(num, param);
-//   };
-//   return (
-//     <div className="app-container">
-//       <h1 style={{ color: 'red', textAlign: 'center' }}>函数式组件</h1>
-//       <button onClick={addNum}>按钮</button>
-//       <button onClick={getName.bind(this, 'name')}>按钮2</button>
-//       {/* <Alert message="Success Text" type="success" /> */}
-//       <div>
-//         <hr />
-//         <div>函数式组件props接收值、方法</div>
-//         <span>props接收值：{props.name}-{age + 1}-{sex}-{address}</span>
-//         <Button type="primary" onClick={props.speak}>props传入的函数</Button>
-//       </div>
-//     </div>
-//   );
-// };
-// // 放在class里简写，给clas类增加两个属性（函数式组件只能放在外面写）
-// // class外写：校验props类型
-// LayoutContent.propTypes = {
-//   name: PropTypes.string.isRequired,  // 必传：isRequired
-//   sex: PropTypes.string,
-//   age: PropTypes.number,
-//   address: PropTypes.string,
-//   speak: PropTypes.func,  //函数校验
-// };
-// // 不传设置默认值
-// LayoutContent.defaultProps = {
-//   name: 'jerry',
-//   sex: '男',
-//   age: 20,
-//   address: '美国旧金山。。。',
-// };
+const LayoutContentFun = (props) => {
+  // console.log(this);  // undefined,不是window：因为babel插件编译后开启了严格模式，禁止自定义的函数this指向window
+  const { age, sex, address } = props;
+  console.log(props);
+  let num = 0;
+  const addNum = e => {
+    num++;
+    console.log(num);
+  };
+  const getName = param => {
+    console.log(param);
+  };
+  return (
+    <div className="app-container">
+      <h1 style={{ color: 'red', textAlign: 'center' }}>函数式组件</h1>
+      <button onClick={addNum}>按钮</button>
+      <button onClick={getName.bind(this, 'name21111')}>按钮2</button>
+      <div>
+        <div>函数式组件props接收值、方法</div>
+        <span>props接收值：{props.name}-{age + 1}-{sex}-{address}</span>
+        <Button type="primary" onClick={props.speak}>props传入的函数</Button>
+      </div>
+    </div>
+  );
+};
+// 放在class里简写，给clas类增加两个属性（函数式组件只能放在外面写）
+// 校验props类型;
+LayoutContentFun.propTypes = {
+  name: PropTypes.string.isRequired,  // 必传：isRequired
+  sex: PropTypes.string,
+  age: PropTypes.number,
+  address: PropTypes.string,
+  speak: PropTypes.func,  //函数校验
+};
+//设置props默认值
+LayoutContentFun.defaultProps = {
+  name: 'jerry',
+  sex: '男',
+  age: 20,
+  address: '美国旧金山。。。',
+};
 
 // connect用这个方法reducers才监听的到 666步
-export default connect(state => state.user)(LayoutContent);
+export default connect(state => state.user)(LayoutContentClass);
+// export default connect(state => state.user)(LayoutContentFun);

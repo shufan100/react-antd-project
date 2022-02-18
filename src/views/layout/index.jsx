@@ -9,6 +9,9 @@ class Home extends Component {
     sex: '女',
     address: '中国北京。。。'
   };
+  speak = () => {
+    console.log('你点击了我！');
+  }
   render () {
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -22,9 +25,7 @@ class Home extends Component {
       </Layout>
     );
   }
-  speak = () => {
-    console.log('你点击了我！');
-  }
+
 }
 
 export default Home;
