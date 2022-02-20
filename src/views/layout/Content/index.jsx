@@ -192,7 +192,7 @@ class LayoutContentClass extends Component {
   }
   // 组件已经更新生命周期钩子
   componentDidUpdate() {
-    console.log('Content-componentDidUpdate');
+    console.log('Content-componentDidUpdate');  //1
 
   }
   
