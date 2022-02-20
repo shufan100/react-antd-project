@@ -1,7 +1,7 @@
 import * as types from '../action-type'; // 777步
 
 const userState = {
-  token: '',
+  token: '111',
   inputVal: '请输入',
   statelList: ['早上10点', '中午12点', '晚上9点'],
 };

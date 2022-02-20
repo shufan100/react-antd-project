@@ -11,10 +11,9 @@ function resolve (dir) {
 }
 // process.env.CI = 'false';
 const addCustomize = () => (config) => {
-  log(config);
+  // log(config);
   if (config.output.publicPath) {
-    config.output.publicPath =
-      process.env.NODE_ENV === 'production' ? '/react-antd-peoject/' : '/';
+    // config.output.publicPath =  process.env.NODE_ENV === 'production' ? '/react-antd-peoject/' : '/';
   }
   if (config.resolve) {
     config.resolve.extensions.push('.jsx');

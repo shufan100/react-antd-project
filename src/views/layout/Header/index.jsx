@@ -14,13 +14,15 @@ class LayoutHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    
   }
   // componentWillMount() {
   //   console.log(111);
   // }
-  componentDidMount() {
-    this.add();
-  }
+  // 组件挂载完毕（mounted）
+  // componentDidMount() {
+  //   this.add();
+  // }
   add() {
     // console.log(this.props);
   }
