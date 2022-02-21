@@ -15,9 +15,9 @@ class LayoutContentClass extends Component {
   // 渲染1次 构造器能省略就省略不写
   constructor(props) {
     super(props);
-  // this.state= {name:'11'}
-  // this.add = this.add.bind(this)
-  console.log('Content-constructor');
+    // this.state= {name:'11'}
+    // this.add = this.add.bind(this)
+    console.log('Content-constructor');
   }
 
   // *********prop校验简写**********************************************************
@@ -55,8 +55,8 @@ class LayoutContentClass extends Component {
     ],
     isShow: true,
     list2: ['Angular', 'React', 'Vue'],
-    opacity:0.5,
-    count:0
+    opacity: 0.5,
+    count: 0
   };
   // 创建ref容器，一个容器对应一个
   myRef = React.createRef();
@@ -148,25 +148,25 @@ class LayoutContentClass extends Component {
 
 
   // {/************************* 生命周期函数 *****************************************************************/}
-  death = () =>{
+  death = () => {
     ReactDOM.unmountComponentAtNode(document.getElementById('root'));
     // clearInterval(this.timer);
   }
-  addCount = () =>{
-    const {count} = this.state;
-    this.setState({count:count+1});
+  addCount = () => {
+    const { count } = this.state;
+    this.setState({ count: count + 1 });
   }
-  force = () =>{
+  force = () => {
     this.forceUpdate();
   }
 
   // 组件将要挂载的钩子
-  componentWillMount() {
+  componentWillMount () {
     console.log('Content-componentWillMount');
 
   }
   // 组件挂载完毕的钩子（mounted）
-  componentDidMount() {
+  componentDidMount () {
     console.log('Content-componentDidMount');
     // this.timer = setInterval(() => {
     //   let { opacity } = this.state;
@@ -176,27 +176,27 @@ class LayoutContentClass extends Component {
     // }, 200);
   }
   // 组件将要卸载的钩子
-  componentWillUnmount() {
+  componentWillUnmount () {
     // clearInterval(this.timer);
     console.log('Content-componentWillUnmount');
   }
- // 更新state状态触发的生命周期钩子 
-  shouldComponentUpdate() {
+  // 更新state状态触发的生命周期钩子 
+  shouldComponentUpdate () {
     // 不写，react默认会在后台加这钩子并返回true,写了返回false,生命周期就不往下走了
     console.log('Content-shouldComponentUpdate');
     return true;
   }
   // 组件将要更新生命周期钩子
-  componentWillUpdate() {
+  componentWillUpdate () {
     console.log('Content-componentWillUpdate');
   }
   // 组件已经更新生命周期钩子
-  componentDidUpdate() {
+  componentDidUpdate () {
     console.log('Content-componentDidUpdate');  //111
 
   }
-  
-  
+
+
 
 
   // 1、初始化渲染,状态更新之后渲染 、(渲染 1+n次，每次修改数据都会重新渲染 jsx)
@@ -220,7 +220,7 @@ class LayoutContentClass extends Component {
         {this.state.isShow ? <span>控制功能块现实隐藏</span> : ''}
         <Button type="primary" onClick={this.setShow.bind(this)}>显示/隐藏</Button>
 
-        {/************************* for循环 / if判断 *****************************************************************/}
+        {/************************* for循环 / if判断  *****************************************************************/}
         <ul>
           {
             list2.map((i, index) => {
@@ -265,7 +265,7 @@ class LayoutContentClass extends Component {
 
         {/************************* 生命周期 *****************************************************************/}
         <div>
-          <h2 style = {{ opacity:this.state.opacity}}>react学不会怎么办？</h2>
+          <h2 style={{ opacity: this.state.opacity }}>react学不会怎么办？</h2>
           <button onClick={this.death}>不活了、卸载组件</button>
         </div>
         <div>
