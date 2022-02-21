@@ -9,6 +9,8 @@ import store from '../../../store'; // 11步
 import { deleteItemAction, resetInputAction } from '@/store/actions';  // 444步
 const { Content } = Layout;
 
+
+
 // ---------------------------------类式组件-----------------------------------------------------------
 
 class LayoutContentClass extends Component {
@@ -56,7 +58,8 @@ class LayoutContentClass extends Component {
     isShow: true,
     list2: ['Angular', 'React', 'Vue'],
     opacity: 0.5,
-    count: 0
+    count: 0,
+    newsArr: []
   };
   // 创建ref容器，一个容器对应一个
   myRef = React.createRef();
@@ -150,7 +153,7 @@ class LayoutContentClass extends Component {
   // {/************************* 生命周期函数 *****************************************************************/}
   death = () => {
     ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-    // clearInterval(this.timer);
+    clearInterval(this.timer);
   }
   addCount = () => {
     const { count } = this.state;
@@ -160,25 +163,9 @@ class LayoutContentClass extends Component {
     this.forceUpdate();
   }
 
-  // 组件将要挂载的钩子
-  componentWillMount () {
-    console.log('Content-componentWillMount');
-
-  }
-  // 组件挂载完毕的钩子（mounted）
-  componentDidMount () {
-    console.log('Content-componentDidMount');
-    // this.timer = setInterval(() => {
-    //   let { opacity } = this.state;
-    //   opacity -= 0.1;
-    //   if(opacity <= 0) opacity =1;   
-    //   this.setState({opacity});
-    // }, 200);
-  }
-  // 组件将要卸载的钩子
-  componentWillUnmount () {
-    // clearInterval(this.timer);
-    console.log('Content-componentWillUnmount');
+  // 子组件 props更新触发的生命周期的钩子（第一次传不会触发
+  componentWillReceiveProps (props) {
+    console.log('Content-componentWillReceiveProps', props);
   }
   // 更新state状态触发的生命周期钩子 
   shouldComponentUpdate () {
@@ -186,16 +173,45 @@ class LayoutContentClass extends Component {
     console.log('Content-shouldComponentUpdate');
     return true;
   }
+  // 组件将要挂载的钩子
+  componentWillMount () {
+    console.log('Content-componentWillMount');
+
+  }
+  // 组件挂载完毕的钩子（mounted）(*常用*)  初始化，发生ajax
+  componentDidMount () {
+    console.log('Content-componentDidMount');
+    this.timer = setInterval(() => {
+      let { opacity } = this.state;
+      opacity -= 0.1;
+      if (opacity <= 0) opacity = 1;
+      this.setState({ opacity });
+    }, 200);
+    this.timer2 = setInterval(() => {
+      const { newsArr } = this.state;
+      const news = `新闻${newsArr.length + 1}`;
+      this.setState({ newsArr: [news, ...newsArr] });
+
+    }, 1000);
+  }
+  getSnapshotBeforeUpdate () {
+    return this.refs.list.scrollHeight;
+  }
   // 组件将要更新生命周期钩子
   componentWillUpdate () {
     console.log('Content-componentWillUpdate');
   }
   // 组件已经更新生命周期钩子
-  componentDidUpdate () {
+  componentDidUpdate (preProps, preState, height) {
     console.log('Content-componentDidUpdate');  //111
+    this.refs.list.scrollTop += this.refs.list.scrollHeight - height;
 
   }
-
+  // 组件将要卸载的钩子  (*常用*)
+  componentWillUnmount () {
+    clearInterval(this.timer);
+    console.log('Content-componentWillUnmount');
+  }
 
 
 
@@ -273,6 +289,12 @@ class LayoutContentClass extends Component {
           <button onClick={this.addCount}>点我+1</button>
           <button onClick={this.death}>卸载组件</button>
           <button onClick={this.force}>不改状态，强制更新</button>
+        </div>
+        {/* 111 */}
+        <div className='list' ref='list'>
+          {
+            this.state.newsArr.map((n, index) => <div key={index} className='news'>{n}</div>)
+          }
         </div>
 
 

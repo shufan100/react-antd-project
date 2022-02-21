@@ -3,4 +3,13 @@
   .main-input {
     width: 200px;
   }
+  .list {
+    width: 400px;
+    height: 150px;
+    background: skyblue;
+    overflow: auto;
+  }
+  .news {
+    height: 30px;
+  }
 }
