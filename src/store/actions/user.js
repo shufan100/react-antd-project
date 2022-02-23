@@ -9,14 +9,21 @@ import * as types from '../action-type';
 // };
 
 // 222步
-export const resetInputAction = (value)=>({
-  type:types.USER_SET_INPUTCHANGE,
+export const resetInputAction = (value) => ({
+  type: types.USER_SET_INPUTCHANGE,
   value
 });
 
 // 简写1：
-export const deleteItemAction = (data) => ({
+export const deleteItemAction = (index) => ({
   type: types.USER_DELETE_ITEM,
+  index,
+});
+export const editItemAction = (data) => ({
+  type: types.USER_EDIT_ITEM,
   data,
 });
-  
+export const checkAllItemAction = (value) => ({
+  type: types.USER_CHENCKALL_ITEM,
+  value,
+});

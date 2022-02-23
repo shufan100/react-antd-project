@@ -9,8 +9,8 @@ class Home extends Component {
     sex: '女',
     address: '中国北京。。。'
   };
-  speak = () => {
-    console.log('你点击了我！');
+  speak = (param) => {
+    console.log('你点击了我！', param);
   }
   render () {
     return (
