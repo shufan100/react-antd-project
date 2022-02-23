@@ -13,6 +13,7 @@
 # │   ├─ api                    # 所有请求
 # │   ├─ assets                 # 图片 字体等静态资源
 # │   ├─ components             # 全局公用组件
+# │   │   └─ demo               # React写法整理
 # │   ├─ config                 # 全局配置
 # │   │   ├─ menuConfig.js      # 导航菜单配置
 # │   │   └─ routeMap.js        # 路由配置
