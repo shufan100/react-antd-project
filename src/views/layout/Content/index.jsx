@@ -7,7 +7,8 @@ import './index.scss';
 import { connect } from 'react-redux';
 
 // 引用事例
-import AxiosDemo from '@/components/demo/axios';
+import AaxiosDemo from '@/components/demo/axios/Aaxios';
+import BaxiosDemo from '@/components/demo/axios/Baxios';
 import ReduxDemo from '@/components/demo/redux';
 import RefDemo from '@/components/demo/ref';
 import DiffDemo from '@/components/demo/diff';
@@ -147,7 +148,9 @@ class LayoutContentClass extends Component {
 
         <RefDemo />
 
-        <AxiosDemo />
+        <AaxiosDemo />
+        <BaxiosDemo />
+
 
         <ReduxDemo />
 
