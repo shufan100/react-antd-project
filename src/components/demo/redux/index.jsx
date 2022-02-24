@@ -51,9 +51,9 @@ class ReduxDemo extends Component {
     this.setState({ listIndex: index });
   }
   render () {
-    const { statelList, inputVal, sex, address } = this.props; // 12步
+    const { statelList, inputVal } = this.props; // 12步
     const { listIndex } = this.state;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         <hr />

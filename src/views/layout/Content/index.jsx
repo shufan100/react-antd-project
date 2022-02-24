@@ -41,15 +41,11 @@ class LayoutContentClass extends Component {
     console.log('你点击了我！', param);
   }
 
-
-
-
-
-
   // {/************************* 生命周期函数 *****************************************************************/}
   death = () => {
     ReactDOM.unmountComponentAtNode(document.getElementById('root'));
     clearInterval(this.timer);
+    clearInterval(this.timer2);
   }
   addCount = () => {
     const { count } = this.state;
@@ -58,6 +54,7 @@ class LayoutContentClass extends Component {
   force = () => {
     this.forceUpdate();
   }
+
 
   // 子组件 props更新触发的生命周期的钩子（第一次传不会触发
   componentWillReceiveProps (props) {
@@ -70,32 +67,31 @@ class LayoutContentClass extends Component {
     return true;
   }
   // 组件将要挂载的钩子
-  componentWillMount () {
-    console.log('Content-componentWillMount');
-
-  }
+  // componentWillMount () {
+  //   console.log('Content-componentWillMount');
+  // }
   // 组件挂载完毕的钩子（mounted）(*常用*)  初始化，发生ajax
   componentDidMount () {
     console.log('Content-componentDidMount');
-    this.timer = setInterval(() => {
-      let { opacity } = this.state;
-      opacity -= 0.1;
-      if (opacity <= 0) opacity = 1;
-      this.setState({ opacity });
-    }, 200);
-    this.timer2 = setInterval(() => {
-      const { newsArr } = this.state;
-      const news = `新闻${newsArr.length + 1}`;
-      this.setState({ newsArr: [news, ...newsArr] });
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   let { opacity } = this.state;
+    //   opacity -= 0.1;
+    //   if (opacity <= 0) opacity = 1;
+    //   this.setState({ opacity });
+    // }, 200);
+    // this.timer2 = setInterval(() => {
+    //   const { newsArr } = this.state;
+    //   const news = `新闻${newsArr.length + 1}`;
+    //   this.setState({ newsArr: [news, ...newsArr] });
+    // }, 1000);
   }
   getSnapshotBeforeUpdate () {
     return this.refs.list.scrollHeight;
   }
   // 组件将要更新生命周期钩子
-  componentWillUpdate () {
-    console.log('Content-componentWillUpdate');
-  }
+  // componentWillUpdate () {
+  //   console.log('Content-componentWillUpdate');
+  // }
   // 组件已经更新生命周期钩子
   componentDidUpdate (preProps, preState, height) {
     console.log('Content-componentDidUpdate');  //111
@@ -105,6 +101,7 @@ class LayoutContentClass extends Component {
   // 组件将要卸载的钩子  (*常用*)
   componentWillUnmount () {
     clearInterval(this.timer);
+    clearInterval(this.timer2);
     console.log('Content-componentWillUnmount');
   }
 
@@ -114,8 +111,6 @@ class LayoutContentClass extends Component {
   // 2、在class类内部定义的方法已经自动开启了严格模式，类内部方法的this不指向window
   render () {
     // render中的this是谁？ —— LayoutContent的实例对象；LayoutContent组件实例对象
-    // 组件实例的三大属性：props、refs、state
-    // console.log('LayoutContent实例对象：(render)', this);
     console.log('Content-render');
     const { opacity } = this.state;
     return ( //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOM转成真正的html标签，变成真实dom显示在页面
@@ -133,7 +128,6 @@ class LayoutContentClass extends Component {
           <button onClick={this.death}>卸载组件</button>
           <button onClick={this.force}>不改状态，强制更新</button>
         </div>
-
         {/*************************  事例+getSnapshotBeforeUpdate *****************************************************************/}
         <div className='list' ref='list'>
           {
