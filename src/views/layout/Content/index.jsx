@@ -104,6 +104,7 @@ class LayoutContentClass extends Component {
     clearInterval(this.timer);
     clearInterval(this.timer2);
     console.log('Content-componentWillUnmount');
+    let a = '21';
   }
 
 
