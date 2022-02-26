@@ -12,7 +12,7 @@
 # ├─ src                        # 源代码文件夹
 # │   ├─ api                    # 所有请求
 # │   ├─ assets                 # 图片 字体等静态资源
-# │   ├─ components             # 全局公用组件
+# │   ├─ components             # 全局公用组件 / 也叫一般组件，组件以标签形式直接渲染<about/>
 # │   │   └─ demo               # React写法整理
 # │   ├─ config                 # 全局配置
 # │   │   ├─ menuConfig.js      # 导航菜单配置
@@ -22,6 +22,9 @@
 # │   ├─ styles                 # 全局样式
 # │   ├─ utils                  # 全局公用方法
 # │   ├─ views                  # views 所有页面
+# │   │   ├─ layout             # 路由加载主页面
+# │   │   ├─ login              # 登录组件文件夹
+# │   │   ├─ page               # 路由组件文件夹 / 路由组件，组件以路由方式加载
 # │   ├─ App.js                 # 入口页面
 # │   ├─ reportWebVitals.js     # 页面性能分析文件(需要web-vitals库的支持)
 # │   ├─ setupTests.js          # 组件单元测试的文件(需要jest-dom库的支持)

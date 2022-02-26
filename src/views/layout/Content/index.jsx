@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
 import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+
 import { Layout, Button } from 'antd';
 import './index.scss';
-import { connect } from 'react-redux';
 
 // 引用事例
 import AaxiosDemo from '@/components/demo/axios/Aaxios';
@@ -15,6 +15,7 @@ import DiffDemo from '@/components/demo/diff';
 import ClickDemo from '@/components/demo/click';
 import PropsDemo from '@/components/demo/props';
 import JsxDemo from '@/components/demo/jsx';
+import RouterDemo from '@/components/demo/router';
 const { Content } = Layout;  // 444步
 
 
@@ -58,9 +59,9 @@ class LayoutContentClass extends Component {
 
 
   // 子组件 props更新触发的生命周期的钩子（第一次传不会触发
-  componentWillReceiveProps (props) {
-    console.log('Content-componentWillReceiveProps', props);
-  }
+  // componentWillReceiveProps (props) {
+  //   console.log('Content-componentWillReceiveProps', props);
+  // }
   // 更新state状态触发的生命周期钩子 
   shouldComponentUpdate () {
     // 不写，react默认会在后台加这钩子并返回true,写了返回false,生命周期就不往下走了
@@ -87,7 +88,8 @@ class LayoutContentClass extends Component {
     // }, 1000);
   }
   getSnapshotBeforeUpdate () {
-    return this.refs.list.scrollHeight;
+    // return this.refs.list.scrollHeight;
+    return this.listRef.scrollHeight;
   }
   // 组件将要更新生命周期钩子
   // componentWillUpdate () {
@@ -96,7 +98,8 @@ class LayoutContentClass extends Component {
   // 组件已经更新生命周期钩子
   componentDidUpdate (preProps, preState, height) {
     console.log('Content-componentDidUpdate');  //111
-    this.refs.list.scrollTop += this.refs.list.scrollHeight - height;
+    // this.refs.list.scrollTop += this.refs.list.scrollHeight - height;
+    this.listRef.scrollTop += this.listRef.scrollHeight - height;
 
   }
   // 组件将要卸载的钩子  (*常用*)
@@ -104,7 +107,6 @@ class LayoutContentClass extends Component {
     clearInterval(this.timer);
     clearInterval(this.timer2);
     console.log('Content-componentWillUnmount');
-    let a = '21';
   }
 
 
@@ -131,7 +133,8 @@ class LayoutContentClass extends Component {
           <button onClick={this.force}>不改状态，强制更新</button>
         </div>
         {/*************************  事例+getSnapshotBeforeUpdate *****************************************************************/}
-        <div className='list' ref='list'>
+        {/* <div className='list' ref='list'> */}
+        <div className='list' ref={c => this.listRef = c}>
           {
             this.state.newsArr.map((n, index) => <div key={index} className='news'>{n}</div>)
           }
@@ -151,6 +154,8 @@ class LayoutContentClass extends Component {
 
         <AaxiosDemo />
         <BaxiosDemo />
+
+        <RouterDemo />
 
 
         <ReduxDemo />

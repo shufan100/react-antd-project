@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { Layout } from 'antd';
 import Header from './Header';
 import Sider from './Sider';
@@ -14,6 +15,7 @@ class Home extends Component {
           <Header />
           {/* <Tags /> */}
           <Content />
+          {/* <Redirect exact from="/" to="/brouter" /> */}
         </Layout>
       </Layout>
     );
