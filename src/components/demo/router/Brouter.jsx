@@ -24,12 +24,13 @@ export default class Brouter extends Component {
               {/* 2.路由组件search传参 */}
               {/* <Link to={`/home/brouter/detail?id=${i.id}&title22=${i.title}`}>{i.title}</Link> */}
 
-              {/* 3.路由组件state传参 */}
+              {/* 3.路由组件state传参,replace替换当前/home/brouter路由栈内存 */}
               <Link
                 to={{
                   pathname: '/home/brouter/detail',
                   state: { id: i.id, title22: i.title },
                 }}
+                replace={true}
               >
                 {i.title}
               </Link>
