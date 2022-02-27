@@ -1,4 +1,3 @@
-
 // import React, { Component, useState, memo, useMemo } from 'react';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -14,7 +13,6 @@ class LayoutHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    
   }
   // componentWillMount() {
   //   console.log(111);
@@ -28,7 +26,8 @@ class LayoutHeader extends Component {
   }
   setTitle() {
     store.dispatch({
-      type:'APP_SET_TITLE'});    
+      type: 'APP_SET_TITLE',
+    });
   }
   render() {
     // console.log(this.props);

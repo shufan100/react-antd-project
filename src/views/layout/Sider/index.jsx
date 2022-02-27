@@ -1,6 +1,6 @@
-/* eslint-disable react/jsx-closing-bracket-location */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, NavLink } from 'react-router-dom';
 // import Menu from "./Menu";
 import { Layout } from 'antd';
 import Logo from './Logo';
@@ -19,13 +19,25 @@ class LayoutSider extends Component {
         trigger={null}
         width={200}
         style={{ zIndex: '10' }}
+        className="LayoutSider"
       >
         <Logo />
 
         <h1 style={{ color: 'red' }}>
           {/* react的布尔值，空字符串，null都不在结构显示 */}
-         {sidebarCollapsed}
-          {code}
+          {sidebarCollapsed}
+          <div>{code}</div>
+          <div>
+            <NavLink activeClassName="active22" to="/home">
+              首页
+            </NavLink>
+          </div>
+
+          <div>
+            <NavLink activeClassName="active22" to="/shopping">
+              购物车
+            </NavLink>
+          </div>
         </h1>
         {/* <Menu /> */}
       </Sider>
