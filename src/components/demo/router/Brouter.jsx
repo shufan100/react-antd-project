@@ -18,11 +18,19 @@ export default class Brouter extends Component {
         <ul>
           {messageArr.map(i => (
             <li key={i.id}>
-              {/* 向路由组件传params参数 */}
+              {/* 1.路由组件params传参 */}
               {/* <Link to={`/home/brouter/detail/${i.id}/${i.title}`}>{i.title}</Link> */}
 
-              {/* 向路由组件传search参数 */}
-              <Link to={`/home/brouter/detail?id=${i.id}&title22=${i.title}`}>
+              {/* 2.路由组件search传参 */}
+              {/* <Link to={`/home/brouter/detail?id=${i.id}&title22=${i.title}`}>{i.title}</Link> */}
+
+              {/* 3.路由组件state传参 */}
+              <Link
+                to={{
+                  pathname: '/home/brouter/detail',
+                  state: { id: i.id, title22: i.title },
+                }}
+              >
                 {i.title}
               </Link>
             </li>
@@ -32,7 +40,7 @@ export default class Brouter extends Component {
         {/* 注册路由,声明接收parpms参数 */}
         {/* <Route path="/home/brouter/detail/:id/:title22" component={DetailDemo}/> */}
 
-        {/* 注册路由,接收serach参数无需写 */}
+        {/* 注册路由,接收serach / state参数无需声明,正常注册 */}
         <Route path="/home/brouter/detail" component={DetailDemo} />
       </div>
     );

@@ -25,9 +25,14 @@ class DetailDemo extends React.Component {
     // const findResult = this.state.DetailsData.find(i => i.id === id);
 
     // search接收参数
-    const { id, title22 } = qs.parse(this.props.location.search.slice(1));
-    const findResult = this.state.DetailsData.find(i => i.id === id);
-    console.log(id, findResult, 'findResult');
+    // const { id, title22 } = qs.parse(this.props.location.search.slice(1));
+    // const findResult = this.state.DetailsData.find(i => i.id === id);
+    // console.log(id, findResult, 'findResult');
+
+    // state接收参数(优)
+    const { id, title22 } = this.props.location.state || {};
+    const findResult = this.state.DetailsData.find(i => i.id === id) || {};
+    // console.log(id, findResult, 'findResult');
 
     return (
       <div>
