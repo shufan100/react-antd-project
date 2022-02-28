@@ -81,7 +81,7 @@ module.exports = {
     // 不区分是否是 无状态组件
     'react/prefer-stateless-function': 0,
     // 强制使用一致的换行风格
-    'linebreak-style': [2, 'unix'],
+    // 'linebreak-style': [2, 'unix'],
     // 强制使用一致的反勾号、双引号或单引号
     quotes: [2, 'single', 'avoid-escape'],
   },

@@ -15,21 +15,20 @@ class DetailDemo extends React.Component {
       { id: '03', content: '你好  鹰潭' },
     ],
   };
-  render() {
+  render () {
     console.log(
       this.props,
       '路由组件默认接受路由的3个参数histroy,location,match'
     );
-    // params接收路由参数:
+    // 1、params接收路由参数:
     // const { id, title22 } = this.props.match.params;
     // const findResult = this.state.DetailsData.find(i => i.id === id);
 
-    // search接收参数
+    // 2、search接收参数
     // const { id, title22 } = qs.parse(this.props.location.search.slice(1));
     // const findResult = this.state.DetailsData.find(i => i.id === id);
-    // console.log(id, findResult, 'findResult');
 
-    // state接收参数(优)
+    // 3、state接收参数(优)
     const { id, title22 } = this.props.location.state || {};
     const findResult = this.state.DetailsData.find(i => i.id === id) || {};
     // console.log(id, findResult, 'findResult');

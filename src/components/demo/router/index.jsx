@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Link,
-  NavLink,
-  BrowserRouter,
-  HashRouter,
-  Route,
-  Switch,
-  Redirect,
+  Link, // 便签路由
+  NavLink, // 标签路由，比Link高级一点，可带选中样式
+  BrowserRouter, // histtory路由带#
+  HashRouter, // hash路由不带#
+  Route,  // 注册路由
+  Switch, // 包裹了多个路由，url和路由path匹配，只渲染匹配到的路由，就停止匹配
+  Redirect, //路由重定向
+  withRouter, //给一般组件加上路由的3大属性
 } from 'react-router-dom';
 import './index.scss';
 
@@ -15,7 +16,16 @@ import Brouter from './Brouter';
 
 class RouterDemo extends Component {
   state = {};
-  render() {
+
+  // 一般组件挂载完，使用3个路由属性5s跳/home/brouter路由
+  componentDidMount () {
+    console.log(this.props, 'withRouter');
+    setTimeout(() => {
+      this.props.history.push('/home/brouter');
+    }, 5000);
+  }
+
+  render () {
     return (
       <div className="RouterDemo">
         <hr />
@@ -28,22 +38,18 @@ class RouterDemo extends Component {
 
           {/* NavLink 比 link稍微高级一点，可以加个高亮样式，自带active */}
           <div>
-            <NavLink activeClassName="active11" to="/home/arouter">
-              路由A
-            </NavLink>
+            <NavLink activeClassName="active11" to="/home/arouter">路由A-严格匹配</NavLink>
           </div>
           <div>
-            <NavLink activeClassName="active11" to="/home/brouter">
-              路由B-严格匹配
-            </NavLink>
+            <NavLink activeClassName="active11" to="/home/brouter">路由B</NavLink>
           </div>
         </div>
         <div className="RouterDemo-right">
           {/* 二级路由 */}
           <Switch>
-            <Route path="/home/arouter" component={Arouter} />
-            <Route path="/home/brouter" component={Brouter} />
-            <Redirect to="/home/arouter" />
+            <Route exact path="/home/arouter" component={Arouter} /> {/* 注册路由 && 开启严格模式路由 */}
+            <Route path="/home/brouter" component={Brouter} /> {/* 注册路由 */}
+            <Redirect to="/home/arouter" /> {/* 路由重定向 */}
           </Switch>
         </div>
         {/* </HashRouter> */}
@@ -52,4 +58,4 @@ class RouterDemo extends Component {
   }
 }
 
-export default RouterDemo;
+export default withRouter(RouterDemo);

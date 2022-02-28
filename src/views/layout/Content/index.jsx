@@ -61,7 +61,7 @@ class LayoutContentClass extends Component {
   //   console.log('Content-componentWillReceiveProps', props);
   // }
   // 更新state状态触发的生命周期钩子
-  shouldComponentUpdate() {
+  shouldComponentUpdate () {
     // 不写，react默认会在后台加这钩子并返回true,写了返回false,生命周期就不往下走了
     console.log('Content-shouldComponentUpdate');
     return true;
@@ -71,7 +71,7 @@ class LayoutContentClass extends Component {
   //   console.log('Content-componentWillMount');
   // }
   // 组件挂载完毕的钩子（mounted）(*常用*)  初始化，发生ajax
-  componentDidMount() {
+  componentDidMount () {
     console.log('Content-componentDidMount');
     // this.timer = setInterval(() => {
     //   let { opacity } = this.state;
@@ -85,7 +85,7 @@ class LayoutContentClass extends Component {
     //   this.setState({ newsArr: [news, ...newsArr] });
     // }, 1000);
   }
-  getSnapshotBeforeUpdate() {
+  getSnapshotBeforeUpdate () {
     // return this.refs.list.scrollHeight;
     return this.listRef.scrollHeight;
   }
@@ -94,13 +94,13 @@ class LayoutContentClass extends Component {
   //   console.log('Content-componentWillUpdate');
   // }
   // 组件已经更新生命周期钩子
-  componentDidUpdate(preProps, preState, height) {
+  componentDidUpdate (preProps, preState, height) {
     console.log('Content-componentDidUpdate'); //111
     // this.refs.list.scrollTop += this.refs.list.scrollHeight - height;
     this.listRef.scrollTop += this.listRef.scrollHeight - height;
   }
   // 组件将要卸载的钩子  (*常用*)
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.timer);
     clearInterval(this.timer2);
     console.log('Content-componentWillUnmount');
@@ -108,7 +108,7 @@ class LayoutContentClass extends Component {
 
   // 1、初始化渲染,状态更新之后渲染 、(渲染 1+n次，每次修改数据都会重新渲染 jsx)
   // 2、在class类内部定义的方法已经自动开启了严格模式，类内部方法的this不指向window
-  render() {
+  render () {
     // render中的this是谁？ —— LayoutContent的实例对象；LayoutContent组件实例对象
     console.log('Content-render');
     const { opacity } = this.state;

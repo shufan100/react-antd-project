@@ -12,13 +12,13 @@ import Login from '../views/login';
 import Layout from '../views/layout';
 
 class Router extends React.Component {
-  render() {
+  render () {
     const { token } = this.props;
 
     return (
       // 路由一定要用这个容器包裹HashRouter 或 BrowserRouter
+      // HashRouter刷新浏览器，路由使用state传参的话，会丢失state路由数据
       <BrowserRouter hashType="slash">
-        {/* Switch组件,组件路由匹配到就不会继续往下匹配了,不加匹配到了还会继续匹配，直到匹配完全部路由 */}
         <Switch>
           {/* exact精准匹配 */}
           <Route exact path="/login" component={Login} />
@@ -30,8 +30,7 @@ class Router extends React.Component {
               } else {
                 return <Layout />;
               }
-            }}
-          />
+            }} />
         </Switch>
       </BrowserRouter>
     );

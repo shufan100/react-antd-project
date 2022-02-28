@@ -8,7 +8,7 @@ import Content from './Content';
 import Shopping from '../page/shopping';
 class Home extends Component {
   state = {};
-  render() {
+  render () {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider />
