@@ -120,13 +120,13 @@ class LayoutContentClass extends Component {
         {/************************* 生命周期 *****************************************************************/}
         <div>
           <h2 style={{ opacity: opacity }}>react学不会怎么办？</h2>
-          <button onClick={this.death}>不活了、卸载组件</button>
+          <Button type="primary" onClick={this.death}>不活了、卸载组件</Button>
         </div>
         <div>
           <h2>当前求和{this.state.count}</h2>
-          <button onClick={this.addCount}>点我+1</button>
-          <button onClick={this.death}>卸载组件</button>
-          <button onClick={this.force}>不改状态，强制更新</button>
+          <Button onClick={this.addCount}>点我+1</Button>
+          <Button onClick={this.death}>卸载组件</Button>
+          <Button onClick={this.force}>不改状态，强制更新</Button>
         </div>
         {/*************************  事例+getSnapshotBeforeUpdate *****************************************************************/}
         {/* <div className='list' ref='list'> */}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css'; //配置了主题颜色就不需要引了
 // import reportWebVitals from './reportWebVitals';  // 页面性能分析文件
 
 /** 执行了ReactDOM.render()发生了什么？
