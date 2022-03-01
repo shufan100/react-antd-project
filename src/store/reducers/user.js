@@ -1,4 +1,4 @@
-import * as types from '../action-type'; // 777步
+import * as types from '../action-type';
 import { nanoid } from 'nanoid';
 
 const userState = {
@@ -10,9 +10,10 @@ const userState = {
     { id: 3, done: true, name: '晚上9点' },
   ],
 };
+// Reducer里只能接受state，不能改变state,返回新得对象
 // store.dispatch({...})方法提交就到这里，action接收的是dispatch的对象，而这个对象是action的方法执行后返回的
 export function user (state = userState, action) {
-  // Reducer里只能接受state，不能改变state,返回新得对象
+
 
   // input输入 / 传空清除输入
   if (action.type === types.USER_SET_INPUTCHANGE) {
@@ -21,7 +22,6 @@ export function user (state = userState, action) {
       inputVal: action.value
     };
   }
-
   // 添加至列表：将input值push到列表中 
   if (types.USER_SET_LISTPUSH === action.type) {
     let newState = JSON.parse(JSON.stringify(state));
@@ -38,14 +38,12 @@ export function user (state = userState, action) {
     newState.statelList.forEach(item => item.id === action.data.id ? item.done = action.data.done : item.done);
     return newState;
   }
-
   // 全选列表
   if (types.USER_CHENCKALL_ITEM === action.type) {
     let newState = JSON.parse(JSON.stringify(state));
     newState.statelList.forEach(item => item.done = action.value);
     return newState;
   }
-
   // 删除列表
   if (types.USER_DELETE_ITEM === action.type) {
     let newState = JSON.parse(JSON.stringify(state));
@@ -59,6 +57,7 @@ export function user (state = userState, action) {
   //   newState.statelList.splice(action.index, 1);
   //   return newState;
   // }
+
 
   return state;
 };

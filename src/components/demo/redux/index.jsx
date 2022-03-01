@@ -53,7 +53,7 @@ class ReduxDemo extends Component {
   render () {
     const { statelList, inputVal } = this.props; // 12步
     const { listIndex } = this.state;
-    // console.log(this.props);
+    console.log('Redux', this.props, store, store.getState());
     return (
       <div>
         <hr />

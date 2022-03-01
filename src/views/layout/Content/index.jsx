@@ -10,6 +10,7 @@ import './index.scss';
 import AaxiosDemo from '@/components/demo/axios/Aaxios';
 import BaxiosDemo from '@/components/demo/axios/Baxios';
 import ReduxDemo from '@/components/demo/redux';
+import ReduxDemo2 from '@/components/demo/redux/index2';
 import RefDemo from '@/components/demo/ref';
 import DiffDemo from '@/components/demo/diff';
 import ClickDemo from '@/components/demo/click';
@@ -155,6 +156,8 @@ class LayoutContentClass extends Component {
         <RouterDemo />
 
         <ReduxDemo />
+        <ReduxDemo2 />
+
       </Content>
     );
   }
