@@ -48,13 +48,23 @@ class LayoutContentClass extends Component {
     clearInterval(this.timer);
     clearInterval(this.timer2);
   };
+  // 对象式setState：如果新状态不依赖于原状态，比如点击直接等于99
   addCount = () => {
     const { count } = this.state;
-    this.setState({ count: count + 1 });
+    this.setState({ count: 99 });
+  };
+  // 函数式setState：如果新状态依赖于原状态 ===> 使用函数方式，修改原来的数据
+  addCount2 = () => {
+    this.setState((state, props) => {
+      console.log(state, props);
+      return { count: state.count + 1 };
+    });
+    // 对象式写法
+    // const { count } = this.state;
+    // this.setState({ count: count + 1 });
   };
   force = () => {
     this.forceUpdate();
-    let a = '99';
   };
 
   // 子组件 props更新触发的生命周期的钩子（第一次传不会触发
@@ -110,8 +120,7 @@ class LayoutContentClass extends Component {
   // 1、初始化渲染,状态更新之后渲染 、(渲染 1+n次，每次修改数据都会重新渲染 jsx)
   // 2、在class类内部定义的方法已经自动开启了严格模式，类内部方法的this不指向window
   render () {
-    // render中的this是谁？ —— LayoutContent的实例对象；LayoutContent组件实例对象
-    console.log('Content-render');
+    // render中的this —— LayoutContent的实例对象
     const { opacity } = this.state;
     return (
       //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOM转成真正的html标签，变成真实dom显示在页面
@@ -125,7 +134,8 @@ class LayoutContentClass extends Component {
         </div>
         <div>
           <h2>当前求和{this.state.count}</h2>
-          <Button onClick={this.addCount}>点我+1</Button>
+          <Button onClick={this.addCount}>对象式setState =99</Button>
+          <Button onClick={this.addCount2}>函数式setState +1</Button>
           <Button onClick={this.death}>卸载组件</Button>
           <Button onClick={this.force}>不改状态，强制更新</Button>
         </div>

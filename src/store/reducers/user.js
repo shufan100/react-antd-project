@@ -1,3 +1,7 @@
+/**
+ * 1、该文件用于创建一个user的reducer，reducer的本质就是一个函数
+ * 2、redecer函数会接收两个参数，之前的状态state,动作对象action
+ */
 import * as types from '../action-type';
 import { nanoid } from 'nanoid';
 
