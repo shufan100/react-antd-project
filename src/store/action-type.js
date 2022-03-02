@@ -1,12 +1,17 @@
 // 该模块是用于定义action对象中type类型的常量值，防止单词写错
 
 // app
-export const APP_TOGGLE_SIDEBAR = 'APP_TOGGLE_SIDEBAR';
-export const APP_SET_CODE = 'APP_SET_CODE';
-export const APP_SET_TITLE = 'APP_SET_TITLE';
+export const APP_TOGGLE_SIDEBAR = 'app_toggle_sidebar';
+export const APP_SET_CODE = 'app_set_code';
+export const APP_SET_TITLE = 'app_set_title';
 // user
 export const USER_SET_INPUTCHANGE = 'user_set_inputChange';  // 111步
 export const USER_SET_LISTPUSH = 'user_set_listpush';
 export const USER_EDIT_ITEM = 'user_edit_item';
 export const USER_DELETE_ITEM = 'user_delete_item';
-export const USER_CHENCKALL_ITEM = 'user_checkall_item';
+export const USER_CHENCKALL_ITEM = 'user_chenckall_item';
+// user-求和
+export const USER_COUNT_ADD = 'user_count_add';
+export const USER_COUNT_SUB = 'user_count_sub';
+export const USER_COUNT_PADD = 'user_count_padd';
+export const USER_COUNT_ASYNCADD = 'user_count_asyncadd'; 

@@ -1,15 +1,8 @@
 import * as types from '../action-type';
 
+// 创建action动作对象
+// action：1,配置方法的type,2,接收参数
 
-
-//  action方法
-// export const toggleSiderBar = ()=>{
-//   return {
-//     type: types.APP_TOGGLE_SIDEBAR
-//   }
-// };
-
-// 222步
 export const resetInputAction = (value) => ({
   type: types.USER_SET_INPUTCHANGE,
   value
@@ -28,3 +21,26 @@ export const checkAllItemAction = (value) => ({
   type: types.USER_CHENCKALL_ITEM,
   value,
 });
+
+// 求和
+export const addAction = (value) => ({
+  type: types.USER_COUNT_ADD,
+  value,
+});
+export const subAction = (value) => ({
+  type: types.USER_COUNT_SUB,
+  value,
+});
+export const paddAction = (value) => ({
+  type: types.USER_COUNT_PADD,
+  value,
+});
+// 异步aciton：意思就是延迟加
+export const addAsyncAction = (time, value) =>
+  (dispatch) => {
+    setTimeout(() => {
+      // store.dispatch(addAction());
+      dispatch(addAction(value));
+    }, time);
+  }
+  ;

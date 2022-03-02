@@ -62,7 +62,7 @@ const stateProps = state => ({
   ...state.app,
   ...state.user,
 });
-// 2、通过connect加工组件，给组件上的props加上action方法
+// 2、通过connect加工组件，给组件上的props加上action方法,store属性
 export default connect(stateProps, { toggleSiderBar, toggleAsyncSiderBar, setTitleAction })(
   LayoutHeader
 );

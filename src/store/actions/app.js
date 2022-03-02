@@ -21,5 +21,4 @@ export const toggleAsyncSiderBar = (time) =>
       dispatch(toggleSiderBar());
     }, time);
   }
-  // type: types.APP_TOGGLE_SIDEBAR
   ;

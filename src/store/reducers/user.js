@@ -1,7 +1,8 @@
 import * as types from '../action-type';
 import { nanoid } from 'nanoid';
 
-const userState = {
+// 初始化state的值
+const initState = {
   token: '111',
   inputVal: '请输入',
   statelList: [
@@ -9,12 +10,12 @@ const userState = {
     { id: 2, done: false, name: '中午12点' },
     { id: 3, done: true, name: '晚上9点' },
   ],
+  count: 0
 };
 // Reducer里只能接受state，不能改变state,返回新得对象
-// store.dispatch({...})方法提交就到这里，action接收的是dispatch的对象，而这个对象是action的方法执行后返回的
-export function user (state = userState, action) {
-
-
+// store.dispatch({...})方法提交就到这里，action接收的是两个值，一个type,一个data
+export function user (state = initState, action) {
+  console.log(types, '--');
   // input输入 / 传空清除输入
   if (action.type === types.USER_SET_INPUTCHANGE) {
     return {
@@ -49,6 +50,29 @@ export function user (state = userState, action) {
     let newState = JSON.parse(JSON.stringify(state));
     newState.statelList.splice(action.index, 1);
     return newState;
+  }
+
+  // 求和-----------------
+  switch (action.type) {
+
+    case types.USER_COUNT_ADD:
+      return {
+        ...state,
+        count: state.count + action.value * 1
+      };
+    case types.USER_COUNT_SUB:
+      return {
+        ...state,
+        count: state.count - action.value * 1
+      };
+    case types.USER_COUNT_PADD:
+      let newState = JSON.parse(JSON.stringify(state));
+      if (state.count % 2 !== 0) {
+        newState.count = state.count + action.value * 1;
+      }
+      return newState;
+    default:
+      return state;
   }
 
   //   // console.log('原生写法');
