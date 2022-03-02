@@ -20,5 +20,4 @@ export const toggleAsyncSiderBar = (time) =>
       // store.dispatch(toggleSiderBar());
       dispatch(toggleSiderBar());
     }, time);
-  }
-  ;
+  };
