@@ -17,6 +17,7 @@ export default class Baxios extends Component {
       this.setState(data);
     });
   }
+  // 注销消息订阅
   componentWillUnmount () {
     PubSub.unsubscribe(this.token);
   }

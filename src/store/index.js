@@ -10,7 +10,10 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-const store = createStore(reducers, applyMiddleware(reduxThunk));
+// 
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxThunk)));
 // 暴露store
 export default store;
 
