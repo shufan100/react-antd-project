@@ -22,7 +22,7 @@ class RouterDemo extends Component {
     console.log(this.props, 'withRouter');
     setTimeout(() => {
       this.props.history.push('/home/brouter');
-    }, 5000);
+    }, 500);
   }
 
   render () {

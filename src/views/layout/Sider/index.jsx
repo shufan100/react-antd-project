@@ -10,7 +10,7 @@ class LayoutSider extends Component {
     super(props);
     this.state = {};
   }
-  render() {
+  render () {
     const { sidebarCollapsed, code } = this.props;
     return (
       <Sider
@@ -19,25 +19,16 @@ class LayoutSider extends Component {
         trigger={null}
         width={200}
         style={{ zIndex: '10' }}
-        className="LayoutSider"
-      >
+        className="LayoutSider">
         <Logo />
 
         <h1 style={{ color: 'red' }}>
           {/* react的布尔值，空字符串，null都不在结构显示 */}
           {sidebarCollapsed}
           <div>{code}</div>
-          <div>
-            <NavLink activeClassName="active22" to="/home">
-              首页
-            </NavLink>
-          </div>
-
-          <div>
-            <NavLink activeClassName="active22" to="/shopping">
-              购物车
-            </NavLink>
-          </div>
+          <div><NavLink activeClassName="active22" to="/home">首页</NavLink></div>
+          <div><NavLink activeClassName="active22" to="/shopping">购物车</NavLink></div>
+          <div><NavLink activeClassName="active22" to="/about">函数式组件</NavLink></div>
         </h1>
         {/* <Menu /> */}
       </Sider>
