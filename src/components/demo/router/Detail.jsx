@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import qs from 'querystring';
+// import qs from 'querystring';
 
-let obj = { name: 'tom', age: 19 };
-console.log(qs.stringify(obj));
+// let obj = { name: 'tom', age: 19 };
+// console.log(qs.stringify(obj));
 
-let str = 'name=tom&age=19';
-console.log(qs.parse(str));
+// let str = 'name=tom&age=19';
+// console.log(qs.parse(str));
 
-class DetailDemo extends React.Component {
+class DetailDemo extends Component {
   state = {
     DetailsData: [
       { id: '01', content: '你好  中国' },
@@ -15,11 +15,11 @@ class DetailDemo extends React.Component {
       { id: '03', content: '你好  鹰潭' },
     ],
   };
-  render () {
-    console.log(
-      this.props,
-      '路由组件默认接受路由的3个参数histroy,location,match'
-    );
+  render() {
+    // console.log(
+    //   this.props,
+    //   '路由组件默认接受路由的3个参数histroy,location,match'
+    // );
     // 1、params接收路由参数:
     // const { id, title22 } = this.props.match.params;
     // const findResult = this.state.DetailsData.find(i => i.id === id);
