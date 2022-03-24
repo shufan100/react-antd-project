@@ -29,7 +29,7 @@ class Home extends Component {
           {/* 一级路由 */}
           <Switch>
             {/* lazy默认配合Suspense来使用 */}
-            <Suspense fallback={<Loading/>}>
+            <Suspense fallback={<Loading />}>
               {/* 匹配到路由就不往下匹配了，减少路由效率问题 */}
               <Route path="/home" component={Content} /> {/* 注册路由 */}
               <Route exact path="/shopping" component={Shopping} />{/* 注册路由 */}

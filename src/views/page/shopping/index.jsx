@@ -86,7 +86,7 @@ class Shopping extends Component {
     this.setState({ count1: this.state.count1 + 1 });
   };
   render () {
-    console.log('render-渲染');
+    console.log('render-渲染', this.props);
     return (
       <div>
         <h1>一级路由 --- 生命周期</h1>
@@ -106,7 +106,6 @@ class Shopping extends Component {
         * render-渲染 &gt;
         * getSnapshotBeforeUpdate-新增钩子 &gt;
         * componentDidUpdate--组件更新完成
-
       </div>
     );
   }

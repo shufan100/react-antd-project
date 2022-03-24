@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, NavLink } from 'react-router-dom';
-// import Menu from "./Menu";
+import Menu from './Menu';
 import { Layout } from 'antd';
 import Logo from './Logo';
 const { Sider } = Layout;
@@ -30,7 +30,7 @@ class LayoutSider extends Component {
           <div><NavLink activeClassName="active22" to="/shopping">声明周期</NavLink></div>
           <div><NavLink activeClassName="active22" to="/about">函数式组件</NavLink></div>
         </h1>
-        {/* <Menu /> */}
+        <Menu />
       </Sider>
     );
   }

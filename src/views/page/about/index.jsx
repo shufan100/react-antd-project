@@ -19,8 +19,10 @@ const About = props => {
   // -------------------------------useState状态钩子-------------------------------------------------------------------------------------------------
   // useState：返回一个数组，第一项变量初始值，第二项是函数
   const [count, setCount] = useState(10);
+  const [str, setStr] = useState('小明');
   const [bool, setBool] = useState(false);
-  const [states, setStates] = useState({});
+  const [states, setStates] = useState({ name: '1', list: [{ age: 18 }] });
+  const [arr, setArr] = useState([{ id: 1, name: 'tom' }]);
   const add = () => {
     setCount(count + 1);
   };
@@ -30,11 +32,21 @@ const About = props => {
   const isShow = (e) => {
     setBool(!bool);
   };
+
+  const editStr = () => {
+    setStr('小红');
+  };
   const editState = () => {
     const data = { ...states };
+    data.name = '修改';
     data.min_price = 100;
-    data.max_price = 500;
     setStates(data);
+  };
+  const editArr = () => {
+    const list = [...arr];
+    list.push({ id: 2, name: 'jeery' });
+    setArr(list);
+
   };
 
   // -------------------------------useEffect副作用钩子/模拟生命周期钩子-------------------------------------------------------------------------------------------------
@@ -77,10 +89,17 @@ const About = props => {
 
 
 
-  // -------------------------------useHistory:路由导航钩子-------------------------------------------------------------------------------------------------
+  // -------------------------------useHistory:路由-------------------------------------------------------------------------------------------------
   const history = useHistory();
-  const goHome = () => {
-    history.push('/home');
+  const goRouter = (routeName) => {
+    if (routeName === '/home') {
+      history.push(routeName);
+    }
+    if (routeName === '/shopping') {
+      // history.replace(`${routeName}/${1}`); //param传参，注册路由需要改
+      history.replace(`${routeName}?id=${1068}`);//serach传参
+      // history.replace(routeName, { id: 1688 });//stata传参
+    }
   };
 
 
@@ -90,8 +109,19 @@ const About = props => {
 
       <hr />
       <h1 style={{ color: 'red', padding: '20px 100px' }}>**useState状态钩子**</h1>
+      <h4>number：{count}；string：{str}；boolen：{bool}；object：{states.name}-{states.min_price}；</h4>
+      <ul>
+        {
+          arr.map(i => <li key={i.id}>arr：{i.id}--{i.name}</li>)
+        }
+
+      </ul>
+
       <h4>当前求和为{count}</h4>
       <button onClick={add}>+1</button><button onClick={sub}>-1</button><button onClick={() => setCount(99)}>=99</button>
+      <button onClick={editStr}>修改字符串</button>
+      <button onClick={editState}>修改对象</button>
+      <button onClick={editArr}>修改数组</button>
 
       <hr />
       <h1 style={{ color: 'red', padding: '20px 100px' }}>**useEffect副作用钩子/模拟生命周期钩子**</h1>
@@ -102,7 +132,6 @@ const About = props => {
 
       <button onClick={isShow}>显示/隐藏</button>
       <button onClick={onMount}>卸载组件</button>
-      <button onClick={editState}>修改对象</button>
 
 
       <hr />
@@ -117,7 +146,8 @@ const About = props => {
 
       <hr />
       <h1 style={{ color: 'red', padding: '20px 100px' }}>**useHistory:路由导航钩子**</h1>
-      <button onClick={goHome}>跳回首页</button>
+      <button onClick={() => goRouter('/home')}>跳回首页</button>
+      <button onClick={() => goRouter('/shopping')}>跳回生命周期</button>
 
       <hr />
       <h1 style={{ color: 'red', padding: '20px 100px' }}>**useContext():共享状态钩子**</h1>
