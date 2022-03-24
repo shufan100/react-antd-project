@@ -84,6 +84,6 @@ module.exports = {
     // 'linebreak-style': [2, 'unix'],
     // 强制使用一致的反勾号、双引号或单引号
     quotes: [2, 'single', 'avoid-escape'],
-    printWidth: 1000,
+    // printWidth: 1000,
   },
 };

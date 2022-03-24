@@ -27,7 +27,7 @@ class LayoutSider extends Component {
           {sidebarCollapsed}
           <div>{code}</div>
           <div><NavLink activeClassName="active22" to="/home">首页</NavLink></div>
-          <div><NavLink activeClassName="active22" to="/shopping">购物车</NavLink></div>
+          <div><NavLink activeClassName="active22" to="/shopping">声明周期</NavLink></div>
           <div><NavLink activeClassName="active22" to="/about">函数式组件</NavLink></div>
         </h1>
         {/* <Menu /> */}

@@ -88,7 +88,7 @@ class LayoutContentClass extends Component {
 
   // （阀门）控制组件更新的阀门; state状态改变触发的生命周期钩子
   // (开发不用写，使用PureComponent代替，会自动给我们匹配)
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate (nextProps, nextState) {
     // 不写，react默认会在后台加这钩子并返回true,写了返回false,生命周期就不往下走了
     // this.props,this.state：修改数据前的props和state
     // nextProps,nextState：修改后的变化的props,state
@@ -99,7 +99,7 @@ class LayoutContentClass extends Component {
   }
 
   // 组件挂载完毕的钩子（mounted）(*常用*)  初始化，发生ajax
-  componentDidMount() {
+  componentDidMount () {
     console.log('Content-componentDidMount');
     // this.timer = setInterval(() => {
     //   let { opacity } = this.state;
@@ -114,35 +114,35 @@ class LayoutContentClass extends Component {
     // }, 1000);
   }
   // (新增) 当组件的数据完全使用props传递进来的才用的生命周期钩子
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps (props, state) {
     console.log('Content-getDerivedStateFromProps');
     return null;
   }
   // (新增)的两个生命周期钩子：
-  getSnapshotBeforeUpdate() {
+  getSnapshotBeforeUpdate () {
     console.log('Content-getSnapshotBeforeUpdate');
     // return this.refs.list.scrollHeight;
     return this.listRef.scrollHeight;
   }
   // 组件已经更新生命周期钩子
-  componentDidUpdate(preProps, preState, height) {
+  componentDidUpdate (preProps, preState, height) {
     // console.log('Content-componentDidUpdate'); //111
     // this.refs.list.scrollTop += this.refs.list.scrollHeight - height;
     this.listRef.scrollTop += this.listRef.scrollHeight - height;
   }
 
   // 组件将要卸载的钩子  (*常用*)
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.timer);
     clearInterval(this.timer2);
     console.log('Content-componentWillUnmount');
   }
 
-  
+
 
   // 1、初始化渲染,状态更新之后渲染 、(渲染 1+n次，每次修改数据都会重新渲染 jsx)
   // 2、在class类内部定义的方法已经自动开启了严格模式，类内部方法的this不指向window
-  render() {
+  render () {
     // render中的this —— LayoutContent的实例对象
     const { opacity } = this.state;
     console.log('Cotent-render');

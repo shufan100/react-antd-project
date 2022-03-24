@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import qs from 'querystring';
+import qs from 'querystring';
 
 // let obj = { name: 'tom', age: 19 };
 // console.log(qs.stringify(obj));
@@ -15,7 +15,7 @@ class DetailDemo extends Component {
       { id: '03', content: '你好  鹰潭' },
     ],
   };
-  render() {
+  render () {
     // console.log(
     //   this.props,
     //   '路由组件默认接受路由的3个参数histroy,location,match'
@@ -25,12 +25,12 @@ class DetailDemo extends Component {
     // const findResult = this.state.DetailsData.find(i => i.id === id);
 
     // 2、search接收参数
-    // const { id, title22 } = qs.parse(this.props.location.search.slice(1));
-    // const findResult = this.state.DetailsData.find(i => i.id === id);
+    const { id, title22 } = qs.parse(this.props.location.search.slice(1));
+    const findResult = this.state.DetailsData.find(i => i.id === id);
 
     // 3、state接收参数(优)
-    const { id, title22 } = this.props.location.state || {};
-    const findResult = this.state.DetailsData.find(i => i.id === id) || {};
+    // const { id, title22 } = this.props.location.state || {};
+    // const findResult = this.state.DetailsData.find(i => i.id === id) || {};
     // console.log(id, findResult, 'findResult');
 
     return (

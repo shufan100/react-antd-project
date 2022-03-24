@@ -20,6 +20,7 @@ const About = props => {
   // useState：返回一个数组，第一项变量初始值，第二项是函数
   const [count, setCount] = useState(10);
   const [bool, setBool] = useState(false);
+  const [states, setStates] = useState({});
   const add = () => {
     setCount(count + 1);
   };
@@ -28,6 +29,12 @@ const About = props => {
   };
   const isShow = (e) => {
     setBool(!bool);
+  };
+  const editState = () => {
+    const data = { ...states };
+    data.min_price = 100;
+    data.max_price = 500;
+    setStates(data);
   };
 
   // -------------------------------useEffect副作用钩子/模拟生命周期钩子-------------------------------------------------------------------------------------------------
@@ -84,15 +91,18 @@ const About = props => {
       <hr />
       <h1 style={{ color: 'red', padding: '20px 100px' }}>**useState状态钩子**</h1>
       <h4>当前求和为{count}</h4>
-      <button onClick={add}>+1</button><button onClick={sub}>-1</button>
+      <button onClick={add}>+1</button><button onClick={sub}>-1</button><button onClick={() => setCount(99)}>=99</button>
 
       <hr />
       <h1 style={{ color: 'red', padding: '20px 100px' }}>**useEffect副作用钩子/模拟生命周期钩子**</h1>
       {
         bool ? <h4 style={{ color: 'red' }}>显示得文字</h4> : ''
       }
+      <h4>--{states.min_price}+{states.min_price}</h4>
+
       <button onClick={isShow}>显示/隐藏</button>
       <button onClick={onMount}>卸载组件</button>
+      <button onClick={editState}>修改对象</button>
 
 
       <hr />
