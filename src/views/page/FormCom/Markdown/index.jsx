@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function About () {
+export default function Markdown () {
   return (
     <div>
-      作者
+      富文本
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function About () {
+export default function Menu1_1 () {
   return (
     <div>
-      作者
+      二级菜单
     </div>
   );
 }

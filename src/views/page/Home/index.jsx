@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function About () {
+export default function Home () {
   return (
     <div>
-      作者
+      <div>首页页面</div>
     </div>
   );
 }

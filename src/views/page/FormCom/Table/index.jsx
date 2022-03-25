@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function About () {
+export default function Table () {
   return (
     <div>
-      作者
+      ddddddddd
     </div>
   );
 }

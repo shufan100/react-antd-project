@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function About () {
+export default function User () {
   return (
     <div>
-      作者
+      用户管理
     </div>
   );
 }
