@@ -13,10 +13,12 @@ const Markdown = lazy(() => import('@/views/page/FormCom/Markdown'));
 const Menu1_1 = lazy(() => import('@/views/page/Nested/menu1-1'));
 const Menu2_1 = lazy(() => import('@/views/page/Nested/menu1-2/menu2-1'));
 const Menu2_2 = lazy(() => import('@/views/page/Nested/menu1-2/menu2-2'));
-// 之前写法
+// 之前的案例
 const ContentDemo = lazy(() => import('@/views/page/Demo/ContentDemo'));
 const FunCom = lazy(() => import('@/views/page/Demo/FunCom'));
 const LifeCycle = lazy(() => import('@/views/page/Demo/LifeCycle'));
+// 404
+const Error404 = lazy(() => import('@/views/Error/404'));
 
 
 
@@ -37,6 +39,8 @@ const routeMap = [
   { path: '/Demo/ContentDemo', component: ContentDemo, roles: ['editor', 'guest'] },
   { path: '/Demo/funCom', component: FunCom, roles: ['editor', 'guest'] },
   { path: '/Demo/lifeCycle', component: LifeCycle, roles: ['editor', 'guest'] },
+  // 
+  { path: '/error/404', component: Error404, roles: ['admin', 'editor', 'guest'] },
 
 
 ];

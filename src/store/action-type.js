@@ -1,4 +1,7 @@
 // 该模块是用于定义action对象中type类型的常量值，防止单词写错
+// token
+export const USER_SET_TOKEN = 'user_set_token';
+export const USER_REMOVE_TOKEN = 'user_remove_token';
 
 // app
 export const APP_TOGGLE_SIDEBAR = 'app_toggle_sidebar';

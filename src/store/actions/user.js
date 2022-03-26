@@ -2,6 +2,13 @@ import * as types from '../action-type';
 
 // 创建action动作对象
 // action：1,配置方法的type,2,接收参数
+export const setTokenAction = (data) => ({
+  type: types.USER_SET_TOKEN,
+  data
+});
+export const removeTokenAction = () => ({
+  type: types.USER_REMOVE_TOKEN,
+});
 
 export const resetInputAction = (value) => ({
   type: types.USER_SET_INPUTCHANGE,

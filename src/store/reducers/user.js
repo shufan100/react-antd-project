@@ -4,10 +4,14 @@
  */
 import * as types from '../action-type';
 import { nanoid } from 'nanoid';
+// 
+import { getToken, setToken, removeToken } from '@/utils/auth';
+import { getUserInfo } from '@/mock';
 
 // 初始化state的值
 const initState = {
-  token: '111',
+  token: getToken(), // 刷新获取token、点击登录还需要设置
+  userInfo: getToken() ? getUserInfo(getToken()) : {},
   inputVal: '请输入',
   statelList: [
     { id: 1, done: true, name: '早上10点' },
@@ -18,8 +22,27 @@ const initState = {
 };
 // Reducer里只能接受state，不能改变state,返回新得对象
 // store.dispatch({...})方法提交就到这里，action接收的是两个值，一个type,一个data
-export function user(state = initState, action) {
-  // console.log(types, '--');
+export function user (state = initState, action) {
+  // ***** 登录 ***
+  if (action.type === types.USER_SET_TOKEN) {
+    setToken(action.data); //token存cookie
+    return {
+      ...state,
+      token: action.data, // 设置token
+      userInfo: getUserInfo(action.data) //设置用户信息
+    };
+  }
+
+  // ***** 退出登录 ***
+  if (action.type === types.USER_REMOVE_TOKEN) {
+    removeToken();
+    return {
+      ...state,
+      token: '', // 清空token
+      userInfo: {} //清空用户信息
+    };
+  }
+
   // input输入 / 传空清除输入
   if (action.type === types.USER_SET_INPUTCHANGE) {
     return {

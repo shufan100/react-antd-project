@@ -7,7 +7,7 @@ function resolve (dir) {
 const addCustomize = () => (config) => {
   // log(config);
   if (config.output.publicPath) {
-    // config.output.publicPath =  process.env.NODE_ENV === 'production' ? '/react-antd-peoject/' : '/';
+    config.output.publicPath = process.env.NODE_ENV === 'production' ? '/react-antd' : '/';
   }
   if (config.resolve) {
     config.resolve.extensions.push('.jsx');
@@ -25,16 +25,17 @@ module.exports = override(
   addLessLoader({// 使用less-loader对源码中的less的变量进行重新指定
     lessOptions: {
       javascriptEnabled: true, //允许用js修改end地的底层less文件
-      modifyVars: { '@primary-color': 'orange' }, // 修改主题颜色
+      modifyVars: { '@primary-color': '#2858f8' }, // 修改主题颜色
     }
   }),
   // ------end------
 
-  addCustomize(),
+
   // 配置路径别名
   addWebpackAlias({
     '@': resolve('src'),
   }),
+  addCustomize(),
 );
 
 
