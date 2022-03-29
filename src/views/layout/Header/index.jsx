@@ -31,7 +31,7 @@ const LayoutHeader = props => {
   };
   const menu = (
     <Menu onClick={dropdownClick} >
-      <Menu.Item key="home"><Link to="/home">首页</Link></Menu.Item>
+      <Menu.Item key="home"><Link to="/">首页</Link></Menu.Item>
       {/* <Menu.Item key="project">
         <a
           target="_blank"

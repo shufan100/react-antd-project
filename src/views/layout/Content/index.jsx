@@ -17,18 +17,18 @@ const LayoutContent = props => {
 
   return (
     <Content className='Content' style={{ height: 'calc(100% - 100px)', overflow: 'hidden' }}>
-      {/* Switch的location：用于缓存路由 */}
-      <Switch location={props.location}>
-        <Redirect exact from="/" to="/home" />
-        <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        {/* Switch的location：用于缓存路由 */}
+        <Switch location={props.location}>
+          <Redirect exact from="/" to="/home" />
           {
             routeMap.map(item => (
               <Route key={item.path} path={item.path} component={item.component} />
             ))
           }
-        </Suspense>
-        <Redirect to="/error/404" />
-      </Switch>
+          <Redirect to="/error/404" />
+        </Switch>
+      </Suspense>
     </Content >
   );
 };

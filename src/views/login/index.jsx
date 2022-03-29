@@ -22,7 +22,7 @@ const LayoutLogin = props => {
   };
 
   if (props.token) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" />;
   }
   return (
     <div className='login-container' >

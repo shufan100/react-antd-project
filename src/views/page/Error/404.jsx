@@ -7,7 +7,7 @@ const NotFound = (props) => {
   const goHome = () => history.replace('/home');
   return (
     <Row className="not-found">
-      <Col span={12} className="right">
+      <Col span={24} className="right">
         <h1>404</h1>
         <h2>抱歉，你访问的页面不存在</h2>
         <div>
