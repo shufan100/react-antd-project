@@ -27,7 +27,6 @@ const LayoutHeader = props => {
   // };
 
   const dropdownClick = (e) => {
-    // console.log(e, props);
     if (e.key === 'logout') {
       Modal.confirm({
         title: '注销',
@@ -65,16 +64,16 @@ const LayoutHeader = props => {
     <Header className='hedaer-container'>
       <div >
         <Icons iconName={sidebarCollapsed ? 'MenuUnfoldOutlined' : 'MenuFoldOutlined'} size={20} click={sidebarCollapsed ? toggleSiderBar : () => toggleAsyncSiderBar(500)} />
-        <span>{sidebarCollapsed ? '同步aciton' : '异步aciton'}</span>
+        <span>{sidebarCollapsed ? '同步aciton' : '异步aciton500'}</span>
         {/* {getIcon(sidebarCollapsed)} */}
       </div>
       <div>
-        <span onClick={setTitleAction}>中/英</span>
-        <Icons iconName='FullscreenOutlined' size={24} />
+        <span style={{ marginRight: '10px' }} onClick={setTitleAction}>中/英</span>
+        <Icons iconName='FullscreenOutlined' size={24} toolTitle='全屏' />
         <Dropdown overlay={menu} >
           <div className='avatar'>
             <Avatar size={38} src={userInfo.avatar.default} />
-            <Icons iconName='CaretDownOutlined' color={'#ccc'} size={16} top={12} />
+            <Icons iconName='CaretDownOutlined' color='#ccc' size={16} top={12} />
           </div>
         </Dropdown>
       </div>

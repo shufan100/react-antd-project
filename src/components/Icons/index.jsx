@@ -6,6 +6,7 @@
 import React, { useEffect } from 'react';
 import * as IconItem from '@ant-design/icons'; //引入所有icon
 import { PropTypes } from 'prop-types';
+import { Tooltip } from 'antd';
 import './index.less';
 const Icons = props => {
   // 函数式仿生命周期
@@ -18,11 +19,13 @@ const Icons = props => {
   }, []);
   // 动态创建icon虚拟dom
   const getMenuIcon = (icontype) => icontype && IconItem[icontype] ? React.createElement(IconItem[icontype]) : '';
-  const { iconName, color, size, top, bottom, left, right, click } = props;
+  const { iconName, color, size, top, bottom, left, right, toolTitle, click } = props;
   return (
-    <span className={`${iconName} icons`} style={{ color, fontSize: size, top, bottom, left, right }} onClick={click}>
-      {getMenuIcon(props.iconName)}
-    </span>
+    <Tooltip placement="bottom" title={toolTitle}>
+      <span className={`${iconName} icons`} style={{ color, fontSize: size, top, bottom, left, right }} onClick={click}>
+        {getMenuIcon(props.iconName)}
+      </span>
+    </Tooltip>
   );
 };
 export default Icons;
@@ -40,6 +43,7 @@ Icons.propTypes = {
   bottom: PropTypes.number,
   left: PropTypes.number,
   right: PropTypes.number,
+  toolTitle: PropTypes.string, //文字提示
   click: PropTypes.func, //函数校验
 };
 // 设置props默认值

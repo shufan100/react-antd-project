@@ -3,7 +3,7 @@ import * as types from '../action-type';
 const initState = {
   sidebarCollapsed: false,
   code: 'code值----',
-  isTitle: true,
+  isTitle: false,
 };
 
 // action:接受两个值，一个type,一个data
