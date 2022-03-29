@@ -48,7 +48,7 @@ Icons.propTypes = {
 };
 // 设置props默认值
 Icons.defaultProps = {
-  iconName: 'QuestionOutlined',
+  iconName: '',
   size: 14,
   top: 0,
   bottom: 0,

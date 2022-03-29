@@ -4,8 +4,8 @@ import { Link, withRouter, useHistory } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import { Menu } from 'antd';
-import * as Icons from '@ant-design/icons';
 import menuList from '@/config/menuCofig';
+import Icons from '@/components/Icons'; // 动态icon
 import './index.less';
 
 const { SubMenu } = Menu;;
@@ -27,20 +27,18 @@ const Menus = (props) => {
     };
   }, []);
 
-  // 动态显示icon
-  const getMenuIcon = (icontype) => icontype && Icons[icontype] ? React.createElement(Icons[icontype]) : '';
 
   // 初始化菜单
   const getMenuNode = (List) => List.map((item, index) => {
     if (!item.children) {
       return (
-        <Menu.Item key={item.path} icon={!item.children ? getMenuIcon(item.icon) : ''} >
+        <Menu.Item key={item.path} icon={!item.children ? <Icons iconName={item.icon} /> : ''} >
           <Link to={item.path} title={item.path}>{item.title}</Link>
         </Menu.Item>
       );
     } else {
       return (
-        <SubMenu key={item.path} icon={getMenuIcon(item.icon)} title={item.title}>
+        <SubMenu key={item.path} icon={<Icons iconName={item.icon} />} title={item.title}>
           {getMenuNode(item.children)}
         </SubMenu >
       );
