@@ -10,20 +10,24 @@ const { Content } = Layout;;
 const LayoutContent = props => {
   const [routeName, setRouteName] = useState('/home');
   const history = useHistory();
+  console.log(routeMap, 'routeMap');
   useEffect(() => {
     // setRouteName(history.location.pathname);
   }, []);
 
   return (
-    <Content className='Content' style={{ height: 'calc(100% - 100px)' }}>
-      <Switch location={props.location.pathname}>
+    <Content className='Content' style={{ height: 'calc(100% - 100px)', overflow: 'hidden' }}>
+      {/* Switch的location：用于缓存路由 */}
+      <Switch location={props.location}>
+        <Redirect exact from="/" to="/home" />
         <Suspense fallback={<Loading />}>
-          <Redirect exact from="/" to="/home" />
           {
-            routeMap.map(item => <Route key={item.path} path={item.path} component={item.component} />)
+            routeMap.map(item => (
+              <Route key={item.path} path={item.path} component={item.component} />
+            ))
           }
-          {/* <Redirect exact to='/home' /> */}
         </Suspense>
+        <Redirect to="/error/404" />
       </Switch>
     </Content >
   );

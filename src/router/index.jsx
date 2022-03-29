@@ -18,7 +18,7 @@ class Router extends React.Component {
     console.log(token, '---');
 
     return (
-      // 路由一定要用这个容器包裹HashRouter 或 BROWSERROUTER
+      // 路由一定要用这个容器包裹HashRouter 或 BrowserRouter
       // HashRouter刷新浏览器，路由使用state传参的话，会丢失state路由数据
       <BrowserRouter hashType="slash">
         <Switch>

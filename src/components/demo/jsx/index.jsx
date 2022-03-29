@@ -8,10 +8,10 @@ class JsxDemo extends Component {
   };
 
   // 错误边界：生命周期函数，一旦后代组件发生错误就会触发(只是用生产环境)
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError (error) {
     return { hasError: error };
   }
-  componentDidCatch() {
+  componentDidCatch () {
     console.log('统计页面错误，发送请求给后台');
   }
 
@@ -23,7 +23,7 @@ class JsxDemo extends Component {
     });
     // this.props.speak('子组件传的参数'); //props传入的函数
   };
-  render() {
+  render () {
     const { isShow, list } = this.state;
     return (
       <div>

@@ -40,31 +40,46 @@ const menuList = [
     children: [
       {
         title: '菜单2-1',
-        path: '/nested/menu1_1',
+        path: '/nested/menu2_1',
+        parentPath: '/nested',
         roles: ['admin']
       },
       {
-        title: '菜单2-1',
-        path: '/nested/menu1_2',
+        title: '菜单2-2',
+        path: '/nested/menu2_2',
         roles: ['admin'],
         children: [
           {
-            title: '菜单2-1',
-            path: '/nested/menu1_2/menu2_1',
+            title: '菜单3-1',
+            path: '/nested/menu2_2/menu3_1',
+            parentPath: ['/nested', '/nested/menu2_2'],
             roles: ['admin']
           },
           {
-            title: '菜单2-2',
-            path: '/nested/menu1_2/menu2_2',
+            title: '菜单3-2',
+            path: '/nested/menu2_2/menu3_2',
+            parentPath: ['/nested', '/nested/menu2_2'],
+            roles: ['admin']
+          },
+          {
+            title: '菜单3-3',
+            path: '/nested/menu2_2/menu3_3',
             roles: ['admin'],
             children: [
               {
-                title: '菜单3-1',
-                path: '/nested/menu1_2/menu2_2',
+                title: '菜单4-1',
+                path: '/nested/menu2_2/menu3_3/menu4_1',
+                parentPath: ['/nested', '/nested/menu2_2', '/nested/menu2_2/menu3_3'],
                 roles: ['admin']
-              }
+              },
+              {
+                title: '菜单4-2',
+                path: '/nested/menu2_2/menu3_3/menu4_2',
+                parentPath: ['/nested', '/nested/menu2_2', '/nested/menu2_2/menu3_3'],
+                roles: ['admin']
+              },
             ]
-          }
+          },
         ]
       },
 

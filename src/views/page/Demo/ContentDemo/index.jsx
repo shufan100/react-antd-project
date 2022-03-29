@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Layout, Button } from 'antd';
+import { Button } from 'antd';
 import './index.scss';
 
 // 引用事例
@@ -19,7 +19,7 @@ import ClickDemo from '@/components/demo/click';
 import PropsDemo from '@/components/demo/props';
 import JsxDemo from '@/components/demo/jsx';
 import RouterDemo from '@/components/demo/router';
-const { Content } = Layout; // 444步
+
 
 // ---------------------------------类式组件-----------------------------------------------------------
 
@@ -149,7 +149,7 @@ class LayoutContentClass extends Component {
 
     return (
       //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOM转成真正的html标签，变成真实dom显示在页面
-      /** */ <Content className="main">
+      /** */ <div className="layoutContent" id='LayoutContentClass'>
         <h1 style={{ color: 'red', textAlign: 'center' }}>类式组件</h1>
 
         {/************************* 生命周期 *****************************************************************/}
@@ -194,7 +194,7 @@ class LayoutContentClass extends Component {
 
         <ReduxDemo />
         <ReduxDemo2 />
-      </Content>
+      </div>
     );
   }
 }

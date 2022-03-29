@@ -10,9 +10,11 @@ const Table = lazy(() => import('@/views/page/FormCom/Table'));
 const Form = lazy(() => import('@/views/page/FormCom/Form'));
 const Markdown = lazy(() => import('@/views/page/FormCom/Markdown'));
 // 多级路由
-const Menu1_1 = lazy(() => import('@/views/page/Nested/menu1-1'));
-const Menu2_1 = lazy(() => import('@/views/page/Nested/menu1-2/menu2-1'));
-const Menu2_2 = lazy(() => import('@/views/page/Nested/menu1-2/menu2-2'));
+const Menu2_1 = lazy(() => import('@/views/page/Nested/menu2-1'));
+const Menu3_1 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-1'));
+const Menu3_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-2'));
+const Menu4_1 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-1'));
+const Menu4_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-2'));
 // 之前的案例
 const ContentDemo = lazy(() => import('@/views/page/Demo/ContentDemo'));
 const FunCom = lazy(() => import('@/views/page/Demo/FunCom'));
@@ -32,9 +34,11 @@ const routeMap = [
   { path: '/formCom/form', component: Form, roles: ['editor'] },
   { path: '/formCom/markdown', component: Markdown, roles: ['guest'] },
   // 
-  { path: '/nested/menu1_1', component: Menu1_1, roles: ['admin', 'editor', 'guest'] },
-  { path: '/nested/menu1_2/menu2_1', component: Menu2_1, roles: ['admin', 'editor', 'guest'] },
-  { path: '/nested/menu1_2/menu2_2', component: Menu2_2, roles: ['admin', 'editor', 'guest'] },
+  { path: '/nested/Menu2_1', component: Menu2_1, roles: ['admin', 'editor', 'guest'] },
+  { path: '/nested/menu2_2/menu3_1', component: Menu3_1, roles: ['admin', 'editor', 'guest'] },
+  { path: '/nested/menu2_2/menu3_2', component: Menu3_2, roles: ['admin', 'editor', 'guest'] },
+  { path: '/nested/menu2_2/menu3_3/menu4_1', component: Menu4_1, roles: ['admin', 'editor', 'guest'] },
+  { path: '/nested/menu2_2/menu3_3/menu4_2', component: Menu4_2, roles: ['admin', 'editor', 'guest'] },
   // 
   { path: '/Demo/ContentDemo', component: ContentDemo, roles: ['editor', 'guest'] },
   { path: '/Demo/funCom', component: FunCom, roles: ['editor', 'guest'] },
