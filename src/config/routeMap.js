@@ -1,12 +1,12 @@
 import { lazy } from 'react';
 
 // 引入组件:路由懒加载(切换路由的时候才加载)
-// 一级路由
-// const Home = lazy(() => import('@/views/page/Home'));
+// 首页和404页默认加载
 import Home from '@/views/page/Home';
 // 404
-// const Error404 = import('@/views/Error/404');
 import Error404 from '@/views/page/Error/404';
+
+// 一级路由
 const About = lazy(() => import('@/views/page/About'));
 const User = lazy(() => import('@/views/page/User'));
 // 二级路由
@@ -23,7 +23,6 @@ const Menu4_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-2')
 const ContentDemo = lazy(() => import('@/views/page/Demo/ContentDemo'));
 const FunCom = lazy(() => import('@/views/page/Demo/FunCom'));
 const LifeCycle = lazy(() => import('@/views/page/Demo/LifeCycle'));
-
 
 
 // 导出，再注册组件
