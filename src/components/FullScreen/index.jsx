@@ -1,4 +1,4 @@
-// 全屏
+// 全屏 5版本，不可以过高
 import { useState, useEffect } from 'react';
 import screenfull from 'screenfull';
 import { message } from 'antd';
