@@ -8,7 +8,8 @@ import store from '@/store';
 import './index.less';
 // 第一步：引用aciton方法
 import { toggleSiderBar, toggleAsyncSiderBar, setTitleAction, removeTokenAction } from '@/store/actions';
-import Icons from '@/components/Icons';
+import Icons from '@/components/Icons'; // 动态icon
+import FullScreen from '@/components/FullScreen'; //全屏
 
 const { Header } = Layout;;
 
@@ -69,7 +70,8 @@ const LayoutHeader = props => {
       </div>
       <div>
         <span style={{ marginRight: '10px' }} onClick={setTitleAction}>中/英</span>
-        <Icons iconName='FullscreenOutlined' size={24} toolTitle='全屏' />
+        {/* <Icons iconName='FullscreenOutlined' size={24} toolTitle='全屏' /> */}
+        <FullScreen />
         <Dropdown overlay={menu} >
           <div className='avatar'>
             <Avatar size={38} src={userInfo.avatar.default} />
