@@ -10,13 +10,13 @@ import { Tooltip } from 'antd';
 import './index.less';
 const Icons = props => {
   // 函数式仿生命周期
-  useEffect(() => {
+  useEffect(() =>
     // 组件加载完走
-    console.log('props', props);
-    return () => {
+    // console.log('props', props);
+    () => {
       // 卸载组件前走
-    };
-  }, []);
+    }
+    , []);
   // 动态创建icon虚拟dom
   const getMenuIcon = (icontype) => icontype && IconItem[icontype] ? React.createElement(IconItem[icontype]) : '';
   const { iconName, color, size, top, bottom, left, right, toolTitle, click } = props;
