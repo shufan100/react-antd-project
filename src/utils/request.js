@@ -10,7 +10,7 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(config => {
-  console.log('请求拦截器>>>', config);
+  // console.log('请求拦截器>>>', config);
 
   // 根据接口修改代理
   if (config.url.indexOf('cars') !== -1) {
