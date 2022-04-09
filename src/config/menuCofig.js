@@ -7,7 +7,7 @@ const menuList = [
     title: '首页',
     path: '/home',
     icon: 'DesktopOutlined',
-    roles: ['admin', 'editor', 'guest']
+    roles: ['admin', 'editor', 'guest'],
   },
   {
     title: '表单相关',
@@ -18,19 +18,19 @@ const menuList = [
       {
         title: '表格',
         path: '/formCom/table',
-        roles: ['admin']
+        roles: ['admin'],
       },
       {
         title: '表单',
         path: '/formCom/form',
-        roles: ['editor']
+        roles: ['editor'],
       },
       {
         title: '富文本',
         path: '/formCom/markdown',
-        roles: ['guest']
+        roles: ['guest'],
       },
-    ]
+    ],
   },
   {
     title: '路由嵌套',
@@ -42,7 +42,7 @@ const menuList = [
         title: '菜单2-1',
         path: '/nested/menu2_1',
         parentPath: '/nested',
-        roles: ['admin']
+        roles: ['admin'],
       },
       {
         title: '菜单2-2',
@@ -53,13 +53,13 @@ const menuList = [
             title: '菜单3-1',
             path: '/nested/menu2_2/menu3_1',
             parentPath: ['/nested', '/nested/menu2_2'],
-            roles: ['admin']
+            roles: ['admin'],
           },
           {
             title: '菜单3-2',
             path: '/nested/menu2_2/menu3_2',
             parentPath: ['/nested', '/nested/menu2_2'],
-            roles: ['admin']
+            roles: ['admin'],
           },
           {
             title: '菜单3-3',
@@ -69,22 +69,28 @@ const menuList = [
               {
                 title: '菜单4-1',
                 path: '/nested/menu2_2/menu3_3/menu4_1',
-                parentPath: ['/nested', '/nested/menu2_2', '/nested/menu2_2/menu3_3'],
-                roles: ['admin']
+                parentPath: [
+                  '/nested',
+                  '/nested/menu2_2',
+                  '/nested/menu2_2/menu3_3',
+                ],
+                roles: ['admin'],
               },
               {
                 title: '菜单4-2',
                 path: '/nested/menu2_2/menu3_3/menu4_2',
-                parentPath: ['/nested', '/nested/menu2_2', '/nested/menu2_2/menu3_3'],
-                roles: ['admin']
+                parentPath: [
+                  '/nested',
+                  '/nested/menu2_2',
+                  '/nested/menu2_2/menu3_3',
+                ],
+                roles: ['admin'],
               },
-            ]
+            ],
           },
-        ]
+        ],
       },
-
-
-    ]
+    ],
   },
   {
     title: '案例',
@@ -95,32 +101,31 @@ const menuList = [
       {
         title: '写法',
         path: '/demo/contentDemo',
-        roles: ['editor', 'guest']
+        roles: ['editor', 'guest'],
       },
       {
         title: '函数组件',
         path: '/demo/funCom',
-        roles: ['editor', 'guest']
+        roles: ['editor', 'guest'],
       },
       {
         title: '生命周期',
         path: '/demo/lifeCycle',
-        roles: ['editor', 'guest']
+        roles: ['editor', 'guest'],
       },
-    ]
+    ],
   },
   {
     title: '用户管理',
     path: '/user',
     icon: 'TeamOutlined',
-    roles: ['admin', 'editor', 'guest']
+    roles: ['admin', 'editor', 'guest'],
   },
   {
     title: '作者',
-    path: '/about',
+    path: '/abouts',
     icon: 'UserOutlined',
-    roles: ['admin', 'editor', 'guest']
+    roles: ['admin', 'editor', 'guest'],
   },
-
 ];
 export default menuList;

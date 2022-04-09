@@ -3,16 +3,18 @@ import { getUser1, getUser2, getCars } from '@/api';
 import axios from 'axios';
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
-export default function Home () {
+export default function Home() {
   const [states, setStates] = useState({
-    list: []
+    list: [],
   });
-  useEffect(() =>
-    // console.log('组件已经挂载');
-    () => {
-      console.log('卸载组件前');
-    }
-    , []);
+  useEffect(
+    () =>
+      // console.log('组件已经挂载');
+      () => {
+        console.log('卸载组件前');
+      },
+    []
+  );
 
   const getDatas = async () => {
     const result = await axios.get('https://api.apiopen.top/getJoke');
@@ -21,7 +23,6 @@ export default function Home () {
   const getNodeUser1 = async () => {
     const result = await getUser1(1);
     console.log(result);
-
   };
   const getNodeUser2 = async () => {
     const result = await getUser2();
@@ -33,28 +34,36 @@ export default function Home () {
   };
 
   // 解决回调地狱
-  const getP = (e) => {
-    getUser2().then(res => {
-      console.log(res, 'getUser2');
-      return getUser1(1);
-    }).then(res => {
-      console.log(res, 'getUser1');
-      return getCars();
-    }).then(res => {
-      console.log(res, 'getCars');
-    }).catch(err => {
-      console.log(err, '捕获接口的错误');
-    });
+  const getP = e => {
+    getUser2()
+      .then(res => {
+        console.log(res, 'getUser2');
+        return getUser1(1);
+      })
+      .then(res => {
+        console.log(res, 'getUser1');
+        return getCars();
+      })
+      .then(res => {
+        console.log(res, 'getCars');
+      })
+      .catch(err => {
+        console.log(err, '捕获接口的错误');
+      });
   };
   // 发起axios请求
-  const getAxios = (e) => {
+  const getAxios = e => {
     axios.get(`/api1/search/users?q=${'1'}`, {
-      cancelToken: source.token
+      cancelToken: source.token,
     });
   };
   // 取消axios请求
-  const cancelAxios = (e) => {
+  const cancelAxios = e => {
     source.cancel('取消请求');
+  };
+  // ---------------
+  const get = e => {
+    // axios.get()
   };
   return (
     <div>
@@ -67,6 +76,8 @@ export default function Home () {
       <br />
       <button onClick={getAxios}>发起axios请求</button>
       <button onClick={cancelAxios}>取消axios请求</button>
+      <br />
+      <button onClick={get}>测试请求</button>
     </div>
   );
 }
