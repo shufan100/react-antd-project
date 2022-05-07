@@ -16,7 +16,8 @@ import '@/styles/index.less'; //引入全局样式
  * 3、将render返回的虚拟DOM转为真实DOM，随后呈现在页面上
 */
 // 渲染组件到页面  React.StrictMode:检查代码里不太合理的地方
-ReactDOM.render(<React.StrictMode> <App /> </React.StrictMode>, document.getElementById('root'));
+// ReactDOM.render(<React.StrictMode> <App /> </React.StrictMode>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // reportWebVitals();
 

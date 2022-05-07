@@ -10,7 +10,7 @@ class App extends Component {
     this.getToek();
   }
   getToek = () => {
-    console.log(1111, '获取token');
+    // console.log(1111, '获取token');
   }
   render () {
     return (

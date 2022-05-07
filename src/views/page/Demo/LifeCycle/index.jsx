@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Divider } from 'antd';
+import './index.less';
 class Shopping extends Component {
   /**  18版本后将要废弃的生命周期钩子
  
@@ -15,12 +17,6 @@ class Shopping extends Component {
       console.log('Content-componentWillUpdate');
     }
  */
-  constructor(props) {
-    super(props);
-    // this.state= {name:'11'}
-    // this.add = this.add.bind(this)
-    console.log('constructor-构造函数');
-  }
   state = { count1: 1 };
 
   // --两个新增的生命周期钩子返回null就是什么事都不做--
@@ -79,20 +75,43 @@ class Shopping extends Component {
 
   // 3新生命周期的钩子（卸载）：componentWillUnmount-组件将要卸载
 
+  // 强制刷新
   force = () => {
     this.forceUpdate();
   };
+  // 数据新增
   add = () => {
     this.setState({ count1: this.state.count1 + 1 });
   };
   render () {
-    console.log('render-渲染', this.props);
     return (
-      <div>
-        <h1>一级路由 --- 生命周期</h1>
-        <h4>{this.state.count1}</h4>
-        <button onClick={this.force}>不改状态，强制更新</button>
-        <button onClick={this.add}>+1</button>
+      <div className='LifeCycle'>
+        <h1>生命周期</h1>
+
+        <span>总数：{this.state.count1}</span><button onClick={this.add}>+1(state更新)</button>
+        <br />
+        <button onClick={this.force}>不改状态，强制更新(强制刷新)</button>
+        <Divider>生命周期(新)</Divider>
+        <ul>
+          <li>
+            <h2>初始化</h2>
+            <div>
+
+            </div>
+          </li>
+          <li>
+            <h2>初始化</h2>
+            <div>
+
+            </div>
+          </li>
+          <li>
+            <h2>卸载</h2>
+            <div>
+              componentWillUnmount
+            </div>
+          </li>
+        </ul>
         <h2>
           1新生命周期的钩子（初始化）：
           constructor-构造函数 &gt;
@@ -100,13 +119,14 @@ class Shopping extends Component {
           render-渲染 &gt;
           componentDidMount--组件挂载完成
         </h2>
+
         2新生命周期的钩子（更新）强刷不走阀门：
-        * getDerivedStateFromProps-新增钩子 &gt;
-        * shouldComponentUpdate(阀门) &gt;
-        * render-渲染 &gt;
-        * getSnapshotBeforeUpdate-新增钩子 &gt;
+        * getDerivedStateFromProps - 新增钩子 & gt;
+        * shouldComponentUpdate(阀门) & gt;
+        * render - 渲染 & gt;
+        * getSnapshotBeforeUpdate - 新增钩子 & gt;
         * componentDidUpdate--组件更新完成
-      </div>
+      </div >
     );
   }
 }
