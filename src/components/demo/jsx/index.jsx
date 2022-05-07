@@ -42,11 +42,7 @@ class JsxDemo extends Component {
           )}
         </ul>
         {/************************* 子组件错误提示  *****************************************************************/}
-        {this.state.hasError ? (
-          <h2 style={{ color: 'red' }}>当前网络不稳定，稍后再试！</h2>
-        ) : (
-          <HasErrorDemo />
-        )}
+        {this.state.hasError ? <h2 style={{ color: 'red' }}>当前网络不稳定，稍后再试！</h2> : <HasErrorDemo />}
       </div>
     );
   }

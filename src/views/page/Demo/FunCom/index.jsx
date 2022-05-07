@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, useHistory } from 'react-router-dom';
+// redux
 import store from '@/store';
 import { addAction } from '@/store/actions';
 import { user } from '@/store/reducers/user';
@@ -10,7 +11,6 @@ import './index.less';
 import { AppContext } from './context.js';
 
 // -------------------------------useContext共享状态钩子-------------------------------------------------------------------------------------------------
-// const AppContext = React.createContext({});
 
 const About = props => {
   console.log(props, '路由的三大属性');

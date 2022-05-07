@@ -25,11 +25,11 @@
 # │   │   ├─ layout             # 路由加载主页面
 # │   │   ├─ login              # 登录组件文件夹
 # │   │   ├─ page               # 路由组件文件夹 / 路由组件，组件以路由方式加载
-# │   ├─ App.js                 # 入口页面
+# │   ├─ App.vue                # 入口页面
 # │   ├─ reportWebVitals.js     # 页面性能分析文件(需要web-vitals库的支持)
 # │   ├─ setupTests.js          # 组件单元测试的文件(需要jest-dom库的支持)
 # │   ├─ setupProxy.js          # react脚手架配置代理
-# │   └─index.js                # 入口文件
+# │   └─main.js                 # 入口文件
 # ├── .env.development          # 开发环境变量配置
 # ├── .env.production           # 生产环境变量配置
 # ├── .eslintrc.js              # esLint配置文件

@@ -26,18 +26,18 @@ import RouterDemo from '@/components/demo/router';
 // class LayoutContentClass extends PureComponent {
 class LayoutContentClass extends Component {
   // 渲染1次 构造器能省略就省略不写
-  constructor(props) {
-    super(props);
-    // this.state= {name:'11'}
-    // this.add = this.add.bind(this)
-    console.log('Content-constructor');
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state= {name:'11'}
+  //   // this.add = this.add.bind(this)
+  //   // console.log('Content-constructor');
+  // }
 
   // *********初始化状态state**********************************************************
   state = {
+    opacity: 1,
     sex: '女',
     address: '中国北京。。。',
-    opacity: 0.5,
     count: 0,
     newsArr: [],
     hasError: '',
@@ -94,8 +94,9 @@ class LayoutContentClass extends Component {
     // nextProps,nextState：修改后的变化的props,state
     // 数据不改变就不更当前新组件
     console.log('Content-shouldComponentUpdate');
-    console.log(this.state.count, nextState.count);
-    return !this.state.count === nextState.count; //根据数据是否改变，来渲染组件
+    // console.log(this.state.count, nextState.count);
+    // return !this.state.count === nextState.count; //根据数据是否改变，来渲染组件
+    return true; //根据数据是否改变，来渲染组件
   }
 
   // 组件挂载完毕的钩子（mounted）(*常用*)  初始化，发生ajax
@@ -106,7 +107,7 @@ class LayoutContentClass extends Component {
     //   opacity -= 0.1;
     //   if (opacity <= 0) opacity = 1;
     //   this.setState({ opacity });
-    // }, 200);
+    // }, 1000);
     // this.timer2 = setInterval(() => {
     //   const { newsArr } = this.state;
     //   const news = `新闻${newsArr.length + 1}`;
@@ -145,8 +146,6 @@ class LayoutContentClass extends Component {
   render () {
     // render中的this —— LayoutContent的实例对象
     const { opacity } = this.state;
-    console.log('Cotent-render');
-
     return (
       //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOM转成真正的html标签，变成真实dom显示在页面
       /** */ <div className="layoutContent" id='LayoutContentClass'>

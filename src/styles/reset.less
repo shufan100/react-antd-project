@@ -1,92 +1,95 @@
-body {
-  height: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, Arial, sans-serif;
-}
-
-html {
-  height: 100%;
-  box-sizing: border-box;
-}
-#root {
-  height: 100%;
-}
-.ant-layout {
-  height: 100%;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.no-padding {
-  padding: 0px !important;
-}
-
-.padding-content {
-  padding: 4px 0;
-}
-
-a:focus,
-a:active {
-  outline: none;
-}
-
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
 a,
-a:focus,
-a:hover {
-  cursor: pointer;
-  // color: inherit;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
   text-decoration: none;
-}
-
-div:focus {
-  outline: none;
-}
-
-.fr {
-  float: right;
-}
-
-.fl {
-  float: left;
-}
-
-.pr-5 {
-  padding-right: 5px;
-}
-
-.pl-5 {
-  padding-left: 5px;
-}
-
-.block {
-  display: block;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.inlineBlock {
-  display: block;
-}
-
-.clearfix {
-  &:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: ' ';
-    clear: both;
-    height: 0;
+  // border: none;
+  font-family: 'Microsoft Yahei', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  &:focus {
+    outline: none;
   }
 }
 
-.app-container {
-  padding: 20px;
+input[type='button'],
+input[type='submit'],
+input[type='search'],
+input[type='reset'] {
+  -webkit-appearance: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box; //改变盒模型的计算方式
+}
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.clear {
+  zoom: 1;
+}
+
+.rflex {
+  display: flex;
+  flex-direction: row; //水平
+}
+.cflex {
+  display: flex;
+  flex-direction: column; //垂直
+}
+.wflex {
+  flex: 1;
+}
+
+
+// 全局滚动条样式
+::-webkit-scrollbar {
+  width: 3px;
+  height: 10px;
+}
+//滚动条的滑块
+::-webkit-scrollbar-thumb {
+  background-color: #DBDBDB;
+  border-radius: 3px;
 }
