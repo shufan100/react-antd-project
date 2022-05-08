@@ -17,27 +17,24 @@ const Markdown = lazy(() => import('@/views/page/FormCom/Markdown'));
 const Menu2_1 = lazy(() => import('@/views/page/Nested/menu2-1'));
 const Menu3_1 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-1'));
 const Menu3_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-2'));
-const Menu4_1 = lazy(() =>
-  import('@/views/page/Nested/menu2-2/menu3-3/menu4-1')
-);
-const Menu4_2 = lazy(() =>
-  import('@/views/page/Nested/menu2-2/menu3-3/menu4-2')
-);
-// 之前的案例
+const Menu4_1 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-1'));
+const Menu4_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-2'));
+// 之前的案例（写法）
 const ContentDemo = lazy(() => import('@/views/page/Demo/ContentDemo'));
 const FunCom = lazy(() => import('@/views/page/Demo/FunCom'));
 const LifeCycle = lazy(() => import('@/views/page/Demo/LifeCycle'));
 
 // 导出，再注册组件
 const routeMap = [
+  // 一级路由
   { path: '/home', component: Home, roles: ['admin', 'editor', 'guest'] },
   { path: '/abouts', component: Abouts, roles: ['admin', 'editor', 'guest'] },
   { path: '/user', component: User, roles: ['admin', 'editor', 'guest'] },
-  //
+  //表单相关
   { path: '/formCom/table', component: Table, roles: ['admin'] },
   { path: '/formCom/form', component: Form, roles: ['editor'] },
   { path: '/formCom/markdown', component: Markdown, roles: ['guest'] },
-  //
+  // 嵌套路由
   {
     path: '/nested/Menu2_1',
     component: Menu2_1,
@@ -63,7 +60,7 @@ const routeMap = [
     component: Menu4_2,
     roles: ['admin', 'editor', 'guest'],
   },
-  //
+  //案例
   {
     path: '/Demo/ContentDemo',
     component: ContentDemo,

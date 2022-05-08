@@ -6,9 +6,9 @@ import Content from './Content';
 // import Tags from './Tags';
 class Home extends Component {
   state = {};
-  render () {
+  render() {
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ height: '100%' }}>
         <Sider />
         <Layout>
           <Header />
@@ -21,4 +21,3 @@ class Home extends Component {
 }
 
 export default Home;
-

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import Menu from './Menu';
+import NewMenu from './NewMenu';
 import Logo from './Logo';
 const { Sider } = Layout;
 class LayoutSider extends Component {
-  render () {
+  render() {
     const { sidebarCollapsed } = this.props;
     return (
       <Sider
@@ -14,9 +15,11 @@ class LayoutSider extends Component {
         trigger={null}
         width={200}
         style={{ zIndex: '10' }}
-        className="LayoutSider">
+        className="LayoutSider"
+      >
         <Logo />
-        <Menu />
+        {/* <Menu /> */}
+        <NewMenu />
       </Sider>
     );
   }

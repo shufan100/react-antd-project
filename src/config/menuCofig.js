@@ -104,7 +104,7 @@ const menuList = [
         roles: ['editor', 'guest'],
       },
       {
-        title: '函数组件',
+        title: '函数式组件',
         path: '/demo/funCom',
         roles: ['editor', 'guest'],
       },

@@ -1,18 +1,15 @@
 import request from '@/utils/request';
 
-export const getUser1 = data =>
-  request({
+export const getUser1 = data => request({
     url: `/search/users?q=${data}`,
     method: 'get',
   });
-export const getUser2 = () =>
-  request({
+export const getUser2 = () => request({
     url: '/search/users2',
     method: 'get',
   });
 
-export const getCars = () =>
-  request({
+export const getCars = () => request({
     url: '/cars',
     method: 'get',
   });
