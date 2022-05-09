@@ -5,7 +5,7 @@ import { Modal } from 'antd';
 //创建一个axios示例
 const service = axios.create({
   baseURL: '/api1', // api 的 base_url
-  timeout: 50000, // request timeout
+  timeout: 50000 // request timeout
 });
 
 // 请求拦截器

@@ -40,7 +40,7 @@ class LayoutContentClass extends Component {
     address: '中国北京。。。',
     count: 0,
     newsArr: [],
-    hasError: '',
+    hasError: ''
   };
   speak = param => {
     console.log('你点击了我！', param);
@@ -167,12 +167,12 @@ class LayoutContentClass extends Component {
         </div>
         {/*************************  事例+getSnapshotBeforeUpdate *****************************************************************/}
         {/* <div className='list' ref='list'> */}
-        <div className="list" ref={c => (this.listRef = c)}>
-          {this.state.newsArr.map((n, index) => (
+        <div className="list" ref={c => this.listRef = c}>
+          {this.state.newsArr.map((n, index) =>
             <div key={index} className="news">
               {n}
             </div>
-          ))}
+          )}
         </div>
 
         <JsxDemo />
@@ -238,14 +238,14 @@ LayoutContentFun.propTypes = {
   sex: PropTypes.string,
   age: PropTypes.number,
   address: PropTypes.string,
-  speak: PropTypes.func, //函数校验
+  speak: PropTypes.func //函数校验
 };
 //设置props默认值
 LayoutContentFun.defaultProps = {
   name: 'jerry',
   sex: '男',
   age: 20,
-  address: '美国旧金山。。。',
+  address: '美国旧金山。。。'
 };
 
 // connect用这个方法reducers才监听的到 666步

@@ -38,33 +38,33 @@ const routeMap = [
   {
     path: '/nested/Menu2_1',
     component: Menu2_1,
-    roles: ['admin', 'editor', 'guest'],
+    roles: ['admin', 'editor', 'guest']
   },
   {
     path: '/nested/menu2_2/menu3_1',
     component: Menu3_1,
-    roles: ['admin', 'editor', 'guest'],
+    roles: ['admin', 'editor', 'guest']
   },
   {
     path: '/nested/menu2_2/menu3_2',
     component: Menu3_2,
-    roles: ['admin', 'editor', 'guest'],
+    roles: ['admin', 'editor', 'guest']
   },
   {
     path: '/nested/menu2_2/menu3_3/menu4_1',
     component: Menu4_1,
-    roles: ['admin', 'editor', 'guest'],
+    roles: ['admin', 'editor', 'guest']
   },
   {
     path: '/nested/menu2_2/menu3_3/menu4_2',
     component: Menu4_2,
-    roles: ['admin', 'editor', 'guest'],
+    roles: ['admin', 'editor', 'guest']
   },
   //案例
   {
     path: '/Demo/ContentDemo',
     component: ContentDemo,
-    roles: ['editor', 'guest'],
+    roles: ['editor', 'guest']
   },
   { path: '/Demo/funCom', component: FunCom, roles: ['editor', 'guest'] },
   { path: '/Demo/lifeCycle', component: LifeCycle, roles: ['editor', 'guest'] },
@@ -72,7 +72,7 @@ const routeMap = [
   {
     path: '/error/404',
     component: Error404,
-    roles: ['admin', 'editor', 'guest'],
-  },
+    roles: ['admin', 'editor', 'guest']
+  }
 ];
 export default routeMap;

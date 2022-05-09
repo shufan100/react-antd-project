@@ -6,18 +6,18 @@ import {
   TeamOutlined,
   UserOutlined,
   SolutionOutlined,
-  ApartmentOutlined,
+  ApartmentOutlined
 } from '@ant-design/icons';
 import './index.less';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-function getItem(label, key, icon, children, type) {
+function getItem (label, key, icon, children, type) {
   return {
     key,
     icon,
     children,
     label,
-    type,
+    type
   };
 }
 const items = [
@@ -25,12 +25,12 @@ const items = [
   getItem('表单相关', 'formCom', <SolutionOutlined />, [
     getItem('表格', '/formCom/table'),
     getItem('表单', '/formCom/form'),
-    getItem('富文本', '/formCom/markdown'),
+    getItem('富文本', '/formCom/markdown')
   ]),
   getItem('案例', 'demo', <SolutionOutlined />, [
     getItem('写法', '/demo/contentDemo'),
     getItem('函数式组件', '/demo/funCom'),
-    getItem('生命周期', '/demo/lifeCycle'),
+    getItem('生命周期', '/demo/lifeCycle')
   ]),
   getItem('多级嵌套路由', 'nested', <ApartmentOutlined />, [
     getItem('菜单2-1', '/nested/menu2_1'),
@@ -39,12 +39,12 @@ const items = [
       getItem('菜单3-2', '/nested/menu2_2/menu3_2'),
       getItem('菜单3-3', 'menu3_3', null, [
         getItem('菜单4-1', '/nested/menu2_2/menu3_3/menu4_1'),
-        getItem('菜单4-2', '/nested/menu2_2/menu3_3/menu4_2'),
-      ]),
-    ]),
+        getItem('菜单4-2', '/nested/menu2_2/menu3_3/menu4_2')
+      ])
+    ])
   ]),
   getItem('用户管理', '/user', <TeamOutlined />),
-  getItem('作者', '/abouts', <UserOutlined />),
+  getItem('作者', '/abouts', <UserOutlined />)
 ];
 
 //
@@ -85,17 +85,17 @@ const NewMenu = () => {
 
   return (
     <div className="sidebar-menu-container1">
-      <Scrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
-        <span style={{ color: 'red' }}>{}</span>
-        <Menu
-          onClick={menuCick}
-          defaultSelectedKeys={[getDefaultSelectedKey()]}
-          defaultOpenKeys={defaultOpenKeys()}
-          mode="inline"
-          theme="dark" //light dark
-          items={items}
-        />
-      </Scrollbars>
+      {/* <Scrollbars autoHide autoHideTimeout={500} autoHideDuration={200}> */}
+      <span style={{ color: 'red' }}>{ }</span>
+      <Menu
+        onClick={menuCick}
+        defaultSelectedKeys={[getDefaultSelectedKey()]}
+        defaultOpenKeys={defaultOpenKeys()}
+        mode="inline"
+        theme="dark" //light dark
+        items={items}
+      />
+      {/* </Scrollbars> */}
     </div>
   );
 };

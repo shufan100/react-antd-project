@@ -66,7 +66,7 @@ class ReduxDemo extends Component {
         <List
           itemLayout="horizontal"
           dataSource={statelList}
-          renderItem={(item, index) => (
+          renderItem={(item, index) =>
             // 不设置key,循环就会拿索引，然后就会造成key混乱，然后虚拟dom赋值给input
             <List.Item key={item.id} style={{ backgroundColor: listIndex === index ? '#ddd' : '#fff' }} onMouseEnter={this.handleMouse(true, index)} onMouseLeave={this.handleMouse(false)}  >
               <input type="checkbox" checked={item.done} onChange={this.handleCheck(item.id)} />
@@ -78,10 +78,10 @@ class ReduxDemo extends Component {
 
               <button style={{ display: listIndex === index ? 'block' : 'none' }} onClick={() => this.deleteItem1(index)}>删除</button>
             </List.Item>
-          )
+
           } />
         <div>
-          <input type="checkbox" checked={(statelList.filter(i => i.done).length) === statelList.length ? true : false} onChange={this.handleCheckAll} />全选，
+          <input type="checkbox" checked={statelList.filter(i => i.done).length === statelList.length ? true : false} onChange={this.handleCheckAll} />全选，
           已选择{statelList.filter(i => i.done).length}，全部{statelList.length}
           <button onClick={this.handleCheckClear}>清除全选</button>
         </div>

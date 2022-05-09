@@ -13,7 +13,7 @@ const { SubMenu } = Menu;
 const Menus = props => {
   const [states, setStates] = useState({
     theme: 'dark', // 'light'
-    selectedKey: [],
+    selectedKey: []
   });
   // const history = useHistory();
 

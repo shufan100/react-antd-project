@@ -7,7 +7,7 @@ export const setTokenAction = (data) => ({
   data
 });
 export const removeTokenAction = () => ({
-  type: types.USER_REMOVE_TOKEN,
+  type: types.USER_REMOVE_TOKEN
 });
 
 export const resetInputAction = (value) => ({
@@ -18,29 +18,29 @@ export const resetInputAction = (value) => ({
 // 简写1：
 export const deleteItemAction = (index) => ({
   type: types.USER_DELETE_ITEM,
-  index,
+  index
 });
 export const editItemAction = (data) => ({
   type: types.USER_EDIT_ITEM,
-  data,
+  data
 });
 export const checkAllItemAction = (value) => ({
   type: types.USER_CHENCKALL_ITEM,
-  value,
+  value
 });
 
 // 求和
 export const addAction = (value) => ({
   type: types.USER_COUNT_ADD,
-  value,
+  value
 });
 export const subAction = (value) => ({
   type: types.USER_COUNT_SUB,
-  value,
+  value
 });
 export const paddAction = (value) => ({
   type: types.USER_COUNT_PADD,
-  value,
+  value
 });
 // 异步aciton：意思就是延迟加
 export const addAsyncAction = (time, value) =>

@@ -8,8 +8,8 @@ export default class Brouter extends Component {
     messageArr: [
       { id: '01', title: '消息1' },
       { id: '02', title: '消息2' },
-      { id: '03', title: '消息3' },
-    ],
+      { id: '03', title: '消息3' }
+    ]
   };
   // push
   pushShow = (id, title) => {
@@ -53,7 +53,7 @@ export default class Brouter extends Component {
       <div>
         <h2>二集路由 -- Brouter.......</h2>
         <ul>
-          {messageArr.map(i => (
+          {messageArr.map(i =>
             <li key={i.id}>
               {/* 1.路由组件params传参 */}
               {/* <Link to={`/demo/contentDemo/brouter/detail/${i.id}/${i.title}`}>{i.title}</Link>&nbsp; */}
@@ -66,7 +66,7 @@ export default class Brouter extends Component {
               {/* 3.路由组件state传参,replace替换当前/demo/contentDemo/brouter路由栈内存 */}
               {/* <Link to={{ pathname: '/demo/contentDemo/brouter/detail', state: { id: i.id, title22: i.title }, }} replace> {i.title}11 </Link> */}
             </li>
-          ))}
+          )}
         </ul>
 
         <hr />

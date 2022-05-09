@@ -1,0 +1,80 @@
+{
+  "editor.detectIndentation": false, //  vscode默认启用了根据文件类型自动设置tabsize的选项
+  "editor.tabSize": 2, // tab 大小为2个空格
+  "editor.wordWrapColumn": 300, // 200 列后换行
+  "editor.formatOnSave":  true, // 保存时格式化
+  "javascript.format.enable": true, // 编辑器默认的代码检查规则关闭
+  "editor.minimap.enabled": true, // 关闭右侧快速预览
+  "editor.fontSize": 14, //设置文字大小
+  "editor.lineHeight": 20, //设置文字行高
+  // prettier //
+  "prettier.semi": true, // #置语句末尾不加分号
+  "prettier.singleQuote": true, // #使用带引号替代双引号
+  "prettier.arrowParens": "avoid", // (x) => {} 箭头函数参数只有一个是否要有小括号。avoid：省略括号
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.bracketSpacing": true, // 在对象，数组括号与文字之间加空格 "{ foo: bar }"
+  // vetur //
+  // 选择 vue 文件中 template 的格式化工具
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "semi": true,//不加分号
+      "singleQuote": true, //用单引号,
+      "trailingComma": "none" // 禁止随时添加逗号
+    },
+    "js-beautify-html": {
+      "wrap_line_length": 300,
+      // 对属性进行换行。
+      // - auto: 仅在超出行长度时才对属性进行换行。
+      // - force: 对除第一个属性外的其他每个属性进行换行。
+      // - force-aligned: 对除第一个属性外的其他每个属性进行换行，并保持对齐。
+      // - force-expand-multiline: 对每个属性进行换行。
+      // - aligned-multiple: 当超出折行长度时，将属性进行垂直对齐。
+      "wrap_attributes": "auto",
+      "end_with_newline": true
+    }
+  },
+  // #让函数(名)和后面的括号之间加个空格
+  "vetur.format.defaultFormatter.js": "vscode-typescript", //加这个有空格，但去不了引号
+  // #在保存时，自动调整 import 语句相关顺序，能够让 import 语句按照字母顺序进行排列
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  // 开启对.vue 等文件的检查
+  "eslint.validate": [
+    "javascript",
+    // "javascriptreact",
+    "html",
+    "vue",
+    "typescript"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDelete": false,
+//   "explorer.confirmDelete": false,
+//   // "turboConsoleLog.logMessagePrefix": "@@@",
+//   // "turboConsoleLog.quote": "'",
+//   // "turboConsoleLog.insertEnclosingClass": false,
+//   // "turboConsoleLog.insertEnclosingFunction": false,
+}
+
+
+
+
+
+
+
+
+

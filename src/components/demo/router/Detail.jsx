@@ -12,8 +12,8 @@ class DetailDemo extends Component {
     DetailsData: [
       { id: '01', content: '你好  中国' },
       { id: '02', content: '你好  江西' },
-      { id: '03', content: '你好  鹰潭' },
-    ],
+      { id: '03', content: '你好  鹰潭' }
+    ]
   };
   render () {
     // console.log(

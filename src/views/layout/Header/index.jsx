@@ -11,7 +11,7 @@ import { toggleSiderBar, toggleAsyncSiderBar, setTitleAction, removeTokenAction 
 import Icons from '@/components/Icons'; // 动态icon
 import FullScreen from '@/components/FullScreen'; //全屏
 
-const { Header } = Layout;;
+const { Header } = Layout;
 
 
 const LayoutHeader = props => {
@@ -41,12 +41,12 @@ const LayoutHeader = props => {
         },
         onCancel () {
           console.log('Cancel');
-        },
+        }
       });
     }
   };
 
-  const menu = (
+  const menu =
     <Menu onClick={dropdownClick} >
       <Menu.Item key="home"><Link to="/">首页</Link></Menu.Item>
       {/* <Menu.Item key="project">
@@ -60,7 +60,7 @@ const LayoutHeader = props => {
       {/* <Menu.Divider /> */}
       <Menu.Item key="logout">注销</Menu.Item>
     </Menu>
-  );
+    ;
   return (
     <Header className='hedaer-container'>
       <div >
@@ -86,7 +86,7 @@ const LayoutHeader = props => {
 // 第2步
 const stateProps = state => ({
   ...state.app,
-  ...state.user,
+  ...state.user
 });
 const getActions = () => ({
   toggleSiderBar,

@@ -11,14 +11,14 @@ class PropsDemo extends Component {
     sex: PropTypes.string, //不必传
     age: PropTypes.number, //不必传
     address: PropTypes.string, //不必传
-    speak: PropTypes.func,  //不必传，函数校验
+    speak: PropTypes.func  //不必传，函数校验
   };
   // 不传设置默认值
   static defaultProps = {
     name: 'jerry',
     sex: '男',
     age: 20,
-    address: '美国旧金山。。。',
+    address: '美国旧金山。。。'
   };
 
 

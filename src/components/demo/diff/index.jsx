@@ -3,8 +3,8 @@ class DiffDemo extends Component {
   state = {
     personList: [
       { id: 1, name: '小子', age: 18 },
-      { id: 2, name: '小李', age: 19 },
-    ],
+      { id: 2, name: '小李', age: 19 }
+    ]
   }
 
   addPerson = () => {

@@ -4,7 +4,7 @@ class JsxDemo extends Component {
   state = {
     isShow: true,
     list: ['Angular', 'React', 'Vue'],
-    hasError: null,
+    hasError: null
   };
 
   // 错误边界：生命周期函数，一旦后代组件发生错误就会触发(只是用生产环境)
@@ -19,7 +19,7 @@ class JsxDemo extends Component {
   setShow = () => {
     // 严重注意：state必须通过setState进行更新，且更新的动作好是合并
     this.setState({
-      isShow: !this.state.isShow,
+      isShow: !this.state.isShow
     });
     // this.props.speak('子组件传的参数'); //props传入的函数
   };

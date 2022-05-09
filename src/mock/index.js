@@ -22,6 +22,6 @@ const users = {
     avatar: require('../assets/images/avatar-3.png'),
     description: '仅能看到Dashboard、开发文档、权限测试和关于作者四个页面',
     address: '地址'
-  },
+  }
 };
 export const getUserInfo = (username) => users[username];

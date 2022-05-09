@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Divider } from 'antd';
+import { Divider, Row, Col } from 'antd';
 import './index.less';
+
 class Shopping extends Component {
   /**  18版本后将要废弃的生命周期钩子
  
@@ -75,23 +76,30 @@ class Shopping extends Component {
 
   // 3新生命周期的钩子（卸载）：componentWillUnmount-组件将要卸载
 
-  // 强制刷新
+  // 强制刷新  
   force = () => {
     this.forceUpdate();
   };
   // 数据新增
   add = () => {
-    this.setState({ count1: this.state.count1 + 1 });
+    this.setState({ count1: this.state.count1 + 1 })
+    let b = {
+      a: 11
+    }
   };
   render () {
     return (
-      <div className='LifeCycle'>
+      <div className="LifeCycle">
         <h1>生命周期</h1>
-
         <span>总数：{this.state.count1}</span><button onClick={this.add}>+1(state更新)</button>
         <br />
         <button onClick={this.force}>不改状态，强制更新(强制刷新)</button>
         <Divider>生命周期(新)</Divider>
+        {/* <Row>
+          <Col span={8}>col-8</Col>    
+          <Col span={8} offset={8}>   111rwrwrwrwrr </Col>
+        </Row> */}
+        <div></div>
         <ul>
           <li>
             <h2>初始化</h2>

@@ -10,7 +10,7 @@ export const setCodeAction = () => ({
   type: types.APP_SET_CODE
 });
 export const setTitleAction = (titleVal) => ({
-  type: types.APP_SET_TITLE,
+  type: types.APP_SET_TITLE
 });
 
 //  异步action方法，就是指action的值为函数

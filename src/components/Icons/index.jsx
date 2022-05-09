@@ -44,7 +44,7 @@ Icons.propTypes = {
   left: PropTypes.number,
   right: PropTypes.number,
   toolTitle: PropTypes.string, //文字提示
-  click: PropTypes.func, //函数校验
+  click: PropTypes.func //函数校验
 };
 // 设置props默认值
 Icons.defaultProps = {

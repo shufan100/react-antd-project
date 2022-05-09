@@ -6,15 +6,11 @@ import NewMenu from './NewMenu';
 import Logo from './Logo';
 const { Sider } = Layout;
 class LayoutSider extends Component {
-  render() {
+  render () {
     const { sidebarCollapsed } = this.props;
     return (
-      <Sider
-        collapsible
-        collapsed={sidebarCollapsed}
-        trigger={null}
-        width={200}
-        style={{ zIndex: '10' }}
+      <Sider collapsible collapsed={sidebarCollapsed} trigger={null}
+        width={200} style={{ zIndex: '10' }}
         className="LayoutSider"
       >
         <Logo />
@@ -25,6 +21,6 @@ class LayoutSider extends Component {
   }
 }
 const mapStateToProps = state => ({
-  ...state.app,
+  ...state.app
 });
 export default connect(mapStateToProps)(LayoutSider);

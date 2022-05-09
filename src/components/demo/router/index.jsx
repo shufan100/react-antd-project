@@ -7,7 +7,7 @@ import {
   Route,  // 注册路由
   Switch, // 包裹了多个路由，url和路由path匹配，只渲染匹配到的路由，就停止匹配
   Redirect, //路由重定向
-  withRouter, //给一般组件加上路由的3大属性
+  withRouter //给一般组件加上路由的3大属性
 } from 'react-router-dom';
 import './index.scss';
 

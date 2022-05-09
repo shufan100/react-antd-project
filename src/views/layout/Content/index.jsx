@@ -4,7 +4,7 @@ import {
   Redirect,
   Switch,
   useHistory,
-  withRouter,
+  withRouter
 } from 'react-router-dom';
 import { Layout } from 'antd';
 import './index.less';
@@ -30,13 +30,13 @@ const LayoutContent = props => {
         {/* Switch的location：用于缓存路由 */}
         <Switch location={props.location}>
           <Redirect exact from="/" to="/home" />
-          {routeMap.map(item => (
+          {routeMap.map(item =>
             <Route
               key={item.path}
               path={item.path}
               component={item.component}
             />
-          ))}
+          )}
           <Redirect to="/error/404" />
         </Switch>
       </Suspense>

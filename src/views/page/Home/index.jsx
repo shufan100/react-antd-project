@@ -3,16 +3,15 @@ import { getUser1, getUser2, getCars } from '@/api';
 import axios from 'axios';
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
-export default function Home() {
+export default function Home () {
   const [states, setStates] = useState({
-    list: [],
+    list: []
   });
-  useEffect(
-    () =>
-      // console.log('组件已经挂载');
-      () => {
-        console.log('卸载组件前');
-      },
+  useEffect(() =>
+    // console.log('组件已经挂载');
+    () => {
+      console.log('卸载组件前');
+    },
     []
   );
 
@@ -54,7 +53,7 @@ export default function Home() {
   // 发起axios请求
   const getAxios = e => {
     axios.get(`/api1/search/users?q=${'1'}`, {
-      cancelToken: source.token,
+      cancelToken: source.token
     });
   };
   // 取消axios请求

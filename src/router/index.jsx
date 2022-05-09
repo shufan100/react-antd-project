@@ -4,7 +4,7 @@ import {
   HashRouter,
   Route,
   Switch,
-  Redirect,
+  Redirect
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { getUserInfo } from '@/store/actions';
