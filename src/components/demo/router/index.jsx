@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Link, // 便签路由
+  // Link, // 便签路由
   NavLink, // 标签路由，比Link高级一点，可带选中样式
-  BrowserRouter, // histtory路由带#
-  HashRouter, // hash路由不带#
+  // BrowserRouter, // histtory路由带#
+  // HashRouter, // hash路由不带#
   Route,  // 注册路由
   Switch, // 包裹了多个路由，url和路由path匹配，只渲染匹配到的路由，就停止匹配
   Redirect, //路由重定向

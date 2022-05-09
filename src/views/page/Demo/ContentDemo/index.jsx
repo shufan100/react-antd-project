@@ -54,7 +54,7 @@ class LayoutContentClass extends Component {
   };
   // 对象式setState：如果新状态不依赖于原状态，比如点击直接等于99
   addCount = () => {
-    const { count } = this.state;
+    // const { count } = this.state;
     this.setState({ count: 99 });
   };
   // 函数式setState：如果新状态依赖于原状态 ===> 使用函数方式，修改原来的数据

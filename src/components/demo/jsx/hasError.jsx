@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 class HasErrorDemo extends React.Component {
   state = {
     list: [1, 2, 3]

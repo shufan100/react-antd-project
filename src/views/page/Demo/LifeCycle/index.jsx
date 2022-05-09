@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Divider, Row, Col } from 'antd';
 import './index.less';
+import oldLife from '@/assets/images/oldLife.png'
+import newLife from '@/assets/images/newLife.png'
 
 class Shopping extends Component {
   /**  18版本后将要废弃的生命周期钩子
@@ -25,9 +27,9 @@ class Shopping extends Component {
   // (新增)初始化和更新都会走：若state的值在任何时候都取决于props,那么可以使用这个生命周期钩子
   // 需要返回值：1.state状态，2：null
   static getDerivedStateFromProps (props, state) {
-    console.log('getDerivedStateFromProps');
+    console.log('getDerivedStateFromProps--组件state的值任何时候都取决于props');
     // 作用：适用于罕见的用例，state的值任何时候都取决于props,
-    return state;
+    return null;
     // return { count1: 99 }; //返回状态对象就改不了
   }
   /**  1组件挂载完成(和Vue的mounted) */
@@ -83,44 +85,84 @@ class Shopping extends Component {
   // 数据新增
   add = () => {
     this.setState({ count1: this.state.count1 + 1 })
-    let b = {
-      a: 11
-    }
   };
   render () {
+    console.log('render')
     return (
       <div className="LifeCycle">
-        <h1>生命周期</h1>
+        <h1>类式组件生命周期</h1>
         <span>总数：{this.state.count1}</span><button onClick={this.add}>+1(state更新)</button>
-        <br />
         <button onClick={this.force}>不改状态，强制更新(强制刷新)</button>
-        <Divider>生命周期(新)</Divider>
-        {/* <Row>
-          <Col span={8}>col-8</Col>    
-          <Col span={8} offset={8}>   111rwrwrwrwrr </Col>
-        </Row> */}
-        <div></div>
-        <ul>
-          <li>
-            <h2>初始化</h2>
+        <Row>
+          <Col span={11}>
+            <h2>生命周期(旧)</h2>
+            <img src={oldLife} alt="" />
             <div>
+              <h3>初始化：</h3>
+              constructor<br />
+              1、componentWillMount--组件将要挂载<br />
+              render<br />
+              2、componentDidMount--组件挂载完毕<br />
+            </div><br />
 
-            </div>
-          </li>
-          <li>
-            <h2>初始化</h2>
             <div>
+              <h3>更新：</h3>
+              1、componentWillReceiveProps<br />
+              2、shouldComponentUpdate--(阀门)<br />
+              3、componentWillUpdate--组件将要更新<br />
+              render<br />
+              4、componentDidUpdate--组件更新（完毕）<br />
+              注：强刷不走阀门
+            </div><br />
 
-            </div>
-          </li>
-          <li>
-            <h2>卸载</h2>
             <div>
-              componentWillUnmount
+              <h3>卸载：</h3>
+              componentWillUnmount--卸载组件前
+            </div><br />
+
+            <div>
+              <h3>18版本废弃钩子：</h3>
+              componentWillReceiveProps<br />
+              componentWillMount--将要挂载<br />
+              componentWillUpdate--将要更新<br />
+            </div><br />
+          </Col>
+          <Col span={11} offset={2}>
+            <h2>生命周期(新)</h2>
+            <img src={newLife} alt="" />
+            <div>
+              <h3>初始化：</h3>
+              constructor<br />
+              {/* 适用于罕见的用例，返回对象或null */}
+              1、static getDerivedStateFromProps--组件state的值任何时候都取决于props<br />
+              render<br />
+              2、componentDidMount--组件挂载完毕<br />
+            </div><br />
+
+            <div>
+              <h3>更新：</h3>
+              1、static getDerivedStateFromProps--组件state的值任何时候都取决于props<br />
+              2、shouldComponentUpdate--(阀门)<br />
+              render<br />
+              {/* 组件在更新DOM之前触发，捕获到一些信息，返回值将作为参数传递给componentDidUpdate */}
+              3、getSnapshotBeforeUpdate--组件在更新DOM之前触发...<br />
+              4、componentDidUpdate--组件更新（完毕）<br />
+              注：强刷不走阀门
+            </div><br />
+
+            <div>
+              <h3>卸载：</h3>
+              componentWillUnmount--卸载组件前
+            </div><br />
+
+            <div>
+              <h3>18版本新增钩子：</h3>
+              static getDerivedStateFromProps--数据全部取决props<br />
+              getSnapshotBeforeUpdate--数据更新，DOM更新之前<br />
             </div>
-          </li>
-        </ul>
-        <h2>
+          </Col>
+        </Row>
+        {/* <h2>
           1新生命周期的钩子（初始化）：
           constructor-构造函数 &gt;
           getDerivedStateFromProps-新增钩子 &gt;
@@ -133,7 +175,7 @@ class Shopping extends Component {
         * shouldComponentUpdate(阀门) & gt;
         * render - 渲染 & gt;
         * getSnapshotBeforeUpdate - 新增钩子 & gt;
-        * componentDidUpdate--组件更新完成
+        * componentDidUpdate--组件更新完成 */}
       </div >
     );
   }

@@ -16,7 +16,7 @@ const { Content } = Layout;
 const LayoutContent = props => {
   const [routeName, setRouteName] = useState('/home');
   const history = useHistory();
-  console.log(routeMap, 'routeMap');
+  // console.log(routeMap, 'routeMap');
   useEffect(() => {
     // setRouteName(history.location.pathname);
   }, []);
