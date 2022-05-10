@@ -80,25 +80,31 @@ const menuList = [
   },
   {
     label: '案例',
-    key: '/demo',
+    key: 'demo',
     icon: <AppstoreAddOutlined />,
     roles: ['admin', 'editor', 'guest'],
     children: [
       {
-        label: '写法',
-        key: '/demo/contentDemo'
+        label: '类式组件写法',
+        key: '/demo/classWriting'
       },
       {
-        label: '函数式组件',
-        key: '/demo/funCom'
+        label: '函数式组件写法',
+        key: '/demo/funWriting'
       },
       {
-        label: '生命周期(类)',
-        key: '/demo/lifeCycleClass'
-      },
-      {
-        label: '生命周期(函数)',
-        key: '/demo/lifeCycleFun'
+        label: '生命周期',
+        key: 'lifeCycle',
+        children: [
+          {
+            label: '生命周期(类)',
+            key: '/demo/lifeCycle/lifeCycleClass'
+          },
+          {
+            label: '生命周期(函数)',
+            key: '/demo/lifeCycle/lifeCycleFun'
+          }
+        ]
       }
     ]
   },

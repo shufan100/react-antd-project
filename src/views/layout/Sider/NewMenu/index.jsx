@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Menu } from 'antd';
@@ -8,7 +8,6 @@ import menuCofig from '@/config/menuCofig'
 const NewMenu = () => {
   const history = useHistory();
   const location = useLocation();
-  // const [defaultSelectedKey, setDefaultSelectedKeys] = useState('/home');
 
   // 初始化设置选中的父级菜单
   const defaultOpenKeys = () => {
@@ -24,28 +23,12 @@ const NewMenu = () => {
     }
   };
   // 初始化菜单选中
-  const getDefaultSelectedKey = () =>
-    location.pathname === '/' ? '/home' : location.pathname;
-  // 函数式的生命周期
-  useEffect(() => {
-    // 组件挂载完成 componentDidMount
-    window.console.log(history.location.pathname, location.pathname);
-    return () => {
-      //组件卸载前componentWillUnmount
-    };
-  }, []);
-  // 路由跳转
-  const menuCick = e => {
-    // window.console.log(e, history);
-    history.push(e.key);
-  };
-
+  const getDefaultSelectedKey = () => location.pathname === '/' ? '/home' : location.pathname;
   return (
     <div className="sidebar-menu-container1">
       <Scrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
-        <span style={{ color: 'red' }}>{ }</span>
         <Menu
-          onClick={menuCick}
+          onClick={e => { console.log(e.key); history.push(e.key) }} // 路由跳转
           defaultSelectedKeys={[getDefaultSelectedKey()]}
           defaultOpenKeys={defaultOpenKeys()}
           mode="inline"

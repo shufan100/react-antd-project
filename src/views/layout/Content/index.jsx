@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import {
   Route,
   Redirect,
@@ -14,12 +14,7 @@ const { Content } = Layout;
 
 // 这里注册路由（react-router-dom)5.0版本为例：
 const LayoutContent = props => {
-  const [routeName, setRouteName] = useState('/home');
   const history = useHistory();
-  // console.log(routeMap, 'routeMap');
-  useEffect(() => {
-    // setRouteName(history.location.pathname);
-  }, []);
 
   return (
     <Content

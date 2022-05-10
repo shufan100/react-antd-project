@@ -20,10 +20,10 @@ const Menu3_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-2'));
 const Menu4_1 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-1'));
 const Menu4_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-2'));
 // 之前的案例（写法）
-const ContentDemo = lazy(() => import('@/views/page/Demo/ContentDemo'));
-const FunCom = lazy(() => import('@/views/page/Demo/FunCom'));
-const LifeCycleClass = lazy(() => import('@/views/page/Demo/LifeCycleClass'));
-const LifeCycleFun = lazy(() => import('@/views/page/Demo/LifeCycleFun'));
+const ClassWriting = lazy(() => import('@/views/page/Demo/ClassWriting'));
+const FunWriting = lazy(() => import('@/views/page/Demo/FunWriting'));
+const LifeCycleClass = lazy(() => import('@/views/page/Demo/LifeCycle/LifeCycleClass'));
+const LifeCycleFun = lazy(() => import('@/views/page/Demo/LifeCycle/LifeCycleFun'));
 
 // 导出，再注册组件
 const routeMap = [
@@ -62,10 +62,10 @@ const routeMap = [
     roles: ['admin', 'editor', 'guest']
   },
   //案例
-  { path: '/Demo/ContentDemo', component: ContentDemo, roles: ['editor', 'guest'] },
-  { path: '/Demo/funCom', component: FunCom, roles: ['editor', 'guest'] },
-  { path: '/Demo/LifeCycleClass', component: LifeCycleClass, roles: ['editor', 'guest'] },
-  { path: '/Demo/LifeCycleFun', component: LifeCycleFun, roles: ['editor', 'guest'] },
+  { path: '/Demo/classWriting', component: ClassWriting, roles: ['editor', 'guest'] },
+  { path: '/Demo/funWriting', component: FunWriting, roles: ['editor', 'guest'] },
+  { path: '/Demo/lifeCycle/LifeCycleClass', component: LifeCycleClass, roles: ['editor', 'guest'] },
+  { path: '/Demo/lifeCycle/LifeCycleFun', component: LifeCycleFun, roles: ['editor', 'guest'] },
   //
   {
     path: '/error/404',

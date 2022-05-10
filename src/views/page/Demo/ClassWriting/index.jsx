@@ -9,16 +9,16 @@ import { Button } from 'antd';
 import './index.scss';
 
 // 引用事例
-import AaxiosDemo from '@/components/demo/axios/Aaxios';
-import BaxiosDemo from '@/components/demo/axios/Baxios';
-import ReduxDemo from '@/components/demo/redux';
-import ReduxDemo2 from '@/components/demo/redux/index2';
-import RefDemo from '@/components/demo/ref';
-import DiffDemo from '@/components/demo/diff';
-import ClickDemo from '@/components/demo/click';
-import PropsDemo from '@/components/demo/props';
-import JsxDemo from '@/components/demo/jsx';
-import RouterDemo from '@/components/demo/router';
+// import JsxDemo from './components/jsx';
+// import AaxiosDemo from ' components/axios/Aaxios.jsx';
+// import BaxiosDemo from './components/axios/Baxios.jsx';
+// import ReduxDemo from './components/redux';
+// import ReduxDemo2 from './components/redux/index2';
+// import RefDemo from './components/ref';
+// import DiffDemo from './components/diff';
+// import ClickDemo from './components/click';
+// import PropsDemo from './components/props';
+// import RouterDemo from './components/router';
 
 
 // ---------------------------------类式组件-----------------------------------------------------------
@@ -70,21 +70,7 @@ class LayoutContentClass extends Component {
   force = () => {
     this.forceUpdate();
   };
-  /**  18版本后将要废弃的生命周期钩子
- 
-    子组件 props更新触发的生命周期的钩子（第一次传不会触发
-    componentWillReceiveProps (props) {
-      console.log('Content-componentWillReceiveProps', props);
-    }
-    组件将要挂载的钩子
-    componentWillMount () {
-      console.log('Content-componentWillMount');
-    }
-    组件将要更新生命周期钩子
-    componentWillUpdate () {
-      console.log('Content-componentWillUpdate');
-    }
- */
+
 
   // （阀门）控制组件更新的阀门; state状态改变触发的生命周期钩子
   // (开发不用写，使用PureComponent代替，会自动给我们匹配)
@@ -108,11 +94,11 @@ class LayoutContentClass extends Component {
     //   if (opacity <= 0) opacity = 1;
     //   this.setState({ opacity });
     // }, 1000);
-    // this.timer2 = setInterval(() => {
-    //   const { newsArr } = this.state;
-    //   const news = `新闻${newsArr.length + 1}`;
-    //   this.setState({ newsArr: [news, ...newsArr] });
-    // }, 1000);
+    this.timer2 = setInterval(() => {
+      const { newsArr } = this.state;
+      const news = `新闻${newsArr.length + 1}`;
+      this.setState({ newsArr: [news, ...newsArr] });
+    }, 1000);
   }
   // (新增) 当组件的数据完全使用props传递进来的才用的生命周期钩子
   static getDerivedStateFromProps (props, state) {
@@ -147,16 +133,14 @@ class LayoutContentClass extends Component {
     // render中的this —— LayoutContent的实例对象
     const { opacity } = this.state;
     return (
-      //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOM转成真正的html标签，变成真实dom显示在页面
-      /** */ <div className="layoutContent" id='LayoutContentClass'>
-        <h1 style={{ color: 'red', textAlign: 'center' }}>类式组件</h1>
+      //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOMx渲染成真实的html标签显示在页面
+      <div className="layoutContent" id='LayoutContentClass'>
+        <h1 style={{ color: 'red', textAlign: 'center' }}>类式组件写法</h1>
 
         {/************************* 生命周期 *****************************************************************/}
         <div>
-          <h2 style={{ opacity: opacity }}>react学不会怎么办？</h2>
-          <Button type="primary" onClick={this.death}>
-            不活了、卸载组件
-          </Button>
+          <h2 style={{ opacity: opacity }}>react写法----</h2>
+          <Button type="primary" onClick={this.death}>不活了、卸载组件</Button>
         </div>
         <div>
           <h2>当前求和{this.state.count}</h2>
@@ -175,24 +159,24 @@ class LayoutContentClass extends Component {
           )}
         </div>
 
-        <JsxDemo />
+        {/* <JsxDemo /> */}
 
         {/* 批量props传值：展开运算符的写法是一个个写的语法糖 */}
-        <PropsDemo age={18} name="tom" {...this.state} speak={this.speak} />
+        {/* <PropsDemo age={18} name="tom" {...this.state} speak={this.speak} />
 
         <ClickDemo />
 
         <DiffDemo />
 
-        <RefDemo />
+        <RefDemo /> */}
 
-        <AaxiosDemo />
-        <BaxiosDemo />
+        {/* <AaxiosDemo /> */}
+        {/* <BaxiosDemo /> */}
 
-        <RouterDemo />
+        {/* <RouterDemo /> */}
 
-        <ReduxDemo />
-        <ReduxDemo2 />
+        {/* <ReduxDemo />
+        <ReduxDemo2 /> */}
       </div>
     );
   }

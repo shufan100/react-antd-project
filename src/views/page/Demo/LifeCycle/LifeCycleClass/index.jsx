@@ -20,7 +20,12 @@ class Shopping extends Component {
     }
  */
 
-  state = { count1: 1 };
+  state = {
+    count1: 1,
+    opacity: 1,
+    colors: 'red',
+    date: ''
+  };
 
   // --两个新增的生命周期钩子返回null就是什么事都不做--
 
@@ -36,6 +41,8 @@ class Shopping extends Component {
   /**  1组件挂载完成(和Vue的mounted) */
   componentDidMount () {
     console.log('componentDidMount--组件挂载完成');
+    this.init()
+    this.initDate()
   }
 
   // （阀门）控制组件更新的阀门; state状态改变触发的生命周期钩子
@@ -62,7 +69,7 @@ class Shopping extends Component {
   componentWillUnmount () {
     console.log('componentWillUnmount--组件将要卸载');
   }
-
+  // --------------------------------------------------------------------------
   // 强制刷新  
   force = () => {
     this.forceUpdate();
@@ -71,13 +78,53 @@ class Shopping extends Component {
   add = () => {
     this.setState({ count1: this.state.count1 + 1 })
   };
+  init = (e) => {
+    this.timer = setInterval(() => {
+      let { opacity, colors } = this.state;
+      opacity -= 0.1;
+      if (opacity < 0.8) colors = '#000'
+      if (opacity < 0.1) {
+        opacity = 1;
+        colors = 'red'
+      }
+      this.setState({ opacity, colors }) //简写
+    }, 200)
+  };
+  initDate = () => {
+    this.timer1 = setInterval(() => {
+      let dates = new Date()
+      const y = dates.getFullYear()
+      const m = dates.getMonth() + 1
+      const d = dates.getDate()
+      const hh = dates.getHours()
+      const mm = dates.getMinutes()
+      const ss = dates.getSeconds()
+      let str = `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+      this.setState({ date: str })//常规
+    }, 1000)
+  }
+  // 清除计时器
+  clear = (e) => {
+    clearInterval(this.timer)
+    clearInterval(this.timer1)
+  };
+
   render () {
     console.log('render')
+    const { opacity, colors, date } = this.state;
     return (
-      <div className="LifeCycle">
-        <h1>类式组件生命周期</h1>
-        <span>总数：{this.state.count1}</span><button onClick={this.add}>+1(state更新)</button>
-        <button onClick={this.force}>不改状态，强制更新(强制刷新)</button><br />
+      <div className="LifeCycleClass">
+        <h1>生命周期(类)</h1>
+        <span>总数：{this.state.count1}</span> &nbsp;
+        <button onClick={this.add}>+1(state更新)</button> &nbsp;
+        <button onClick={() => this.forceUpdate()}>不改状态，强制更新(强制刷新)</button><br /> &nbsp;
+
+        <div>
+          <h3>Demo</h3>
+          <span style={{ opacity: opacity, color: colors }}>DEMODEMODEMODEMODEMODEMODEMO</span>
+          <span>时间：{date}</span>
+          <button onClick={() => this.clear()}>清除计数器</button>
+        </div> &nbsp;
 
         <Row>
           <Col span={11}>
@@ -148,6 +195,8 @@ class Shopping extends Component {
             </div>
           </Col>
         </Row>
+
+
       </div >
     );
   }

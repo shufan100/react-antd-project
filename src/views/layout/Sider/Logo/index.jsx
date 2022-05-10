@@ -9,7 +9,7 @@ const Logo = props => {
   return (
     <div className="sidebar-logo-container">
       <img src={logo} className="sidebar-logo" alt="logo" />
-      <h1 className="sidebar-title">{isTitle?'舒梵-React':'SHUFAN-REACT'}</h1>
+      <h2 className="sidebar-title">{isTitle ? '舒梵-React' : 'SHUFAN-REACT'}</h2>
     </div>
   );
 };

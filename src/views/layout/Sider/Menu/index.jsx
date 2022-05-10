@@ -4,7 +4,7 @@ import { Link, withRouter, useHistory } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import { Menu } from 'antd';
-import menuList from '@/config/menuCofig';
+import menuList from '@/config/oldmenuCofig';
 import Icons from '@/components/Icons'; // 动态icon
 import './index.less';
 
