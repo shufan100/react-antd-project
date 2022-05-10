@@ -2,89 +2,75 @@
  * icon:菜单项图标
  * roles:标明当前菜单项在何种角色下可以显示，如果不写此选项，表示该菜单项完全公开，在任何角色下都显示
  */
+// import Icons from '@/components/Icons'; // 动态icon
+import {
+  DesktopOutlined,
+  TeamOutlined,
+  UserOutlined,
+  SolutionOutlined,
+  AppstoreAddOutlined,
+  ApartmentOutlined
+} from '@ant-design/icons';
 const menuList = [
   {
-    title: '首页',
-    path: '/home',
-    icon: 'DesktopOutlined',
-    'roles': ['admin', 'editor', 'guest']
+    key: '/home',
+    label: '首页',
+    icon: <DesktopOutlined />,
+    roles: ['admin', 'editor', 'guest']
   },
   {
-    title: '表单相关',
-    path: '/formCom',
-    icon: 'SolutionOutlined',
+    label: '表单相关',
+    key: 'formCom',
+    icon: <SolutionOutlined />,
     roles: ['admin', 'editor'],
     children: [
       {
-        title: '表格',
-        path: '/formCom/table',
-        roles: ['admin']
+        label: '表格',
+        key: '/formCom/table'
       },
       {
-        title: '表单',
-        path: '/formCom/form',
-        roles: ['editor']
+        label: '表单',
+        key: '/formCom/form'
       },
       {
-        title: '富文本',
-        path: '/formCom/markdown',
-        roles: ['guest']
+        label: '富文本',
+        key: '/formCom/markdown'
       }
     ]
   },
   {
-    title: '路由嵌套',
-    path: '/nested',
-    icon: 'ApartmentOutlined',
+    label: '路由嵌套',
+    key: 'nested',
+    icon: <ApartmentOutlined />,
     roles: ['admin', 'editor'],
     children: [
       {
-        title: '菜单2-1',
-        path: '/nested/menu2_1',
-        parentPath: '/nested',
-        roles: ['admin']
+        label: '菜单2-1',
+        key: '/nested/menu2_1'
       },
       {
-        title: '菜单2-2',
-        path: '/nested/menu2_2',
-        roles: ['admin'],
+        label: '菜单2-2',
+        key: 'menu2_2',
         children: [
           {
-            title: '菜单3-1',
-            path: '/nested/menu2_2/menu3_1',
-            parentPath: ['/nested', '/nested/menu2_2'],
-            roles: ['admin']
+            label: '菜单3-1',
+            key: '/nested/menu2_2/menu3_1'
           },
           {
-            title: '菜单3-2',
-            path: '/nested/menu2_2/menu3_2',
-            parentPath: ['/nested', '/nested/menu2_2'],
-            roles: ['admin']
+            label: '菜单3-2',
+            key: '/nested/menu2_2/menu3_2'
           },
           {
-            title: '菜单3-3',
-            path: '/nested/menu2_2/menu3_3',
-            roles: ['admin'],
+            label: '菜单3-3',
+            key: 'menu3_3',
             children: [
               {
-                title: '菜单4-1',
-                path: '/nested/menu2_2/menu3_3/menu4_1',
-                parentPath: [
-                  '/nested',
-                  '/nested/menu2_2',
-                  '/nested/menu2_2/menu3_3'
-                ],
-                roles: ['admin']
+                label: '菜单4-1',
+                key: '/nested/menu2_2/menu3_3/menu4_1'
               },
               {
-                title: '菜单4-2',
-                path: '/nested/menu2_2/menu3_3/menu4_2',
-                parentPath: [
-                  '/nested',
-                  '/nested/menu2_2',
-                  '/nested/menu2_2/menu3_3'
-                ],
-                roles: ['admin']
+                label: '菜单4-2',
+                key: '/nested/menu2_2/menu3_3/menu4_2'
               }
             ]
           }
@@ -93,38 +79,39 @@ const menuList = [
     ]
   },
   {
-    title: '案例',
-    path: '/demo',
-    icon: 'AppstoreAddOutlined',
+    label: '案例',
+    key: '/demo',
+    icon: <AppstoreAddOutlined />,
     roles: ['admin', 'editor', 'guest'],
     children: [
       {
-        title: '写法',
-        path: '/demo/contentDemo',
-        roles: ['editor', 'guest']
+        label: '写法',
+        key: '/demo/contentDemo'
       },
       {
-        title: '函数式组件',
-        path: '/demo/funCom',
-        roles: ['editor', 'guest']
+        label: '函数式组件',
+        key: '/demo/funCom'
       },
       {
-        title: '生命周期',
-        path: '/demo/lifeCycle',
-        roles: ['editor', 'guest']
+        label: '生命周期(类)',
+        key: '/demo/lifeCycleClass'
+      },
+      {
+        label: '生命周期(函数)',
+        key: '/demo/lifeCycleFun'
       }
     ]
   },
   {
-    title: '用户管理',
-    path: '/user',
-    icon: 'TeamOutlined',
+    label: '用户管理',
+    key: '/user',
+    icon: <TeamOutlined />,
     roles: ['admin', 'editor', 'guest']
   },
   {
-    title: '作者',
-    path: '/abouts',
-    icon: 'UserOutlined',
+    label: '作者',
+    key: '/abouts',
+    icon: <UserOutlined />,
     roles: ['admin', 'editor', 'guest']
   }
 ];

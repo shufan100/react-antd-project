@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Divider, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import './index.less';
 import oldLife from '@/assets/images/oldLife.png'
 import newLife from '@/assets/images/newLife.png'

@@ -22,7 +22,8 @@ const Menu4_2 = lazy(() => import('@/views/page/Nested/menu2-2/menu3-3/menu4-2')
 // 之前的案例（写法）
 const ContentDemo = lazy(() => import('@/views/page/Demo/ContentDemo'));
 const FunCom = lazy(() => import('@/views/page/Demo/FunCom'));
-const LifeCycle = lazy(() => import('@/views/page/Demo/LifeCycle'));
+const LifeCycleClass = lazy(() => import('@/views/page/Demo/LifeCycleClass'));
+const LifeCycleFun = lazy(() => import('@/views/page/Demo/LifeCycleFun'));
 
 // 导出，再注册组件
 const routeMap = [
@@ -61,13 +62,10 @@ const routeMap = [
     roles: ['admin', 'editor', 'guest']
   },
   //案例
-  {
-    path: '/Demo/ContentDemo',
-    component: ContentDemo,
-    roles: ['editor', 'guest']
-  },
+  { path: '/Demo/ContentDemo', component: ContentDemo, roles: ['editor', 'guest'] },
   { path: '/Demo/funCom', component: FunCom, roles: ['editor', 'guest'] },
-  { path: '/Demo/lifeCycle', component: LifeCycle, roles: ['editor', 'guest'] },
+  { path: '/Demo/LifeCycleClass', component: LifeCycleClass, roles: ['editor', 'guest'] },
+  { path: '/Demo/LifeCycleFun', component: LifeCycleFun, roles: ['editor', 'guest'] },
   //
   {
     path: '/error/404',
