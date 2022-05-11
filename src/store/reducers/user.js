@@ -22,7 +22,7 @@ const initState = {
 };
 // Reducer里只能接受state，不能改变state,返回新得对象
 // store.dispatch({...})方法提交就到这里，action接收的是两个值，一个type,一个data
-export function user (state = initState, action) {
+export default function user (state = initState, action) {
   // ***** 登录 ***
   if (action.type === types.USER_SET_TOKEN) {
     setToken(action.data); //token存cookie

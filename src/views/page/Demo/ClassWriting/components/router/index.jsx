@@ -17,11 +17,11 @@ import Brouter from './Brouter';
 class RouterDemo extends Component {
   state = {};
 
-  // 一般组件挂载完，使用3个路由属性5s跳/demo/contentDemo/brouter路由
+  // 一般组件挂载完，使用3个路由属性5s跳/demo/classWriting/brouter路由
   componentDidMount () {
     console.log(this.props, 'withRouter');
     setTimeout(() => {
-      this.props.history.push('/demo/contentDemo/brouter');
+      this.props.history.push('/demo/classWriting/brouter');
     }, 500);
   }
 
@@ -38,18 +38,18 @@ class RouterDemo extends Component {
 
           {/* NavLink 比 link稍微高级一点，可以加个高亮样式，自带active */}
           <div>
-            <NavLink activeClassName="active11" to="/demo/contentDemo/arouter">路由A-严格匹配</NavLink>
+            <NavLink activeClassName="active11" to="/demo/classWriting/arouter">路由A-严格匹配</NavLink>
           </div>
           <div>
-            <NavLink activeClassName="active11" to="/demo/contentDemo/brouter">路由B</NavLink>
+            <NavLink activeClassName="active11" to="/demo/classWriting/brouter">路由B</NavLink>
           </div>
         </div>
         <div className="RouterDemo-right">
           {/* 二级路由 */}
           <Switch>
-            <Route exact path="/demo/contentDemo/arouter" component={Arouter} /> {/* 注册路由 && 开启严格模式路由 */}
-            <Route path="/demo/contentDemo/brouter" component={Brouter} /> {/* 注册路由 */}
-            <Redirect to="/demo/contentDemo/arouter" /> {/* 路由重定向 */}
+            <Route exact path="/demo/classWriting/arouter" component={Arouter} /> {/* 注册路由 && 开启严格模式路由 */}
+            <Route path="/demo/classWriting/brouter" component={Brouter} /> {/* 注册路由 */}
+            <Redirect to="/demo/classWriting/arouter" /> {/* 路由重定向 */}
           </Switch>
         </div>
         {/* </HashRouter> */}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, List, Avatar, Input } from 'antd';
 import { PlusOutlined, CloseOutlined } from '@ant-design/icons';
-import store from '../../../store'; // 11步
+import store from '@/store'; // 11步
 import { deleteItemAction, resetInputAction, editItemAction, checkAllItemAction } from '@/store/actions';
 class ReduxDemo extends Component {
   state = {

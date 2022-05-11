@@ -88,8 +88,8 @@ const LifeCycleFun = () => {
       <div>
         <h3>Demo</h3>
         <span style={{ opacity: opacity, color: colors }}>DEMODEMODEMODEMODEMODEMODEMO</span>
+        <button onClick={() => clear()}>暂停渐变</button>
         <span>时间：{date}</span>
-        <button onClick={() => clear()}>清除计数器</button>
       </div>
     </div >
   )

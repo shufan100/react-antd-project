@@ -8,7 +8,7 @@ const initState = {
 
 // action:接受两个值，一个type,一个data
 // preState默认赋值初始化initState的值，可以理解为就是上面的initState的值，将action传进来的值给旧数据的值做处理
-export function app (preState = initState, action) {
+export default function app (preState = initState, action) {
   // console.log(preState,action);
 
   switch (action.type) {

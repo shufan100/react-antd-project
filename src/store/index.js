@@ -8,9 +8,10 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 // reduxThunk是redux中间件，对store的dispatch方法做一个升级(用于支持异步action,以前dispatch只接收一个对象，升级后可以接收函数)
 
+// 所有的state数据
 import reducers from './reducers';
 
-// 
+// redux开发者工具配置
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(reduxThunk)));

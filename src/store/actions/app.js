@@ -15,7 +15,7 @@ export const setTitleAction = (titleVal) => ({
 
 //  异步action方法，就是指action的值为函数
 export const toggleAsyncSiderBar = (time) =>
-  (dispatch) => {
+  dispatch => {
     setTimeout(() => {
       // store.dispatch(toggleSiderBar());
       dispatch(toggleSiderBar());

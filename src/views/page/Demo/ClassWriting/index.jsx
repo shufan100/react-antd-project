@@ -9,16 +9,18 @@ import { Button } from 'antd';
 import './index.scss';
 
 // 引用事例
-// import JsxDemo from './components/jsx';
-// import AaxiosDemo from ' components/axios/Aaxios.jsx';
-// import BaxiosDemo from './components/axios/Baxios.jsx';
-// import ReduxDemo from './components/redux';
-// import ReduxDemo2 from './components/redux/index2';
-// import RefDemo from './components/ref';
-// import DiffDemo from './components/diff';
-// import ClickDemo from './components/click';
-// import PropsDemo from './components/props';
-// import RouterDemo from './components/router';
+import JsxDemo from './components/jsx';
+import PropsDemo from './components/props';
+import ClickDemo from './components/click';
+import DiffDemo from './components/diff';
+import RefDemo from './components/ref';
+import ReduxDemo from './components/redux';
+import ReduxDemo2 from './components/redux/index2';
+
+import RouterDemo from './components/router';
+
+// import AaxiosDemo from './components/axios/Aaxios';
+// import BaxiosDemo from './components/axios/Baxios';
 
 
 // ---------------------------------类式组件-----------------------------------------------------------
@@ -94,11 +96,11 @@ class LayoutContentClass extends Component {
     //   if (opacity <= 0) opacity = 1;
     //   this.setState({ opacity });
     // }, 1000);
-    this.timer2 = setInterval(() => {
-      const { newsArr } = this.state;
-      const news = `新闻${newsArr.length + 1}`;
-      this.setState({ newsArr: [news, ...newsArr] });
-    }, 1000);
+    // this.timer2 = setInterval(() => {
+    //   const { newsArr } = this.state;
+    //   const news = `新闻${newsArr.length + 1}`;
+    //   this.setState({ newsArr: [news, ...newsArr] });
+    // }, 1000);
   }
   // (新增) 当组件的数据完全使用props传递进来的才用的生命周期钩子
   static getDerivedStateFromProps (props, state) {
@@ -153,30 +155,25 @@ class LayoutContentClass extends Component {
         {/* <div className='list' ref='list'> */}
         <div className="list" ref={c => this.listRef = c}>
           {this.state.newsArr.map((n, index) =>
-            <div key={index} className="news">
-              {n}
-            </div>
+            <div key={index} className="news"> {n}  </div>
           )}
         </div>
 
-        {/* <JsxDemo /> */}
-
+        <JsxDemo />
         {/* 批量props传值：展开运算符的写法是一个个写的语法糖 */}
-        {/* <PropsDemo age={18} name="tom" {...this.state} speak={this.speak} />
-
+        <PropsDemo age={18} name="tom" {...this.state} speak={this.speak} />
         <ClickDemo />
-
         <DiffDemo />
+        <RefDemo />
+        <ReduxDemo />
+        <ReduxDemo2 />
+        <RouterDemo />
 
-        <RefDemo /> */}
+        {/* <AaxiosDemo />
+        <BaxiosDemo /> */}
 
-        {/* <AaxiosDemo /> */}
-        {/* <BaxiosDemo /> */}
 
-        {/* <RouterDemo /> */}
 
-        {/* <ReduxDemo />
-        <ReduxDemo2 /> */}
       </div>
     );
   }

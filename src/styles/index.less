@@ -57,3 +57,17 @@ h3{
   font-size: 16px;
   font-weight: bold;
 }
+
+
+// 布局
+.flex{
+  display: flex;
+  &>div{
+    flex: 1;
+    padding: 10px;
+    h1{
+      background: gold;
+      margin-bottom: 10px;
+    }
+  }
+}

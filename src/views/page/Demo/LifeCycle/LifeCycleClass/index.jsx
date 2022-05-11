@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Row, Col } from 'antd';
 import './index.less';
 import oldLife from '@/assets/images/oldLife.png'
@@ -60,14 +61,15 @@ class Shopping extends Component {
     return null;
   }
   /**  2组件更新完成*/
-  // shapshotValue：快照值
   componentDidUpdate (prePorps, preStae, shapshotValue) {
+    // shapshotValue：快照值
     console.log('componentDidUpdate--组件更新完成');
   }
 
   /**  3组件将要卸载*/
   componentWillUnmount () {
     console.log('componentWillUnmount--组件将要卸载');
+    this.clear()
   }
   // --------------------------------------------------------------------------
   // 强制刷新  
@@ -108,6 +110,10 @@ class Shopping extends Component {
     clearInterval(this.timer)
     clearInterval(this.timer1)
   };
+  //卸载组件
+  unMount = () => {
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+  }
 
   render () {
     console.log('render')
@@ -117,13 +123,14 @@ class Shopping extends Component {
         <h1>生命周期(类)</h1>
         <span>总数：{this.state.count1}</span> &nbsp;
         <button onClick={this.add}>+1(state更新)</button> &nbsp;
-        <button onClick={() => this.forceUpdate()}>不改状态，强制更新(强制刷新)</button><br /> &nbsp;
+        <button onClick={() => this.forceUpdate()}>不改状态，强制更新(强制刷新)</button> &nbsp;
+        <button onClick={() => this.unMount()}>卸载组件</button><br /> &nbsp;
 
         <div>
           <h3>Demo</h3>
           <span style={{ opacity: opacity, color: colors }}>DEMODEMODEMODEMODEMODEMODEMO</span>
           <span>时间：{date}</span>
-          <button onClick={() => this.clear()}>清除计数器</button>
+          <button onClick={() => this.clear()}>清除计时器</button>
         </div> &nbsp;
 
         <Row>

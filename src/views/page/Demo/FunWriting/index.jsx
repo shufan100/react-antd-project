@@ -4,7 +4,7 @@ import { withRouter, useHistory } from 'react-router-dom';
 // redux
 import store from '@/store';
 import { addAction } from '@/store/actions';
-import { user } from '@/store/reducers/user';
+import user from '@/store/reducers/user';
 import ChildAbout from './childAbout';
 import ChildAbout2 from './childAbout2';
 import './index.less';

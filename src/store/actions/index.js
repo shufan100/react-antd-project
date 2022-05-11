@@ -12,6 +12,11 @@ import {
   paddAction,
   addAsyncAction
 } from './user';
+import {
+  setCount,
+  resetCount,
+  setCountAsync
+} from './fun'
 export {
   setTokenAction,
   removeTokenAction,
@@ -26,5 +31,9 @@ export {
   addAction,
   subAction,
   paddAction,
-  addAsyncAction
+  addAsyncAction,
+  // fun模块
+  setCount,
+  resetCount,
+  setCountAsync
 };

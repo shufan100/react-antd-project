@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import { app } from './app';
-import { user } from './user';
+import app from './app';
+import user from './user';
+import fun from './fun'
 
 // combineReducers(坑白瑞丢死)：把所有的reducers汇总成一个reducer
 export default combineReducers({
   app,
-  user
+  user,
+  fun
 });

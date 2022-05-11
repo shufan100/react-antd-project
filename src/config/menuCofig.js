@@ -105,6 +105,18 @@ const menuList = [
             key: '/demo/lifeCycle/lifeCycleFun'
           }
         ]
+      },
+      {
+        label: 'Props写法',
+        key: '/demo/propsWriting'
+      },
+      {
+        label: 'Redux写法',
+        key: '/demo/reduxWriting'
+      },
+      {
+        label: 'Route写法',
+        key: '/demo/routeWriting'
       }
     ]
   },
