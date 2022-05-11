@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Menu } from 'antd';
@@ -8,7 +8,21 @@ import menuCofig from '@/config/menuCofig'
 const NewMenu = () => {
   const history = useHistory();
   const location = useLocation();
+  const [selectKey, setSelectKey] = useState('');
 
+  // 初始化选中父级菜单
+  useEffect(() => {
+    setSelectKey(getDefaultSelectedKey())
+  }, [])
+
+  // 监听路由变化，设置选中菜单
+  useEffect(() => {
+    setSelectKey(location.pathname)
+  }, [location])
+
+
+
+  // ----------------------------------------------------------------
   // 初始化设置选中的父级菜单
   const defaultOpenKeys = () => {
     const arr = location.pathname.split('/');
@@ -22,15 +36,18 @@ const NewMenu = () => {
       return arr;
     }
   };
-  // 初始化菜单选中
+  // 选中菜单
   const getDefaultSelectedKey = () => location.pathname === '/' ? '/home' : location.pathname;
+
   return (
     <div className="sidebar-menu-container1">
+
       <Scrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
+        {/* <span style={{ color: '#fff' }}>{selectKey}</span> */}
         <Menu
           onClick={e => { console.log(e.key); history.push(e.key) }} // 路由跳转
-          defaultSelectedKeys={[getDefaultSelectedKey()]}
-          defaultOpenKeys={defaultOpenKeys()}
+          selectedKeys={[selectKey]} //子菜单
+          defaultOpenKeys={defaultOpenKeys()} // 父菜单
           mode="inline"
           theme="dark" //light dark
           items={menuCofig}

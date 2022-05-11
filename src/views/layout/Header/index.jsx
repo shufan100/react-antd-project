@@ -27,39 +27,41 @@ const LayoutHeader = props => {
   //   return icon;
   // };
 
-  const dropdownClick = (e) => {
-    if (e.key === 'logout') {
-      Modal.confirm({
-        title: '注销',
-        icon: <ExclamationCircleOutlined />,
-        content: '确定要退出系统吗?',
-        okText: '确定',
-        cancelText: '取消',
-        onOk () {
-          // store.dispatch(removeTokenAction());
-          removeTokenAction();
-        },
-        onCancel () {
-          console.log('Cancel');
-        }
-      });
-    }
+  const dropdownClick = () => {
+    Modal.confirm({
+      title: '注销',
+      icon: <ExclamationCircleOutlined />,
+      content: '确定要退出系统吗?',
+      okText: '确定',
+      cancelText: '取消',
+      onOk () {
+        // store.dispatch(removeTokenAction());
+        removeTokenAction();
+      },
+      onCancel () {
+        console.log('Cancel');
+      }
+    });
   };
 
   const menu =
-    <Menu onClick={dropdownClick} >
-      <Menu.Item key="home"><Link to="/">首页</Link></Menu.Item>
-      {/* <Menu.Item key="project">
-        <a
-          target="_blank"
-          href="https://github.com/NLRX-WJC/react-antd-admin-template"
-          rel="noopener noreferrer">
-          项目地址
-        </a>
-      </Menu.Item> */}
-      {/* <Menu.Divider /> */}
-      <Menu.Item key="logout">注销</Menu.Item>
-    </Menu>
+    <Menu
+      items={[
+        {
+          label:
+            <span>
+              <span>1</span>
+              <Link to="/">首页</Link>
+            </span>
+        },
+        {
+          label: <span onClick={dropdownClick}>
+            <span>2</span>
+            <span >注销</span>
+          </span>
+        }
+      ]}
+    />
     ;
   return (
     <Header className='hedaer-container'>
@@ -72,7 +74,7 @@ const LayoutHeader = props => {
         <span style={{ marginRight: '10px' }} onClick={setTitleAction}>中/英</span>
         {/* <Icons iconName='FullscreenOutlined' size={24} toolTitle='全屏' /> */}
         <FullScreen />
-        <Dropdown overlay={menu} >
+        <Dropdown overlay={menu} placement="bottom">
           <div className='avatar'>
             <Avatar size={38} src={userInfo.avatar.default} />
             <Icons iconName='CaretDownOutlined' color='#ccc' size={16} top={12} />

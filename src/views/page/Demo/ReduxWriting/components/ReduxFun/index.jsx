@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import store from '@/store';
+// import store from '@/store';
 import { setCount, setCountAsync, resetCount } from '@/store/actions'
+
 
 function ReduxFun (props) {
   const { title, count } = props //redures值
   const { setCount1, setCountAsync, resetCount } = props //actions方法
 
   const add = data => {
-    console.log(props)
+    // console.log(props)
     // store.dispatch(setCount(data))
     setCount1(data)
   };

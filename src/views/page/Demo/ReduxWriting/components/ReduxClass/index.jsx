@@ -6,9 +6,6 @@ import { setCount, resetCount, setCountAsync } from '@/store/actions'
 
 
 class ReduxClass extends Component {
-  componentDidMount () {
-    console.log(this)
-  }
   // 方法-----------------------------------
   add (data) {
     console.log(11111111111, data)
@@ -19,7 +16,7 @@ class ReduxClass extends Component {
   render () {
     const { title, count } = this.props //redures值
     const { setCount, resetCount, setCountAsync } = this.props //action方法
-    console.log(this)
+    // console.log(this)
     return (
       <div>
         <h1>{title}(类式组件)</h1>
