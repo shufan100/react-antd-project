@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { connect } from 'react-redux'
 // import store from '@/store';
 import { setCount, setCountAsync, resetCount } from '@/store/actions'
 
 
 function ReduxFun (props) {
+  const selectVal = useRef()
   const { title, count } = props //redures值
   const { setCount1, setCountAsync, resetCount } = props //actions方法
 
   const add = data => {
-    // console.log(props)
     // store.dispatch(setCount(data))
+    console.log(selectVal.current.value, 'selectVal')
     setCount1(data)
   };
   return (
@@ -22,6 +23,12 @@ function ReduxFun (props) {
       <button onClick={e => setCount1('2')}>add+2</button> &nbsp;
       <button onClick={e => setCountAsync(3)}>asyncAdd+3</button> &nbsp;
       <button onClick={e => resetCount()}>reset</button> &nbsp;
+      <select ref={selectVal}>
+        <option value="11">11</option>
+        <option value="22">22</option>
+        <option value="33">33</option>
+      </select>&nbsp;
+      <button onClick={e => setCount1(selectVal.current.value)}>selectAdd</button> &nbsp;
     </div>
   )
 }

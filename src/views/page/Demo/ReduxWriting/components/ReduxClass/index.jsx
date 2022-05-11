@@ -6,6 +6,7 @@ import { setCount, resetCount, setCountAsync } from '@/store/actions'
 
 
 class ReduxClass extends Component {
+
   // 方法-----------------------------------
   add (data) {
     console.log(11111111111, data)
@@ -32,6 +33,12 @@ class ReduxClass extends Component {
         <button onClick={e => setCount('2')}>add+2</button> &nbsp;
         <button onClick={e => setCountAsync(3)}>asyncAdd+3</button> &nbsp;
         <button onClick={e => resetCount()}>reset</button> &nbsp;
+        <select ref={c => this.sectionNode = c}>
+          <option value="11">11</option>
+          <option value="22">22</option>
+          <option value="33">33</option>
+        </select>&nbsp;
+        <button onClick={e => setCount(this.sectionNode.value)}>selectAdd</button> &nbsp;
       </div>
     )
   }

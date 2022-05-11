@@ -19,8 +19,8 @@ import ReduxDemo2 from './components/redux/index2';
 
 import RouterDemo from './components/router';
 
-// import AaxiosDemo from './components/axios/Aaxios';
-// import BaxiosDemo from './components/axios/Baxios';
+import AaxiosDemo from './components/axios/Aaxios';
+import BaxiosDemo from './components/axios/Baxios';
 
 
 // ---------------------------------类式组件-----------------------------------------------------------
@@ -169,8 +169,8 @@ class LayoutContentClass extends Component {
         <ReduxDemo2 />
         <RouterDemo />
 
-        {/* <AaxiosDemo />
-        <BaxiosDemo /> */}
+        <AaxiosDemo />
+        <BaxiosDemo />
 
 
 
