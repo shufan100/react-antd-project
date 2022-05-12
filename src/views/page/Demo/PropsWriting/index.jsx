@@ -30,7 +30,7 @@ function PropsWriting () {
   };
 
   // 调用函数子组件方法
-  const FunRef = React.createRef()
+  const FunRef = useRef()
   const getFunClick = (e) => {
     FunRef.current.clickFun(111, 2222)
     console.log(FunRef.current)
