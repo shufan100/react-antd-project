@@ -9,12 +9,12 @@ module.exports = function (app) {
     proxy('/api1', {  // 遇见/api1前缀的会触发该代理
       target: 'http://localhost:5000', // 请求转发给谁
       changeOrigin: true, // 控制服务器收到的请求头中Host字段的值 // 服务器接收
-      pathRewrite: { '^/api1': '', }, // 重写请求路径，（加了/api1路径不对，要置空改回去）
+      pathRewrite: { '^/api1': '' } // 重写请求路径，（加了/api1路径不对，要置空改回去）
     }),
     proxy('/api2', {
       target: 'http://localhost:5001',
       changeOrigin: true,
-      pathRewrite: { '^/api2': '', },
+      pathRewrite: { '^/api2': '' }
     })
   );
 };

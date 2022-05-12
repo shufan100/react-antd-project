@@ -63,7 +63,9 @@ export default function Home () {
   };
   return (
     <div>
-      <div>首页页面</div>
+      <h1>首页页面</h1>
+      <h3>公共环境变量：{process.env.REACT_APP_DOEM}</h3>
+      <h3>REACT_APP_TIP（根据不同环境）：{process.env.REACT_APP_TIP}</h3>
       <button onClick={getDatas}>axios1</button>
       <button onClick={getNodeUser1}>node1--5000</button>
       <button onClick={getNodeUser2}>node2--5000</button>
