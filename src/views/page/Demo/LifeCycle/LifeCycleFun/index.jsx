@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ReactDOM from 'react-dom';
 import effectImg from '@/assets/images/Effect.png'
 
 const LifeCycleFun = () => {
@@ -50,7 +51,10 @@ const LifeCycleFun = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, [date])
-
+  //卸载组件
+  const unMount = () => {
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+  }
 
 
 
@@ -78,7 +82,9 @@ const LifeCycleFun = () => {
       <span>计算：{states.count}</span> &nbsp;
       <button onClick={e => add(e, '+')}>加</button>&nbsp;&nbsp;
       <button onClick={e => add(e, '-')}>减</button> &nbsp;&nbsp;
-      <button onClick={e => setNum(num / 2)}>{num}</button><br />&nbsp;
+      <button onClick={e => setNum(num / 2)}>{num}</button>&nbsp;&nbsp;
+      <button onClick={() => unMount()}>卸载组件</button><br /> &nbsp;
+
 
       <div>
         <h3>初始化、更新、卸载前：</h3>

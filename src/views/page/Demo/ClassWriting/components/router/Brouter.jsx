@@ -14,25 +14,25 @@ export default class Brouter extends Component {
   // push
   pushShow = (id, title) => {
     // 1、编程式路由：params传参
-    // this.props.history.push(`/demo/contentDemo/brouter/detail/${id}/${title}`);
+    // this.props.history.push(`/demo/classWriting/brouter/detail/${id}/${title}`);
 
     // 2、编程式路由：search传参
-    this.props.history.push(`/demo/contentDemo/brouter/detail?id=${id}&title22=${title}`);
+    this.props.history.push(`/demo/classWriting/brouter/detail?id=${id}&title22=${title}`);
 
     // 3、编程式路由：state传参
-    // this.props.history.push('/demo/contentDemo/brouter/detail', { id: id, title22: title });
+    // this.props.history.push('/demo/classWriting/brouter/detail', { id: id, title22: title });
   }
 
   // replace
   repalceShow = (id, title) => {
     // 1、编程式路由：params传参
-    // this.props.history.replace(`/demo/contentDemo/brouter/detail/${id}/${title}`);
+    // this.props.history.replace(`/demo/classWriting/brouter/detail/${id}/${title}`);
 
     // 2、编程式路由：search传参
-    this.props.history.replace(`/demo/contentDemo/brouter/detail?id=${id}&title22=${title}`);
+    this.props.history.replace(`/demo/classWriting/brouter/detail?id=${id}&title22=${title}`);
 
     // 3、编程式路由：state传参
-    // this.props.history.replace('/demo/contentDemo/brouter/detail', { id: id, title22: title });
+    // this.props.history.replace('/demo/classWriting/brouter/detail', { id: id, title22: title });
   }
   // 后退
   back = () => {
@@ -56,25 +56,25 @@ export default class Brouter extends Component {
           {messageArr.map(i =>
             <li key={i.id}>
               {/* 1.路由组件params传参 */}
-              {/* <Link to={`/demo/contentDemo/brouter/detail/${i.id}/${i.title}`}>{i.title}</Link>&nbsp; */}
+              {/* <Link to={`/demo/classWriting/brouter/detail/${i.id}/${i.title}`}>{i.title}</Link>&nbsp; */}
               <button onClick={() => { this.pushShow(i.id, i.title); }}>push编程式路由</button>&nbsp;
               <button onClick={() => { this.repalceShow(i.id, i.title); }}>replace编程式路由</button>&nbsp;
 
               {/* 2.路由组件search传参 */}
-              <Link to={`/demo/contentDemo/brouter/detail?id=${i.id}&title22=${i.title}`}>{i.title}</Link>
+              <Link to={`/demo/classWriting/brouter/detail?id=${i.id}&title22=${i.title}`}>{i.title}</Link>
 
-              {/* 3.路由组件state传参,replace替换当前/demo/contentDemo/brouter路由栈内存 */}
-              {/* <Link to={{ pathname: '/demo/contentDemo/brouter/detail', state: { id: i.id, title22: i.title }, }} replace> {i.title}11 </Link> */}
+              {/* 3.路由组件state传参,replace替换当前/demo/classWriting/brouter路由栈内存 */}
+              {/* <Link to={{ pathname: '/demo/classWriting/brouter/detail', state: { id: i.id, title22: i.title }, }} replace> {i.title}11 </Link> */}
             </li>
           )}
         </ul>
 
         <hr />
         {/* 注册路由,声明接收parpms参数 */}
-        {/* <Route path="/demo/contentDemo/brouter/detail/:id/:title22" component={DetailDemo} /> */}
+        {/* <Route path="/demo/classWriting/brouter/detail/:id/:title22" component={DetailDemo} /> */}
 
         {/* 注册路由,接收serach / state参数无需声明,正常注册 */}
-        <Route path="/demo/contentDemo/brouter/detail" component={DetailDemo} />
+        <Route path="/demo/classWriting/brouter/detail" component={DetailDemo} />
 
         <button onClick={this.back}>后退</button>&nbsp;
         <button onClick={this.forward}>前进</button>&nbsp;

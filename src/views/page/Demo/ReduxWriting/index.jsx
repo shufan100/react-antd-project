@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import ReduxClass from './components/ReduxClass'
 import ReduxFun from './components/ReduxFun'
+import ReduxDemo from './components/ReduxDemo'
+
 import reduxImg from '@/assets/images/redux.png'
 
 function ReduxWriting (props) {
@@ -17,7 +19,9 @@ function ReduxWriting (props) {
         <ReduxClass />
         <ReduxFun />
       </div>&nbsp;
-      <img style={{ marginTop: '30px', border: '1px solid #000' }} src={reduxImg} alt="" />
+      <img style={{ margin: '30px 0', border: '1px solid #000' }} src={reduxImg} alt="" />
+
+      <ReduxDemo />
     </div>
   )
 }

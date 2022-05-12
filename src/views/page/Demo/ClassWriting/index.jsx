@@ -14,10 +14,7 @@ import PropsDemo from './components/props';
 import ClickDemo from './components/click';
 import DiffDemo from './components/diff';
 import RefDemo from './components/ref';
-import ReduxDemo from './components/redux';
-import ReduxDemo2 from './components/redux/index2';
 
-import RouterDemo from './components/router';
 
 import AaxiosDemo from './components/axios/Aaxios';
 import BaxiosDemo from './components/axios/Baxios';
@@ -133,24 +130,10 @@ class LayoutContentClass extends Component {
   // 2、在class类内部定义的方法已经自动开启了严格模式，类内部方法的this不指向window
   render () {
     // render中的this —— LayoutContent的实例对象
-    const { opacity } = this.state;
     return (
       //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOMx渲染成真实的html标签显示在页面
       <div className="layoutContent" id='LayoutContentClass'>
         <h1 style={{ color: 'red', textAlign: 'center' }}>类式组件写法</h1>
-
-        {/************************* 生命周期 *****************************************************************/}
-        <div>
-          <h2 style={{ opacity: opacity }}>react写法----</h2>
-          <Button type="primary" onClick={this.death}>不活了、卸载组件</Button>
-        </div>
-        <div>
-          <h2>当前求和{this.state.count}</h2>
-          <Button onClick={this.addCount}>对象式setState =99</Button>
-          <Button onClick={this.addCount2}>函数式setState +1</Button>
-          <Button onClick={this.death}>卸载组件</Button>
-          <Button onClick={this.force}>不改状态，强制更新</Button>
-        </div>
         {/*************************  事例+getSnapshotBeforeUpdate *****************************************************************/}
         {/* <div className='list' ref='list'> */}
         <div className="list" ref={c => this.listRef = c}>
@@ -165,9 +148,7 @@ class LayoutContentClass extends Component {
         <ClickDemo />
         <DiffDemo />
         <RefDemo />
-        <ReduxDemo />
-        <ReduxDemo2 />
-        <RouterDemo />
+
 
         <AaxiosDemo />
         <BaxiosDemo />

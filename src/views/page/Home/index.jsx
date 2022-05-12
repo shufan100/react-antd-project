@@ -4,16 +4,13 @@ import axios from 'axios';
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 export default function Home () {
-  const [states, setStates] = useState({
-    list: []
-  });
-  useEffect(() =>
-    // console.log('组件已经挂载');
-    () => {
-      console.log('卸载组件前');
-    },
-    []
-  );
+
+  useEffect(() => {
+    console.log('home组件已经挂载');
+    return () => {
+      console.log('home卸载组件前');
+    }
+  }, [])
 
   const getDatas = async () => {
     const result = await axios.get('https://api.apiopen.top/getJoke');

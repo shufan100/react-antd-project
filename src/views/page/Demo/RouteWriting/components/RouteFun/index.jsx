@@ -1,12 +1,16 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 function RouteFun () {
   const history = useHistory()
   return (
     <div>
       <h1>Route (函数式组件)</h1>
+      {/* 标签式路由 */}
+      <Link to={'/home'}> 首页 </Link>
+      <Link to={'/user'}> 用户管理 </Link><br /><br />
 
+      {/* 编程式路由 */}
       <button onClick={e => history.push('/demo/param/9523/tom')}>Param传参 (push)</button>
       <button onClick={e => history.replace('/demo/param/8877/helen')}>Param传参 (replace)</button><br /><br />
 
