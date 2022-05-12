@@ -1,6 +1,6 @@
+// PureComponent代替component，阀门生命周期的就不用写了，PureComponent会自动写好阀门的对比逻辑：从而提示组件在数据没变化的时候不会render组件
 // import React, { Component, PureComponent } from 'react';
 import React, { Component } from 'react';
-// PureComponent代替component，阀门生命周期的就不用写了，PureComponent会自动写好阀门的对比逻辑：从而提示组件在数据没变化的时候不会render组件
 import ReactDOM from 'react-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
@@ -10,7 +10,6 @@ import './index.scss';
 
 // 引用事例
 import JsxDemo from './components/jsx';
-import PropsDemo from './components/props';
 import ClickDemo from './components/click';
 import DiffDemo from './components/diff';
 import RefDemo from './components/ref';
@@ -41,36 +40,25 @@ class LayoutContentClass extends Component {
     newsArr: [],
     hasError: ''
   };
-  speak = param => {
-    console.log('你点击了我！', param);
-  };
 
-  // {/************************* 生命周期函数 *****************************************************************/}
-  death = () => {
-    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
-    clearInterval(this.timer);
-    clearInterval(this.timer2);
-  };
+  // {/************************* setState *****************************************************************/}
   // 对象式setState：如果新状态不依赖于原状态，比如点击直接等于99
   addCount = () => {
-    // const { count } = this.state;
     this.setState({ count: 99 });
   };
   // 函数式setState：如果新状态依赖于原状态 ===> 使用函数方式，修改原来的数据
   addCount2 = () => {
+    // 1、setState函数式写法
     this.setState((state, props) => {
       console.log(state, props);
       return { count: state.count + 1 };
     });
-    // 对象式写法
+    // 2、setState对象式写法
     // const { count } = this.state;
     // this.setState({ count: count + 1 });
   };
-  force = () => {
-    this.forceUpdate();
-  };
 
-
+  // {/************************* 生命周期函数 *****************************************************************/}
   // （阀门）控制组件更新的阀门; state状态改变触发的生命周期钩子
   // (开发不用写，使用PureComponent代替，会自动给我们匹配)
   shouldComponentUpdate (nextProps, nextState) {
@@ -87,12 +75,6 @@ class LayoutContentClass extends Component {
   // 组件挂载完毕的钩子（mounted）(*常用*)  初始化，发生ajax
   componentDidMount () {
     console.log('Content-componentDidMount');
-    // this.timer = setInterval(() => {
-    //   let { opacity } = this.state;
-    //   opacity -= 0.1;
-    //   if (opacity <= 0) opacity = 1;
-    //   this.setState({ opacity });
-    // }, 1000);
     // this.timer2 = setInterval(() => {
     //   const { newsArr } = this.state;
     //   const news = `新闻${newsArr.length + 1}`;
@@ -107,7 +89,6 @@ class LayoutContentClass extends Component {
   // (新增)的两个生命周期钩子：
   getSnapshotBeforeUpdate () {
     console.log('Content-getSnapshotBeforeUpdate');
-    // return this.refs.list.scrollHeight;
     return this.listRef.scrollHeight;
   }
   // 组件已经更新生命周期钩子
@@ -119,7 +100,6 @@ class LayoutContentClass extends Component {
 
   // 组件将要卸载的钩子  (*常用*)
   componentWillUnmount () {
-    clearInterval(this.timer);
     clearInterval(this.timer2);
     console.log('Content-componentWillUnmount');
   }
@@ -144,7 +124,6 @@ class LayoutContentClass extends Component {
 
         <JsxDemo />
         {/* 批量props传值：展开运算符的写法是一个个写的语法糖 */}
-        <PropsDemo age={18} name="tom" {...this.state} speak={this.speak} />
         <ClickDemo />
         <DiffDemo />
         <RefDemo />
@@ -160,56 +139,6 @@ class LayoutContentClass extends Component {
   }
 }
 
-// ---------------------------------函数式组件--------------------------------------------------------------
 
-// 1、函数首字母必须大写 2、函数必须有返回值 3、只能使用props,因为props是个函数，其他不可使用(refs.state等等)
-const LayoutContentFun = props => {
-  // console.log(this);  // undefined,不是window：因为babel插件编译后开启了严格模式，禁止自定义的函数this指向window
-  const { age, sex, address } = props;
-  console.log(props);
-  let num = 0;
-  const addNum = e => {
-    num++;
-    console.log(num);
-  };
-  const getName = param => {
-    console.log(param);
-  };
-
-  return (
-    <div className="app-container">
-      <h1 style={{ color: 'red', textAlign: 'center' }}>函数式组件</h1>
-      <button onClick={addNum}>按钮</button>
-      <button onClick={getName.bind(this, 'name21111')}>按钮2</button>
-      <div>
-        <div>函数式组件props接收值、方法</div>
-        <span>
-          props接收值：{props.name}-{age + 1}-{sex}-{address}
-        </span>
-        <Button type="primary" onClick={props.speak}>
-          props传入的函数
-        </Button>
-      </div>
-    </div>
-  );
-};
-// 放在class里简写，给clas类增加两个属性（函数式组件只能放在外面写）
-// 校验props类型;
-LayoutContentFun.propTypes = {
-  name: PropTypes.string.isRequired, // 必传：isRequired
-  sex: PropTypes.string,
-  age: PropTypes.number,
-  address: PropTypes.string,
-  speak: PropTypes.func //函数校验
-};
-//设置props默认值
-LayoutContentFun.defaultProps = {
-  name: 'jerry',
-  sex: '男',
-  age: 20,
-  address: '美国旧金山。。。'
-};
-
-// connect用这个方法reducers才监听的到 666步
+// connect用这个方法reducers才监听的到
 export default connect(state => state.user)(LayoutContentClass);
-// export default connect(state => state.user)(LayoutContentFun);
