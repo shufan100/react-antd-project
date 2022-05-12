@@ -51,8 +51,8 @@ function PropsWriting () {
         <li>数&nbsp;&nbsp;&nbsp;组：{`[{id：${arr[0].id}、title：${arr[0].name}}, {id：${arr[1].id}、title：${arr[1].name}}]`}</li>
         <li>函&nbsp;&nbsp;&nbsp;数：<button onClick={() => fun(888)}>click</button></li>
 
-        <li>调用class组件方法：<button onClick={() => getClassClick()}>classClick</button></li>
-        <li>调用fun组件方法：<button onClick={() => getFunClick()}>funClick</button></li>
+        <li>调用class子组件方法：<button onClick={() => getClassClick()}>classClick</button></li>
+        <li>调用fun子组件方法：<button onClick={() => getFunClick()}>funClick</button></li>
       </ul>
       <div className='flex'>
         <PropsClass val='值' number={number} str={str} obj={obj} arr={arr} fun={fun} optionalNode={arr} />
