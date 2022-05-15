@@ -4,7 +4,7 @@ module.exports = {
   env: {
     browser: true,
     commonjs: true,
-    es6: true,
+    es6: true
   },
   // 使用的扩展库
   // extends: ['airbnb'],
@@ -14,16 +14,15 @@ module.exports = {
   // 解析器配置
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   // 可以全局使用变量
   globals: {
     Babel: true,
-
-    React: true,
+    React: true
   },
   // 第三方插件
   plugins: ['react', 'jsx-a11y'],
@@ -37,7 +36,6 @@ module.exports = {
     'linebreak-style': [0, 'unix'], //换行风格
     quotes: ['error', 'single'], //单双引号
     'quote-props': 0, //对象字面量中的属性名是否强制双引号
-    // 'semi': ['error', 'always'], //分号
     semi: 0, //分号
     'no-console': 0, //禁止使用console
     indent: 0, // 禁止缩进错误
@@ -75,6 +73,6 @@ module.exports = {
     // jsx > 紧跟着属性
     // 'react/jsx-closing-bracket-location': [1, 'after-props'],
     // 不区分是否是 无状态组件
-    'react/prefer-stateless-function': 0,
-  },
+    'react/prefer-stateless-function': 0
+  }
 }
