@@ -42,7 +42,7 @@ module.exports = {
     'no-console': 0, //禁止使用console
     'indent': 0, // 禁止缩进错误
     'no-redeclare': 2,//禁止重复声明变量
-    'no-extra-parens': 2,//禁止非必要的括号
+    'no-extra-parens': 0,//禁止非必要的括号
     'no-extra-semi': 2,//禁止多余的冒号
     'no-func-assign': 2,//禁止重复的函数声明
     'no-unreachable': 2,//不能有无法执行的代码

@@ -6,6 +6,10 @@ import { setCount, resetCount, setCountAsync } from '@/store/actions'
 
 
 class ReduxClass extends Component {
+  state = {
+    name: '111',
+    id: 12
+  }
 
   // 方法-----------------------------------
   add (data) {
@@ -16,8 +20,8 @@ class ReduxClass extends Component {
 
   render () {
     const { title, count } = this.props //redures值
-    const { setCount, resetCount, setCountAsync } = this.props //action方法
-    // console.log(this)
+    const { setCount, resetCount, setCountAsync } = this.props //Naction方法
+    console.log(this)
     return (
       <div>
         <h1>{title}(类式组件)</h1>
