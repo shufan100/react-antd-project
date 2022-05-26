@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import echart from '@/utils/echart.js'
+import { debounce } from '@/utils/util'
 
 export default class LineChart extends Component {
   //
@@ -17,13 +18,28 @@ export default class LineChart extends Component {
   state = {
     chart: null
   }
+  // 组件已挂载
   componentDidMount() {
-    this.initEchart()
+    debounce(this.initChart.bind(this), 300)()
+    window.addEventListener('resize', () => this.resize())
   }
+  // 卸载组件前
   componentWillUnmount() {
-    this.state.chart && this.setState({ chart: null })
+    if (!this.state.chart) {
+      return
+    }
+    window.removeEventListener('resize', () => this.resize()) // 移除窗口，变化时重置图表
+    this.setState({ chart: null })
   }
-  initEchart() {
+
+  resize() {
+    const chart = this.state.chart
+    if (chart) {
+      debounce(chart.resize.bind(this), 300)()
+    }
+  }
+
+  initChart() {
     // let myChart = echart.init(this.el, 'macarons') // 初始化（图表初始化，挂载到node节点上）
     let myChart = echart.init(this.el) // 初始化（图表初始化，挂载到node节点上）
     this.setState({ chart: myChart }, () => {
@@ -33,7 +49,6 @@ export default class LineChart extends Component {
   setOptions() {
     const { type, xAxisData, seriesData } = this.props
     const colorList = ['#5ab1ef', '#019680']
-    console.log(seriesData)
     this.state.chart.setOption({
       tooltip: {
         trigger: 'axis',

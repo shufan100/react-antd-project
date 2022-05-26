@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
 import './index.less'
-import routeMap from '@/config/routeMap'
+import routeMap from '@/mock/routeMap'
 import Loading from '@/views/loading'
 const { Content } = Layout
 

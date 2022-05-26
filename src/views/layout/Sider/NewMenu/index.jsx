@@ -4,7 +4,7 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import { Menu } from 'antd'
 import './index.less'
 // 菜单
-import menuCofig from '@/config/menuCofig'
+import menuCofig from '@/mock/menuCofig'
 const NewMenu = () => {
   const history = useHistory()
   const location = useLocation()

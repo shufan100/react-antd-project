@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Tabs } from 'antd'
-import LineChart from '@/components/LineChart'
+import LineChart from '@/components/Echarts/LineChart'
 import './index.less'
 const { TabPane } = Tabs
 export default function VisitAnalysis(props) {

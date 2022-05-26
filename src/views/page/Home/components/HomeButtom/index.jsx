@@ -2,9 +2,9 @@ import React from 'react'
 import { Card } from 'antd'
 import './index.less'
 
-import RaddarChart from '@/components/RaddarChart'
-import BreadChart from '@/components/BreadChart'
-import Bread2Chart from '@/components/Bread2Chart'
+import RaddarChart from '@/components/Echarts/RaddarChart'
+import BreadChart from '@/components/Echarts/BreadChart'
+import Bread2Chart from '@/components/Echarts/Bread2Chart'
 
 export default function HomeButtom(props) {
   const { loading } = props
