@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Scrollbars } from 'react-custom-scrollbars'
+import { connect } from 'react-redux'
 import { Menu } from 'antd'
 import './index.less'
 // 菜单
 import menuCofig from '@/mock/menuCofig'
-const NewMenu = () => {
+import { getMenuItem } from '@/utils/util'
+import { addTags } from '@/store/actions'
+const NewMenu = props => {
   const history = useHistory()
   const location = useLocation()
   const [selectKey, setSelectKey] = useState('')
@@ -20,7 +23,6 @@ const NewMenu = () => {
     setSelectKey(location.pathname)
   }, [location])
 
-  // ----------------------------------------------------------------
   // 初始化设置选中的父级菜单
   const defaultOpenKeys = () => {
     const arr = location.pathname.split('/')
@@ -37,12 +39,20 @@ const NewMenu = () => {
   // 选中菜单
   const getDefaultSelectedKey = () => (location.pathname === '/' ? '/home' : location.pathname)
 
+  //点击菜单
+  const handleMenuSelect = e => {
+    console.log(props)
+    let menuItem = getMenuItem(menuCofig, 'key', e.key)
+    history.push(e.key)
+    props.addTags(menuItem)
+  }
+
   return (
     <div className='sidebar-menu-container1'>
       <Scrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
         {/* <span style={{ color: '#fff' }}>{selectKey}</span> */}
         <Menu
-          onClick={e => history.push(e.key)} // 路由跳转
+          onClick={e => handleMenuSelect(e)} // 路由跳转
           selectedKeys={[selectKey]} //子菜单
           defaultOpenKeys={defaultOpenKeys()} // 父菜单
           mode='inline'
@@ -53,4 +63,4 @@ const NewMenu = () => {
     </div>
   )
 }
-export default NewMenu
+export default connect(stata => stata.tags, { addTags })(NewMenu)

@@ -1,7 +1,7 @@
 // import React, { Component, useState, memo, useMemo } from 'react';
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Layout, Dropdown, Avatar, Menu, Modal } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 // import store from '@/store';
@@ -18,10 +18,6 @@ const LayoutHeader = props => {
   // 第3步、引用aciton方法自己会触发dispatch，然后再组件内直接用就行
   const { toggleSiderBar, toggleAsyncSiderBar, setTitleAction, removeTokenAction } = props //方法
 
-  const history = useHistory()
-  const location = useLocation()
-
-  console.log(history, location)
   const dropdownClick = () => {
     Modal.confirm({
       title: '注销',

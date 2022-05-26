@@ -25,7 +25,6 @@ const HeartIcon = props => <Icon component={HeartSvg} {...props} />
 const PandaIcon = props => <Icon component={PandaSvg} {...props} />
 
 const Svg = props => {
-  console.log(props)
   const { type } = props
   return <span>{type === 'HeartSvg' ? <HeartIcon style={{ color: props.color }} /> : <PandaIcon style={{ color: props.color }} />}</span>
 }
