@@ -9,37 +9,41 @@ class Tags extends Component {
     e.preventDefault()
     console.log(e, item, '--')
     const { history, deleteTags, taglist } = this.props
-    const path = item.path
+    const key = item.key
     const currentPath = history.location.pathname
     const length = taglist.length
     // 如果关闭的是当前页，跳转到最后一个tag
-    if (path === currentPath) {
-      history.push(taglist[length - 1].path)
+    if (key === currentPath) {
+      history.push(taglist[length - 1].key)
     }
     // 如果关闭的是最后的tag ,且当前显示的也是最后的tag对应的页面，才做路由跳转
-    if (path === taglist[length - 1].path && currentPath === taglist[length - 1].path) {
+    if (key === taglist[length - 1].key && currentPath === taglist[length - 1].key) {
       // 因为cutTaglist在最后执行，所以跳转到上一个tags的对应的路由，应该-2
       if (length - 2 > 0) {
-        history.push(taglist[length - 2].path)
+        history.push(taglist[length - 2].key)
       } else if (length === 2) {
-        history.push(taglist[0].path)
+        history.push(taglist[0].key)
       }
     }
     // 先跳转路由，再修改state树的taglist
     deleteTags(item)
   }
+  handleClick = key => {
+    console.log(key)
+    this.props.history.push(key)
+  }
   render() {
     console.log(this.props)
-    const { taglist } = this.props
-    // const { deleteTags } = this.props
+    const { taglist, history } = this.props
+    const currentPath = history.location.pathname
     return (
-      <>
+      <div className='tagsView-container'>
         {taglist.map(i => (
-          <Tag key={i.key} closable onClose={e => this.close(e, i)}>
+          <Tag key={i.key} closable={i.key !== '/home' || taglist.length === 0} onClose={e => this.close(e, i)} color={currentPath === i.key ? 'gold' : 'geekblue'} onClick={() => this.handleClick(i.key)}>
             {i.label}
           </Tag>
         ))}
-      </>
+      </div>
     )
   }
 }

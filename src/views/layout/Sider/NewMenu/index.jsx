@@ -16,6 +16,7 @@ const NewMenu = props => {
   // 初始化选中父级菜单
   useEffect(() => {
     setSelectKey(getDefaultSelectedKey())
+    handleMenuSelect(getDefaultSelectedKey())
   }, [])
 
   // 监听路由变化，设置选中菜单
@@ -40,10 +41,9 @@ const NewMenu = props => {
   const getDefaultSelectedKey = () => (location.pathname === '/' ? '/home' : location.pathname)
 
   //点击菜单
-  const handleMenuSelect = e => {
-    console.log(props)
-    let menuItem = getMenuItem(menuCofig, 'key', e.key)
-    history.push(e.key)
+  const handleMenuSelect = key => {
+    let menuItem = getMenuItem(menuCofig, 'key', key)
+    history.push(key)
     props.addTags(menuItem)
   }
 
@@ -52,7 +52,7 @@ const NewMenu = props => {
       <Scrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
         {/* <span style={{ color: '#fff' }}>{selectKey}</span> */}
         <Menu
-          onClick={e => handleMenuSelect(e)} // 路由跳转
+          onClick={item => handleMenuSelect(item.key)} // 路由跳转
           selectedKeys={[selectKey]} //子菜单
           defaultOpenKeys={defaultOpenKeys()} // 父菜单
           mode='inline'

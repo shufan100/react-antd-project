@@ -16,9 +16,10 @@ export default function tags(preState = initState, action) {
         }
       }
     case types.TAGS_LIST_DELETE:
+      console.log(preState.taglist.filter(item => item.key !== action.data.key))
       return {
         ...preState,
-        count: [...preState.taglist.filter(item => item !== action.data)]
+        taglist: [...preState.taglist.filter(item => item.key !== action.data.key)]
       }
 
     default:
