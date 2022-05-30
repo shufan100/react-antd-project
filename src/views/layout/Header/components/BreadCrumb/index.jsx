@@ -32,6 +32,5 @@ const getPath = (menuList, pathname) => {
 export default function BreadCrumb() {
   const { pathname } = useLocation()
   let pathArr = getPath(menuCofig, pathname)
-  console.log(pathArr)
   return <Breadcrumb style={{ display: 'inline-block', marginLeft: '20px' }}>{pathArr && pathArr.map(item => <Breadcrumb.Item key={item.key}>{item.label}</Breadcrumb.Item>)}</Breadcrumb>
 }

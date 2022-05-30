@@ -8,14 +8,12 @@ const menuList = [
   {
     key: '/home',
     label: '首页',
-    icon: <AppstoreOutlined />,
-    roles: ['admin', 'editor', 'guest']
+    icon: <AppstoreOutlined />
   },
   {
     label: '表单相关',
     key: 'formCom',
     icon: <SolutionOutlined />,
-    roles: ['admin', 'editor'],
     children: [
       {
         label: '表格',
@@ -32,10 +30,31 @@ const menuList = [
     ]
   },
   {
+    label: '权限管理',
+    key: 'permissions',
+    icon: <SolutionOutlined />,
+    children: [
+      {
+        label: 'admin页面',
+        key: '/permissions/admin',
+        roles: ['admin']
+      },
+      {
+        label: 'editor页面',
+        key: '/permissions/editor',
+        roles: ['editor']
+      },
+      {
+        label: 'guest页面',
+        key: '/permissions/guest',
+        roles: ['guest']
+      }
+    ]
+  },
+  {
     label: '路由嵌套',
     key: 'nested',
     icon: <ApartmentOutlined />,
-    roles: ['admin', 'editor'],
     children: [
       {
         label: '菜单2-1',
@@ -75,7 +94,6 @@ const menuList = [
     label: '案例',
     key: 'demo',
     icon: <AppstoreAddOutlined />,
-    roles: ['admin', 'editor', 'guest'],
     children: [
       {
         label: '类式组件写法',
@@ -116,14 +134,12 @@ const menuList = [
   {
     label: '用户管理',
     key: '/user',
-    icon: <TeamOutlined />,
-    roles: ['admin', 'editor', 'guest']
+    icon: <TeamOutlined />
   },
   {
     label: '作者',
     key: '/abouts',
-    icon: <UserOutlined />,
-    roles: ['admin', 'editor', 'guest']
+    icon: <UserOutlined />
   }
 ]
 export default menuList

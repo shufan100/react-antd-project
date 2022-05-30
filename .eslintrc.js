@@ -1,3 +1,5 @@
+const { TRUE } = require('node-sass')
+
 // 修改需要重启项目
 module.exports = {
   // 环境，这里可以设置环来做区别判断
@@ -75,6 +77,19 @@ module.exports = {
     // jsx > 紧跟着属性
     // 'react/jsx-closing-bracket-location': [1, 'after-props'],
     // 不区分是否是 无状态组件
-    'react/prefer-stateless-function': 0
+    'react/prefer-stateless-function': 0,
+    //默认情况下，禁止所有类型的匿名默认导出，但可以通过在选项中切换它们来选择性地允许任何类型
+    'import/no-anonymous-default-export': [
+      'error',
+      {
+        allowArray: true, //export default []
+        allowArrowFunction: true, //export default () => {}
+        allowAnonymousClass: true, //export default class {}
+        allowAnonymousFunction: true, //export default function () {}
+        allowCallExpression: true, // export default function () {}  export default foo(bar)
+        allowLiteral: true, //export default 123
+        allowObject: true //export default {}
+      }
+    ]
   }
 }

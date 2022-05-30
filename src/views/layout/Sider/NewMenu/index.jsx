@@ -46,6 +46,23 @@ const NewMenu = props => {
     history.push(key)
     props.addTags(menuItem)
   }
+  // 菜单权限
+  const filterMenuItem1 = data => {
+    const { userInfo } = props
+
+    return menuCofig
+  }
+  // 初始化菜单
+  const filterMenuItem = List => {
+    List.map((item, index) => {
+      if (!item.children) {
+        return { id: 1 }
+      } else {
+        return filterMenuItem(item.children)
+      }
+    })
+    console.log(List)
+  }
 
   return (
     <div className='sidebar-menu-container1'>
@@ -57,10 +74,10 @@ const NewMenu = props => {
           defaultOpenKeys={defaultOpenKeys()} // 父菜单
           mode='inline'
           theme='dark' //light dark
-          items={menuCofig}
+          items={filterMenuItem(menuCofig)}
         />
       </Scrollbars>
     </div>
   )
 }
-export default connect(stata => stata.tags, { addTags })(NewMenu)
+export default connect(stata => ({ ...stata.tags, ...stata.user }), { addTags })(NewMenu)

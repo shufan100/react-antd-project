@@ -14,9 +14,9 @@ import BreadCrumb from './components/BreadCrumb' //面包屑
 const { Header } = Layout
 
 const LayoutHeader = props => {
-  const { sidebarCollapsed, userInfo } = props //属性
-  // 第3步、引用aciton方法自己会触发dispatch，然后再组件内直接用就行
-  const { toggleSiderBar, toggleAsyncSiderBar, setTitleAction, removeTokenAction } = props //方法
+  const { sidebarCollapsed, userInfo } = props //redux属性
+  console.log(userInfo)
+  const { toggleSiderBar, toggleAsyncSiderBar, setTitleAction, removeTokenAction } = props //redux方法
 
   const dropdownClick = () => {
     Modal.confirm({
@@ -72,7 +72,8 @@ const LayoutHeader = props => {
         <Dropdown overlay={menu} placement='bottom'>
           <div className='avatar'>
             <Avatar size={38} src={userInfo.avatar.default} />
-            <Icons iconName='CaretDownOutlined' color='#ccc' size={16} top={12} />
+            <span>{userInfo.role}</span>
+            <Icons iconName='CaretDownOutlined' color='#ccc' size={16} top={2} />
           </div>
         </Dropdown>
       </div>

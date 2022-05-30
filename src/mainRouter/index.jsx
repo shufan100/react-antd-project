@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 import Login from '../views/login'
 import Layout from '../views/layout'
 
+// 一级菜单，控制登录和一级界面
 class Router extends React.Component {
   render() {
     const { token } = this.props
-    console.log(token, '---')
 
     return (
       // 路由一定要用这个容器包裹HashRouter 或 BrowserRouter

@@ -33,7 +33,6 @@ class Tags extends Component {
     this.props.history.push(key)
   }
   render() {
-    console.log(this.props)
     const { taglist, history } = this.props
     const currentPath = history.location.pathname
     return (
