@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 import Nested from './modules/Nested'
-import FormCom from './modules/FormCom'
+import BasisCom from './modules/BasisCom'
 import Demo from './modules/Demo'
 import Permissions from './modules/Permissions'
 
@@ -20,7 +20,7 @@ let routeMap = [
   { path: '/abouts', component: Abouts, roles: ['admin', 'editor', 'guest'] },
   { path: '/user', component: User, roles: ['admin', 'editor', 'guest'] },
   ...Permissions,
-  ...FormCom,
+  ...BasisCom,
   ...Nested,
   ...Demo,
   // 404

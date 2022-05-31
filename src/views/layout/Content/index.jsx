@@ -3,7 +3,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
 import './index.less'
 import routeData from '@/router'
-import Loading from '@/views/loading'
+import Loading from '@/components/loading'
 const { Content } = Layout
 
 // 这里注册二级路由（react-router-dom)5.0版本为例：

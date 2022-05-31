@@ -33,21 +33,21 @@ const menuList = [
     ]
   },
   {
-    label: '表单相关',
-    key: 'formCom',
+    label: '基础组件',
+    key: 'BasisCom',
     icon: <SolutionOutlined />,
     children: [
       {
         label: '表格',
-        key: '/formCom/table'
+        key: '/BasisCom/table'
       },
       {
         label: '表单',
-        key: '/formCom/form'
+        key: '/BasisCom/form'
       },
       {
         label: '富文本',
-        key: '/formCom/markdown'
+        key: '/BasisCom/markdown'
       }
     ]
   },
