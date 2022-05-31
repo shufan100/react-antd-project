@@ -42,14 +42,12 @@ const NewMenu = props => {
 
   //点击菜单
   const handleMenuSelect = key => {
-    let menuItem = getMenuItem(menuCofig, 'key', key)
-    history.push(key)
-    props.addTags(menuItem)
-  }
-  const filterMenuItems = () => {
-    let arr = JSON.parse(JSON.stringify(menuCofig))
-    console.log(arr)
-    return filterMenuItem(arr)
+    console.log(key, '==')
+    if (key !== '/error/404') {
+      let menuItem = getMenuItem(menuCofig, 'key', key)
+      if (menuItem) history.push(key)
+      props.addTags(menuItem)
+    }
   }
   // 菜单权限
   const filterMenuItem = arr => {

@@ -37,11 +37,12 @@ class Tags extends Component {
     const currentPath = history.location.pathname
     return (
       <div className='tagsView-container'>
-        {taglist.map(i => (
-          <Tag key={i.key} closable={i.key !== '/home' || taglist.length === 0} onClose={e => this.close(e, i)} color={currentPath === i.key ? 'gold' : 'geekblue'} onClick={() => this.handleClick(i.key)}>
-            {i.label}
-          </Tag>
-        ))}
+        {taglist &&
+          taglist.map(i => (
+            <Tag key={i.key} closable={i.key !== '/home' || taglist.length === 0} onClose={e => this.close(e, i)} color={currentPath === i.key ? 'gold' : 'geekblue'} onClick={() => this.handleClick(i.key)}>
+              {i.label}
+            </Tag>
+          ))}
       </div>
     )
   }

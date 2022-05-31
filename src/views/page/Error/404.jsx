@@ -1,23 +1,25 @@
-import React from 'react';
-import { Button, Row, Col } from 'antd';
-import './index.less';
+import React from 'react'
+import { Button, Result } from 'antd'
 
-const NotFound = (props) => {
-  const { history } = props;
-  const goHome = () => history.replace('/home');
+const NotFound = props => {
+  const { history } = props
+  const goHome = () => history.replace('/home')
+  const style = {
+    paddingTop: 160
+  }
   return (
-    <Row className="not-found">
-      <Col span={24} className="right">
-        <h1>404</h1>
-        <h2>抱歉，你访问的页面不存在</h2>
-        <div>
-          <Button type="primary" onClick={goHome}>
-            回到首页
-          </Button>
-        </div>
-      </Col>
-    </Row>
-  );
-};
+    <Result
+      status='404'
+      title='404'
+      subTitle='Sorry, the page you visited does not exist.'
+      style={style}
+      extra={
+        <Button type='primary' onClick={goHome}>
+          回到首页
+        </Button>
+      }
+    />
+  )
+}
 
-export default NotFound;
+export default NotFound
