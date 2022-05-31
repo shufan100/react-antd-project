@@ -46,22 +46,27 @@ const NewMenu = props => {
     history.push(key)
     props.addTags(menuItem)
   }
-  // 菜单权限
-  const filterMenuItem1 = data => {
-    const { userInfo } = props
-
-    return menuCofig
+  const filterMenuItems = () => {
+    let arr = JSON.parse(JSON.stringify(menuCofig))
+    console.log(arr)
+    return filterMenuItem(arr)
   }
-  // 初始化菜单
-  const filterMenuItem = List => {
-    List.map((item, index) => {
-      if (!item.children) {
-        return { id: 1 }
-      } else {
-        return filterMenuItem(item.children)
+  // 菜单权限
+  const filterMenuItem = arr => {
+    const { userInfo } = props
+    for (let i = 0; i < arr.length; i++) {
+      let children = arr[i].children
+      if (children) {
+        filterMenuItem(children)
       }
-    })
-    console.log(List)
+      // 1roles有值，2当前登录不是admin
+      if (arr[i].roles && userInfo.id !== 'admin' && !arr[i].roles.includes(userInfo.id)) {
+        // console.log(arr[i])
+        arr.splice(i, 1)
+        i--
+      }
+    }
+    return arr
   }
 
   return (

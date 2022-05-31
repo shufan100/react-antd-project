@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function EditorPage() {
-  return <div>EditorPage</div>
+  return <div className='editorPage'>editor页面权限</div>
 }

@@ -3,12 +3,34 @@
  * roles:标明当前菜单项在何种角色下可以显示，如果不写此选项，表示该菜单项完全公开，在任何角色下都显示
  */
 // import Icons from '@/components/Icons'; // 动态icon
-import { AppstoreOutlined, TeamOutlined, UserOutlined, SolutionOutlined, AppstoreAddOutlined, ApartmentOutlined } from '@ant-design/icons'
+import { AppstoreOutlined, UnlockOutlined, TeamOutlined, UserOutlined, SolutionOutlined, AppstoreAddOutlined, ApartmentOutlined } from '@ant-design/icons'
 const menuList = [
   {
     key: '/home',
     label: '首页',
     icon: <AppstoreOutlined />
+  },
+  {
+    label: '权限管理',
+    key: 'permissions',
+    icon: <UnlockOutlined />,
+    children: [
+      {
+        label: 'admin页面',
+        key: '/permissions/admin',
+        roles: ['admin']
+      },
+      {
+        label: 'editor页面',
+        key: '/permissions/editor',
+        roles: ['editor']
+      },
+      {
+        label: 'guest页面',
+        key: '/permissions/guest',
+        roles: ['guest']
+      }
+    ]
   },
   {
     label: '表单相关',
@@ -29,28 +51,7 @@ const menuList = [
       }
     ]
   },
-  {
-    label: '权限管理',
-    key: 'permissions',
-    icon: <SolutionOutlined />,
-    children: [
-      {
-        label: 'admin页面',
-        key: '/permissions/admin',
-        roles: ['admin']
-      },
-      {
-        label: 'editor页面',
-        key: '/permissions/editor',
-        roles: ['editor']
-      },
-      {
-        label: 'guest页面',
-        key: '/permissions/guest',
-        roles: ['guest']
-      }
-    ]
-  },
+
   {
     label: '路由嵌套',
     key: 'nested',

@@ -4,10 +4,10 @@ import './index.less'
 export default class Loading extends Component {
   render() {
     return (
-      <div class='app-loading'>
-        <div class='app-loading-wrap'>
-          <div class='app-loading-dots'>
-            <span class='dot dot-spin'>
+      <div className='app-loading'>
+        <div className='app-loading-wrap'>
+          <div className='app-loading-dots'>
+            <span className='dot dot-spin'>
               <i></i>
               <i></i>
               <i></i>

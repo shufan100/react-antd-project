@@ -28,6 +28,7 @@ const LayoutHeader = props => {
       onOk() {
         // store.dispatch(removeTokenAction());
         removeTokenAction()
+        window.location.reload()
       },
       onCancel() {
         console.log('Cancel')
