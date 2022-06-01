@@ -1,4 +1,5 @@
 import * as types from '../action-type'
+import { $newSet } from '@/utils/util'
 
 const initState = {
   taglist: []
@@ -12,7 +13,7 @@ export default function tags(preState = initState, action) {
       } else {
         return {
           ...preState,
-          taglist: [...preState.taglist, action.data]
+          taglist: $newSet([...preState.taglist, action.data], 'key')
         }
       }
     case types.TAGS_LIST_DELETE:

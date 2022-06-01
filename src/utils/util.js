@@ -49,3 +49,16 @@ export function getMenuItem(menuList, key, value) {
   }
   return res
 }
+
+// 去重
+export function $newSet(data, param) {
+  let result = []
+  let obj = {}
+  for (let i = 0; i < data.length; i++) {
+    if (!obj[data[i][param]]) {
+      result.push(data[i])
+      obj[data[i][param]] = true
+    }
+  }
+  return result
+}

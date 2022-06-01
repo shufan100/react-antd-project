@@ -42,6 +42,10 @@ const menuList = [
         key: '/basisCom/basis'
       },
       {
+        label: '锚点',
+        key: '/basisCom/anchor'
+      },
+      {
         label: '表格',
         key: '/basisCom/table'
       },

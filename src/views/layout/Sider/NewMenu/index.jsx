@@ -8,6 +8,7 @@ import './index.less'
 import menuCofig from '@/mock/menuCofig'
 import { getMenuItem } from '@/utils/util'
 import { addTags } from '@/store/actions'
+
 const NewMenu = props => {
   const history = useHistory()
   const location = useLocation()
@@ -22,6 +23,8 @@ const NewMenu = props => {
   // 监听路由变化，设置选中菜单
   useEffect(() => {
     setSelectKey(location.pathname)
+    console.log(location.pathname, 'location.pathname')
+    handleMenuSelect(location.pathname)
   }, [location])
 
   // 初始化设置选中的父级菜单
@@ -42,10 +45,9 @@ const NewMenu = props => {
 
   //点击菜单
   const handleMenuSelect = key => {
-    console.log(key, '==')
-    if (key !== '/error/404') {
-      let menuItem = getMenuItem(menuCofig, 'key', key)
-      if (menuItem) history.push(key)
+    let menuItem = getMenuItem(menuCofig, 'key', key)
+    if (menuItem) {
+      history.push(key)
       props.addTags(menuItem)
     }
   }
@@ -84,3 +86,4 @@ const NewMenu = props => {
   )
 }
 export default connect(stata => ({ ...stata.tags, ...stata.user }), { addTags })(NewMenu)
+

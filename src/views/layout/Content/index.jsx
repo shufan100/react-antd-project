@@ -9,7 +9,7 @@ const { Content } = Layout
 console.log(routeData)
 // 这里注册二级路由（react-router-dom)5.0版本为例：
 const LayoutContent = props => (
-  <Content className='Content' style={{ height: 'calc(100% - 100px)', overflow: 'hidden' }}>
+  <Content className='Content'>
     <Suspense fallback={<Loading />}>
       {/* Switch的location：用于缓存路由 */}
       <Switch location={props.location}>
