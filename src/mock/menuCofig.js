@@ -38,20 +38,20 @@ const menuList = [
     icon: <SolutionOutlined />,
     children: [
       {
-        label: '基础组件',
+        label: '按钮',
         key: '/basisCom/basis'
       },
       {
-        label: '锚点',
-        key: '/basisCom/anchor'
-      },
-      {
-        label: '表格',
-        key: '/basisCom/table'
+        label: '输入框',
+        key: '/basisCom/inputs'
       },
       {
         label: '表单',
         key: '/basisCom/form'
+      },
+      {
+        label: '表格',
+        key: '/basisCom/table'
       },
       {
         label: '富文本',
