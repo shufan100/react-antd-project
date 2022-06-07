@@ -25,10 +25,10 @@ const NumericInput = props => {
     onChange(valueTemp.replace(/0*(\d+)/, '$1'))
   }
 
-  const title = value ? <span className='numeric-input-title'>{value !== '-' ? formatNumber(Number(value)) : '-'}</span> : 'Input a number'
+  const title = value ? <span className='numeric-input-title'>{value !== '-' ? formatNumber(Number(value)) : '-'}</span> : '输入数字'
   return (
     <Tooltip trigger={['focus']} title={title} placement='topLeft' overlayClassName='numeric-input'>
-      <Input {...props} onChange={handleChange} onBlur={handleBlur} placeholder='Input a number' maxLength={25} />
+      <Input {...props} onChange={handleChange} onBlur={handleBlur} placeholder='输入数字' maxLength={25} />
     </Tooltip>
   )
 }
