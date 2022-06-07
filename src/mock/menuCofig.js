@@ -39,7 +39,11 @@ const menuList = [
     children: [
       {
         label: '按钮',
-        key: '/basisCom/basis'
+        key: '/basisCom/buttons'
+      },
+      {
+        label: '图标',
+        key: '/basisCom/icons'
       },
       {
         label: '输入框',
