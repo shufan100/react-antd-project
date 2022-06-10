@@ -186,6 +186,7 @@ const FormCom = () => {
     console.log('弹窗回调: ', values)
     setVisible(false)
   }
+
   return (
     <div>
       <span>表单布局--{formLayout} </span>

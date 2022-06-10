@@ -11,7 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
   setTimeout(() => {
     setLoading(false)
-  }, 1500)
+  }, 1000)
 
   return (
     <div id='home' style={homeStyle}>
