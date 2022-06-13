@@ -92,6 +92,8 @@ const FormCom = () => {
         form.setFieldsValue({
           username: 'Hi there!'
         })
+        break
+      default:
     }
   }
   // 类式组件写法
@@ -230,7 +232,7 @@ const FormCom = () => {
         autoComplete='off'
         colon //是否显示label后面的冒号（默认true）
         labelAlign='right' //label 文本对齐方式（left、right）默认''
-        labelCol={{ flex: formLayout == 'vertical' ? '30px' : '100px' }} //label 标签布局
+        labelCol={{ flex: formLayout === 'vertical' ? '30px' : '100px' }} //label 标签布局
         labelWrap //label (文本)换行方式（left、right）默认right
       >
         {/* 自定义校验:

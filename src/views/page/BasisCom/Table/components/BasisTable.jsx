@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Button, Collapse, Switch, Popconfirm, message } from 'antd'
+import { Table, Button, Collapse, Switch, Popconfirm } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 
 // 弹窗
@@ -75,14 +75,14 @@ export default function BasisTable(props) {
       key: 'radio',
       render: (_, record, index) => (
         <Popconfirm
-          title={`确定${record.radio == 1 ? '关闭' : '打开'}-----吗？？`}
+          title={`确定${record.radio === 1 ? '关闭' : '打开'}-----吗？？`}
           placement='bottomRight'
           onConfirm={() => confirm(record, index)}
           okText='确定'
           cancelText='取消'
         >
           {/* <Switch checked={record.radio == 1} onClick={() => hadleSwitch(record, index)} /> */}
-          <Switch checked={record.radio == 1} />
+          <Switch checked={record.radio === 1} />
         </Popconfirm>
       )
     },
@@ -122,11 +122,11 @@ export default function BasisTable(props) {
   }
   // 气泡
   const confirm = (rows, index) => {
-    // message.info(rows, index)
     console.log(rows, index)
     let arr = JSON.parse(JSON.stringify(tableData))
-    arr[index].radio = arr[index].radio == 1 ? 2 : 1
-    setTableData(arr)
+    arr[index].radio = arr[index].radio === 1 ? 2 : 1
+    // setTableData(arr)
+    // setTableData(t => arr)
   }
   // 开关点击
   // const hadleSwitch = (rows, index) => {

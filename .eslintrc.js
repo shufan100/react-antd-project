@@ -50,7 +50,7 @@ module.exports = {
     'no-unreachable': 2, //不能有无法执行的代码
     'no-use-before-define': 2, //未定义前不能使用
     'no-var': 0, //禁用var，用let和const代替
-    'arrow-body-style': [2, 'as-needed'], // 箭头函数直接返回的时候不需要 大括号 {}
+    'arrow-body-style': [2, 'as-needed'], // 箭头函数直接返回的时候不需要 大括号 {}default case
     'no-restricted-syntax': 0, // 允许使用 for in
     'no-trailing-spaces': 0, // 允许代码后面空白
     'no-return-await': 0, // 允许返回 await
@@ -61,6 +61,7 @@ module.exports = {
     'no-alert': 0, //禁止使用alert confirm prompt
     'no-param-reassign': 0, //禁止给参数重新赋值
     'guard-for-in': 0, //for in循环要用if语句过滤
+    'no-template-curly-in-string': 0, //字符串模板
 
     // ----------------------------------
     // 有一些 event 的时候，不需要 role 属性，不需要其他解释

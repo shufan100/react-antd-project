@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import PropsClass from './components/PropsClass'
 import PropsFun from './components/PropsFun'
 
-import Cc from './cc'
+// import Cc from './cc'
 
 function PropsWriting() {
   const [number] = useState(987)

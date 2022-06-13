@@ -10,6 +10,7 @@ const RouteWriting = lazy(() => import('@/views/page/Demo/RouteWriting'))
 const ParamCom = lazy(() => import('@/views/page/Demo/RouteWriting/ParamCom/Param'))
 const SearchCom = lazy(() => import('@/views/page/Demo/RouteWriting/ParamCom/Search'))
 const StateCom = lazy(() => import('@/views/page/Demo/RouteWriting/ParamCom/State'))
+const HooksWriting = lazy(() => import('@/views/page/Demo/HooksWriting'))
 export default [
   // 案例
   { path: '/demo/classWriting', component: ClassWriting, roles: ['editor', 'guest'] },
@@ -19,6 +20,7 @@ export default [
   { path: '/demo/propsWriting', component: PropsWriting, roles: ['editor', 'guest'] },
   { path: '/demo/reduxWriting', component: ReduxWriting, roles: ['editor', 'guest'] },
   { path: '/demo/routeWriting', component: RouteWriting, roles: ['editor', 'guest'] },
+  { path: '/demo/hooksWriting', component: HooksWriting, roles: ['editor', 'guest'] },
   //接收路由参数
   { path: '/demo/param/:id/:title', component: ParamCom, roles: ['editor', 'guest'] },
   { path: '/demo/search', component: SearchCom, roles: ['editor', 'guest'] },

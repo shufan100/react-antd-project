@@ -15,8 +15,8 @@ class PropsClass extends Component {
     // nulls: PropTypes.null,   //不支持
     obj: PropTypes.object, // 对象
     arr: PropTypes.array, //数组
-    fun: PropTypes.func, //函数
-    optionalNode: PropTypes.node //支持（数字、字符串、元素、数组、Fragment）
+    fun: PropTypes.func //函数
+    // optionalNode: PropTypes.node //支持（数字、字符串、元素、数组、Fragment）
   }
   // props设置默认值  (不必传，未传，才会设置默认值)
   static defaultProps = {
@@ -33,7 +33,7 @@ class PropsClass extends Component {
       { id: '77', name: '开裤' },
       { id: '88', name: '打架' }
     ],
-    optionalNode: [{ id: '88' }],
+    // optionalNode: [{ id: '88' }],
     fun: params => {
       alert(`未传父组件方法，自身默认的方法：${params}`)
     }
@@ -46,7 +46,7 @@ class PropsClass extends Component {
   }
 
   render() {
-    const { val, val2, val3, optionalNode } = this.props
+    const { val, val2, val3 } = this.props
     const { number, str, bool, undefineds, nulls, obj, arr, fun } = this.props
     return (
       <div>

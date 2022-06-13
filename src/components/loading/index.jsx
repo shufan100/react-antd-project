@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Spin, Space } from 'antd'
+import { Spin } from 'antd'
 import './index.less'
 
 export default class Loading extends Component {

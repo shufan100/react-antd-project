@@ -141,6 +141,10 @@ const menuList = [
       {
         label: 'Route写法',
         key: '/demo/routeWriting'
+      },
+      {
+        label: 'Hooks写法',
+        key: '/demo/hooksWriting'
       }
     ]
   },

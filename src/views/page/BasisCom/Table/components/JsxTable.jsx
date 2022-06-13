@@ -57,7 +57,7 @@ export default function JsxTable(props) {
             render={tags => (
               <>
                 {tags.map(i => (
-                  <Tag color={i == 'cool' ? 'volcano' : 'green'} key={i}>
+                  <Tag color={i === 'cool' ? 'volcano' : 'green'} key={i}>
                     {i}
                   </Tag>
                 ))}

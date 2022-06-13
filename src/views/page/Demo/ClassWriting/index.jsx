@@ -1,11 +1,8 @@
 // PureComponent代替component，阀门生命周期的就不用写了，PureComponent会自动写好阀门的对比逻辑：从而提示组件在数据没变化的时候不会render组件
 // import React, { Component, PureComponent } from 'react';
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Button } from 'antd'
 import './index.scss'
 
 // 引用事例

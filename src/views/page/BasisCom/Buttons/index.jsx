@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Collapse, Space, Divider, Button, Menu, Dropdown, Radio } from 'antd'
+import { Collapse, Space, Button, Menu, Dropdown, Radio } from 'antd'
 import { SearchOutlined, DownloadOutlined, SettingOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router-dom'
 const BasisStyle = {
