@@ -33,16 +33,16 @@ for (let i = 0; i < 50; i++) {
 
 export default function JsxTable(props) {
   const { loading } = props
-  const [pageSize, setPageSize] = useState(10)
+  // const [pageSize, setPageSize] = useState(10)
   //分页、排序、筛选变化时触发
   const onChange = (pagination, filters, sorter, extra) => {
     console.log(pagination, filters, sorter, extra)
-    setPageSize(pagination.pageSize)
+    // setPageSize(pagination.pageSize)
   }
   return (
-    <Collapse defaultActiveKey={['1']} ghost expandIconPosition='end'>
+    <Collapse defaultActiveKey={['2']} ghost expandIconPosition='end'>
       <Collapse.Panel header='JSX风格表格' key='1'>
-        <Table dataSource={data} bordered loading={loading} pagination={{ pageSize }} scroll={{ y: 240 }} onChange={onChange}>
+        <Table dataSource={data} bordered loading={loading} scroll={{ y: 240 }} onChange={onChange}>
           <Column title='index' dataIndex='key' key='key' align='center' width={60} />
           <ColumnGroup title='Name'>
             <Column title='First Name' dataIndex='firstName' key='firstName' />

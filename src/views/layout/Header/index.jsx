@@ -61,7 +61,11 @@ const LayoutHeader = props => {
   return (
     <Header className='hedaer-container'>
       <div>
-        <Icons iconName={sidebarCollapsed ? 'MenuUnfoldOutlined' : 'MenuFoldOutlined'} size={20} click={sidebarCollapsed ? toggleSiderBar : () => toggleAsyncSiderBar(500)} />
+        <Icons
+          iconName={sidebarCollapsed ? 'MenuUnfoldOutlined' : 'MenuFoldOutlined'}
+          size={20}
+          click={sidebarCollapsed ? toggleSiderBar : () => toggleAsyncSiderBar(500)}
+        />
         {/* <span>{sidebarCollapsed ? '同步aciton' : '异步aciton500'}</span> */}
         <BreadCrumb />
       </div>
@@ -72,7 +76,7 @@ const LayoutHeader = props => {
         <FullScreen />
         <Dropdown overlay={menu} placement='bottom'>
           <div className='avatar'>
-            <Avatar size={0} src={userInfo.avatar.default} />
+            <Avatar size={36} src={userInfo.avatar.default} />
             <span>{userInfo.role}</span>
             <Icons iconName='CaretDownOutlined' color='#ccc' size={16} top={2} />
           </div>

@@ -10,7 +10,8 @@ const initialValues = {
   username: '',
   password: '',
   remember: false,
-  'radio-group': '2'
+  'radio-group': '2',
+  'range-time-picker': [moment('2022-06-07', 'YYYY-MM-DD'), '']
 }
 // 自定义校验规则
 const validateMessages = {
@@ -304,7 +305,6 @@ const FormCom = () => {
         </Form.Item>
         <Form.Item name='range-time-picker' label='日期(时间)' {...rangeConfig}>
           <RangePicker
-            defaultValue={[moment('2022-06-07', 'YYYY-MM-DD'), '']} //默认值
             showTime //增加时间选择功能
             format='YYYY-MM-DD HH:mm:ss' //日期格式
             disabledDate={disabledDate} //禁用日期
