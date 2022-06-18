@@ -1,12 +1,12 @@
-import React from 'react'
-import Svg from '@/components/Svg'
-import { Card, Tag } from 'antd'
-import { growCardList } from '@/mock'
-import './index.less'
-import CountUp from 'react-countup' //动态加载数字
+import React from 'react';
+import Svg from '@/components/Svg';
+import { Card, Tag } from 'antd';
+import { growCardList } from '@/config';
+import './index.less';
+import CountUp from 'react-countup'; //动态加载数字
 
 export default function GrowCard(props) {
-  const { loading } = props
+  const { loading } = props;
   return (
     <div className='cardList'>
       {growCardList.map((item, index) => (
@@ -26,5 +26,5 @@ export default function GrowCard(props) {
         </Card>
       ))}
     </div>
-  )
+  );
 }

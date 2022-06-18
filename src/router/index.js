@@ -3,6 +3,7 @@ import Nested from './modules/Nested'
 import BasisCom from './modules/BasisCom'
 import Demo from './modules/Demo'
 import Permissions from './modules/Permissions'
+import FeatCom from './modules/FeatCom'
 
 // 引入组件:路由懒加载(切换路由的时候才加载)
 // 首页和404页默认加载
@@ -17,12 +18,13 @@ const User = lazy(() => import('@/views/page/User'))
 let routeMap = [
   // 一级路由
   { path: '/home', component: Home, roles: ['admin', 'editor', 'guest'] },
-  { path: '/abouts', component: Abouts, roles: ['admin', 'editor', 'guest'] },
   { path: '/user', component: User, roles: ['admin', 'editor', 'guest'] },
+  { path: '/abouts', component: Abouts, roles: ['admin', 'editor', 'guest'] },
   ...Permissions,
   ...BasisCom,
   ...Nested,
   ...Demo,
+  ...FeatCom,
   // 404
   { path: '/error/404', component: Error404, roles: ['admin', 'editor', 'guest'] }
 ]

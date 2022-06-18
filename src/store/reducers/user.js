@@ -4,9 +4,9 @@
  */
 import * as types from '../action-type';
 import { nanoid } from 'nanoid';
-// 
+//
 import { getToken, setToken, removeToken } from '@/utils/auth';
-import { getUserInfo } from '@/mock';
+import { getUserInfo } from '@/config';
 
 // 初始化state的值
 const initState = {
@@ -22,7 +22,7 @@ const initState = {
 };
 // Reducer里只能接受state，不能改变state,返回新得对象
 // store.dispatch({...})方法提交就到这里，action接收的是两个值，一个type,一个data
-export default function user (state = initState, action) {
+export default function user(state = initState, action) {
   // ***** 登录 ***
   if (action.type === types.USER_SET_TOKEN) {
     setToken(action.data); //token存cookie
@@ -63,15 +63,13 @@ export default function user (state = initState, action) {
   // 修改列表
   if (types.USER_EDIT_ITEM === action.type) {
     let newState = JSON.parse(JSON.stringify(state));
-    newState.statelList.forEach(item =>
-      item.id === action.data.id ? item.done = action.data.done : item.done
-    );
+    newState.statelList.forEach(item => (item.id === action.data.id ? (item.done = action.data.done) : item.done));
     return newState;
   }
   // 全选列表
   if (types.USER_CHENCKALL_ITEM === action.type) {
     let newState = JSON.parse(JSON.stringify(state));
-    newState.statelList.forEach(item => item.done = action.value);
+    newState.statelList.forEach(item => (item.done = action.value));
     return newState;
   }
   // 删除列表

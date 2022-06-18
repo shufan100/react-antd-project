@@ -3,7 +3,16 @@
  * roles:标明当前菜单项在何种角色下可以显示，如果不写此选项，表示该菜单项完全公开，在任何角色下都显示
  */
 // import Icons from '@/components/Icons'; // 动态icon
-import { AppstoreOutlined, UnlockOutlined, TeamOutlined, UserOutlined, SolutionOutlined, AppstoreAddOutlined, ApartmentOutlined } from '@ant-design/icons'
+import {
+  AppstoreOutlined,
+  UnlockOutlined,
+  TeamOutlined,
+  UserOutlined,
+  SolutionOutlined,
+  AppstoreAddOutlined,
+  ApartmentOutlined,
+  PullRequestOutlined
+} from '@ant-design/icons';
 const menuList = [
   {
     key: '/home',
@@ -63,7 +72,29 @@ const menuList = [
       }
     ]
   },
-
+  {
+    label: '功能',
+    key: 'feat',
+    icon: <PullRequestOutlined />,
+    children: [
+      {
+        label: '导出Excel',
+        key: '/feat/exports'
+      },
+      {
+        label: '导出Zip',
+        key: '/feat/zip'
+      },
+      {
+        label: '上传',
+        key: '/feat/upload'
+      },
+      {
+        label: '剪切板',
+        key: '/feat/clipboard'
+      }
+    ]
+  },
   {
     label: '路由嵌套',
     key: 'nested',
@@ -158,5 +189,5 @@ const menuList = [
     key: '/abouts',
     icon: <UserOutlined />
   }
-]
-export default menuList
+];
+export default menuList;

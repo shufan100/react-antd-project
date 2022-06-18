@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from './App'
-import '@/styles/reset.less' //引入全局重置样式
-import '@/styles/index.less' //引入全局样式
+import App from './App';
+
+import '@/styles/reset.less'; //引入全局重置样式
+import '@/styles/index.less'; //引入全局样式
+import './mock'; //mock
 
 // import 'antd/dist/antd.css'; //配置了主题颜色就不需要引了
 // import reportWebVitals from './reportWebVitals';  // 页面性能分析文件
@@ -16,7 +18,7 @@ import '@/styles/index.less' //引入全局样式
  */
 // 渲染组件到页面  React.StrictMode:检查代码里不太合理的地方
 // ReactDOM.render(<React.StrictMode> <App /> </React.StrictMode >, document.getElementById('root'));
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // reportWebVitals();
 

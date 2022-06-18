@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { Space, Table, Tag, Button, Collapse, Message } from 'antd'
-const { Column, ColumnGroup } = Table
+import React from 'react';
+import { Space, Table, Tag, Button, Collapse, Message } from 'antd';
+const { Column, ColumnGroup } = Table;
 
 const data = [
   {
@@ -19,7 +19,7 @@ const data = [
     address: 'Sidney No. 1 Lake Park',
     tags: ['cool', 'teacher']
   }
-]
+];
 for (let i = 0; i < 50; i++) {
   data.push({
     key: i + 3,
@@ -28,17 +28,17 @@ for (let i = 0; i < 50; i++) {
     age: 32 + i,
     address: 'Sidney No. 1 Lake Park',
     tags: ['pag']
-  })
+  });
 }
 
 export default function JsxTable(props) {
-  const { loading } = props
+  const { loading } = props;
   // const [pageSize, setPageSize] = useState(10)
   //分页、排序、筛选变化时触发
   const onChange = (pagination, filters, sorter, extra) => {
-    console.log(pagination, filters, sorter, extra)
+    console.log(pagination, filters, sorter, extra);
     // setPageSize(pagination.pageSize)
-  }
+  };
   return (
     <Collapse defaultActiveKey={['2']} ghost expandIconPosition='end'>
       <Collapse.Panel header='JSX风格表格' key='1'>
@@ -79,5 +79,5 @@ export default function JsxTable(props) {
         </Table>
       </Collapse.Panel>
     </Collapse>
-  )
+  );
 }

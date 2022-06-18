@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './index.less'
 import routeData from '@/router'
 import Loading from '@/components/loading'
