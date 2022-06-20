@@ -1,6 +1,6 @@
-import React from 'react';
-import clip from '@/utils/clipboard';
-import { Button, Row, Col } from 'antd';
+import React from 'react'
+import clip from '@/utils/clipboard'
+import { Button, Row, Col } from 'antd'
 
 const text = `
   我是要被复制的文字，
@@ -19,14 +19,14 @@ const text = `
   我是要被复制的文字，
   我是要被复制的文字，
   我是要被复制的文字
-  `;
+  `
 const handleCopy = (text, event) => {
-  clip(text, event);
-};
+  clip(text, event)
+}
 const Clipboard = () => {
-  console.log(111);
+  console.log(111)
   return (
-    <div className='app-container'>
+    <div>
       <h1>点击下方的Copy按钮，可将以下文字复制到剪贴板</h1>
       <br />
       <Row>
@@ -39,7 +39,7 @@ const Clipboard = () => {
             type='primary'
             icon='copy'
             onClick={e => {
-              handleCopy(text, e);
+              handleCopy(text, e)
             }}
           >
             Copy
@@ -47,7 +47,7 @@ const Clipboard = () => {
         </Col>
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default Clipboard;
+export default Clipboard

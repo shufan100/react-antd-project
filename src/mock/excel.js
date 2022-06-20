@@ -1,6 +1,6 @@
-import Mock from 'mockjs';
-const list = [];
-const count = 20;
+import Mock from 'mockjs'
+const list = []
+const count = 20
 
 for (let i = 0; i < count; i++) {
   list.push(
@@ -11,11 +11,11 @@ for (let i = 0; i < count; i++) {
       readings: '@integer(300, 5000)',
       date: '@datetime'
     })
-  );
+  )
 }
 export default {
   excelList: () => ({
     code: 20000,
     data: { items: list }
   })
-};
+}

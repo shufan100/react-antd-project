@@ -12,7 +12,7 @@ import {
   AppstoreAddOutlined,
   ApartmentOutlined,
   PullRequestOutlined
-} from '@ant-design/icons';
+} from '@ant-design/icons'
 const menuList = [
   {
     key: '/home',
@@ -53,6 +53,14 @@ const menuList = [
       {
         label: '图标',
         key: '/basisCom/icons'
+      },
+      {
+        label: '提示',
+        key: '/basisCom/message'
+      },
+      {
+        label: '查看图片',
+        key: '/basisCom/image'
       },
       {
         label: '输入框',
@@ -189,5 +197,5 @@ const menuList = [
     key: '/abouts',
     icon: <UserOutlined />
   }
-];
-export default menuList;
+]
+export default menuList
