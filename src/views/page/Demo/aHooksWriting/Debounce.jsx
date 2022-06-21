@@ -7,7 +7,7 @@ export default function HooksWriting() {
 
   const inputchange = UseDebounce(val => {
     console.log(val)
-    setText(val)
+    setText(val[0])
   }, 1000)
 
   return (

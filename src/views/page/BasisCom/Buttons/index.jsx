@@ -35,8 +35,8 @@ export default function Basis() {
   const history = useHistory()
   console.log(history)
   return (
-    <div style={BasisStyle}>
-      <h2 style={{ fontWeight: 'bold', padding: '10px', marginBottom: '15px', background: '#fff' }}>Button组件示例</h2>
+    <div>
+      <h2 className='h2Style'>Button组件示例</h2>
       {/* <Button onClick={() => history.push('/basisCom/form')}>111</Button> */}
 
       <Collapse defaultActiveKey={['1']} ghost expandIconPosition='end'>

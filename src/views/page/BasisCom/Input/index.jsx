@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react'
-import './index.less'
 import { Collapse, Input, Select, Space, Cascader, Button } from 'antd'
 import { SettingOutlined, ClockCircleOutlined, UserOutlined, CopyOutlined, EyeTwoTone, EyeInvisibleOutlined, AudioOutlined } from '@ant-design/icons'
 import NumericInput from '@/components/NumericInput'
@@ -57,8 +56,8 @@ const Inputs = () => {
   }
 
   return (
-    <div id='inputs'>
-      <h2>Input组件示例</h2>
+    <div>
+      <h2 className='h2Style'>Input组件示例</h2>
 
       <Collapse defaultActiveKey={['1']} ghost expandIconPosition='end'>
         <Collapse.Panel header='状态' key='1' extra={<SettingOutlined />}>

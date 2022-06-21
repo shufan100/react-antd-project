@@ -17,26 +17,26 @@ export default function HooksWriting() {
       }, 1000)
     })
   }
-  const { loading, run } = useRequest(editUsername, {
-    manual: true,
-
-    onSuccess: (result, params) => {
+  const { loading, runAsync } = useRequest(editUsername, {
+    manual: true
+  })
+  const onClick = async () => {
+    try {
+      await runAsync(state)
       setState('')
-      setUsername(params[0])
-      console.log(result, params)
-      Message.success(`用户名修改为 "${params[0]}" !`)
-    },
-    onError: error => {
+      setUsername(state)
+      Message.success(`用户名修改为 "${state}" !`)
+    } catch (error) {
       Message.error(error.message)
     }
-  })
+  }
 
   return (
     <div>
-      <Divider>ahooks -- useRequest（run）</Divider>
-      <input onChange={e => setState(e.target.value)} value={state} placeholder='请输入用户名' style={{ width: 240, marginRight: 16 }} />
-      <button disabled={loading} type='button' onClick={() => run(state)}>
-        {loading ? 'Loading' : 'Edit'}
+      <Divider>ahooks -- useRequest（runAsync）</Divider>
+      <input onChange={e => setState(e.target.value)} value={state} placeholder='请输入用户名11' style={{ width: 240, marginRight: 16 }} />
+      <button disabled={loading} type='button' onClick={onClick}>
+        {loading ? 'Loading' : 'AsyncEdit'}
       </button>
       <div>用户名：{username}</div>
     </div>

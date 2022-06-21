@@ -182,8 +182,14 @@ const menuList = [
         key: '/demo/routeWriting'
       },
       {
-        label: 'Hooks写法',
-        key: '/demo/hooksWriting'
+        label: 'aHooks写法',
+        key: 'ahooks',
+        children: [
+          {
+            label: 'UseRequest基础用法',
+            key: '/demo/ahooks/UseRequest'
+          }
+        ]
       }
     ]
   },

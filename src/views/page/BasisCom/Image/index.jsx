@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Collapse, Image, Button, Space, message, notification, Modal } from 'antd'
-import './index.less'
+import { Collapse, Image, Button, Space } from 'antd'
 
 export default function Images() {
   const [visible, setVisible] = useState(false)
@@ -11,8 +10,8 @@ export default function Images() {
   }, [])
 
   return (
-    <div className='Images'>
-      <h2 style={{ fontWeight: 'bold', padding: '10px', marginBottom: '15px', background: '#fff' }}>Message组件示例</h2>
+    <div>
+      <h2 className='h2Style'>Image组件示例</h2>
 
       <Collapse defaultActiveKey={['1']} ghost expandIconPosition='end'>
         <Collapse.Panel header='图片展示状态' key='1'>

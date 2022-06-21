@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Collapse, Button, Space, message, notification, Modal } from 'antd'
-import './index.less'
 
 export default function Messages() {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -20,8 +19,8 @@ export default function Messages() {
     })
   }
   return (
-    <div className='Messages'>
-      <h2 style={{ fontWeight: 'bold', padding: '10px', marginBottom: '15px', background: '#fff' }}>Message组件示例</h2>
+    <div>
+      <h2 className='h2Style'>Message组件示例</h2>
 
       <Collapse defaultActiveKey={['1']} ghost expandIconPosition='end'>
         <Collapse.Panel header='message提示' key='1'>

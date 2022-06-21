@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Table, Tag, Form, Button, Input, Radio, Select, Message } from 'antd';
-import { FileOutlined, FileExcelOutlined } from '@ant-design/icons';
+import React, { Component } from 'react'
+import { Table, Tag, Form, Button, Input, Radio, Select, Message } from 'antd'
+import { FileOutlined, FileExcelOutlined } from '@ant-design/icons'
 
-import { excelList } from '@/api';
+import { excelList } from '@/api/mockApi'
 const columns = [
   {
     title: 'Id',
@@ -40,13 +40,13 @@ const columns = [
     width: 195,
     align: 'center'
   }
-];
+]
 const mainStyle = {
   background: '#fff',
   padding: '16px'
-};
+}
 class Excel extends Component {
-  _isMounted = false; // 这个变量是用来标志当前组件是否挂载
+  _isMounted = false // 这个变量是用来标志当前组件是否挂载
   state = {
     list: [],
     filename: 'excel-file',
@@ -55,77 +55,77 @@ class Excel extends Component {
     downloadLoading: false,
     selectedRows: [],
     selectedRowKeys: []
-  };
+  }
 
   componentDidMount() {
-    this._isMounted = true;
-    this.fetchData();
+    this._isMounted = true
+    this.fetchData()
   }
   componentWillUnmount() {
-    this._isMounted = false;
+    this._isMounted = false
   }
   fetchData = () => {
     excelList().then(response => {
-      const list = response.data.data.items;
-      console.log(response);
+      const list = response.data.data.items
+      console.log(response)
       if (this._isMounted) {
-        this.setState({ list });
+        this.setState({ list })
       }
-    });
-  };
+    })
+  }
   onSelectChange = (selectedRowKeys, selectedRows) => {
-    this.setState({ selectedRows, selectedRowKeys });
-  };
+    this.setState({ selectedRows, selectedRowKeys })
+  }
   handleDownload = type => {
     if (type === 'selected' && this.state.selectedRowKeys.length === 0) {
-      Message.error('至少选择一项进行导出');
-      return;
+      Message.error('至少选择一项进行导出')
+      return
     }
     this.setState({
       downloadLoading: true
-    });
+    })
     import('@/utils/Export2Excel').then(excel => {
-      const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date'];
-      const filterVal = ['id', 'title', 'author', 'readings', 'date'];
-      const list = type === 'all' ? this.state.list : this.state.selectedRows;
-      const data = this.formatJson(filterVal, list);
+      const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date']
+      const filterVal = ['id', 'title', 'author', 'readings', 'date']
+      const list = type === 'all' ? this.state.list : this.state.selectedRows
+      const data = this.formatJson(filterVal, list)
       excel.export_json_to_excel({
         header: tHeader,
         data,
         filename: this.state.filename,
         autoWidth: this.state.autoWidth,
         bookType: this.state.bookType
-      });
+      })
       this.setState({
         selectedRowKeys: [], // 导出完成后将多选框清空
         downloadLoading: false
-      });
-    });
-  };
+      })
+    })
+  }
   formatJson(filterVal, jsonData) {
-    return jsonData.map(v => filterVal.map(j => v[j]));
+    return jsonData.map(v => filterVal.map(j => v[j]))
   }
   filenameChange = e => {
     this.setState({
       filename: e.target.value
-    });
-  };
+    })
+  }
   autoWidthChange = e => {
     this.setState({
       autoWidth: e.target.value
-    });
-  };
+    })
+  }
   bookTypeChange = value => {
     this.setState({
       bookType: value
-    });
-  };
+    })
+  }
   render() {
-    const { selectedRowKeys } = this.state;
+    const { selectedRowKeys } = this.state
     const rowSelection = {
       selectedRowKeys,
       onChange: this.onSelectChange
-    };
+    }
     return (
       <div style={{ background: '#f0f2f5' }}>
         <h2 style={{ fontWeight: 'bold', padding: '10px', marginBottom: '15px', background: '#fff' }}>导出Excel</h2>
@@ -175,8 +175,8 @@ class Excel extends Component {
           />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Excel;
+export default Excel
