@@ -20,7 +20,7 @@ class ReduxClass extends Component {
 
   render () {
     const { title, count } = this.props //redures值
-    const { setCount, resetCount, setCountAsync } = this.props //Naction方法
+    const { setCount, resetCount, setCountAsync } = this.props //redux--action方法
     console.log(this)
     return (
       <div>
@@ -47,5 +47,6 @@ class ReduxClass extends Component {
     )
   }
 }
-// redures\action接收的都是对象
+// 通过connect加工组件，给组件上的props加上action方法,store属性,加工后props就有redures,aciton方法
 export default connect(state => state.fun, { setCount, resetCount, setCountAsync })(ReduxClass);
+

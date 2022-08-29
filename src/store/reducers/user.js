@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 //
 import { getToken, setToken, removeToken } from '@/utils/auth';
 import { getUserInfo } from '@/config';
+console.log(getUserInfo(),'------')
 
 // 初始化state的值
 const initState = {

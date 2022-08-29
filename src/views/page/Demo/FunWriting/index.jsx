@@ -79,7 +79,7 @@ const About = props => {
 
   // -------------------------------useReducer-------------------------------------------------------------------------------------------------
   // 它接受reducer函数和状态的初始值作为参数，返回一个数组，其中第一项为当前的状态值，第二项为发送action的dispatch函数
-  let initState = { ...store.getState().app, ...store.getState().user }
+  let initState = { ...store.getState().app, ...store.getState().fun }
   const [state, dispatch] = useReducer(user, initState)
 
   const setCountRedux = value => {
