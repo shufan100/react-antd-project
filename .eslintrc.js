@@ -2,14 +2,13 @@ const { TRUE } = require('node-sass')
 
 // 修改需要重启项目
 module.exports = {
-  // 环境，这里可以设置环来做区别判断
+  // 设置环境
   env: {
     browser: true,
     commonjs: true,
     es6: true
   },
   // 使用的扩展库
-  // extends: ['airbnb'],
   extends: ['react-app', 'plugin:jsx-a11y/recommended'],
   // 解析器用于解析代码
   parser: 'babel-eslint',
@@ -18,8 +17,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 2018,
-    sourceType: 'module'
+    ecmaVersion: 6, // 支持es6
+    sourceType: 'module' // 使用es6模块化
   },
   // 可以全局使用变量
   globals: {
@@ -29,11 +28,9 @@ module.exports = {
   },
   // 第三方插件
   plugins: ['react', 'jsx-a11y'],
-  /**规则配置
-   * "off"或者0    //关闭规则关闭
-   * "warn"或者1    //在打开的规则作为警告（不影响退出代码）
-   * "error"或者2    //把规则作为一个错误（退出代码触发时为1）
-   */
+
+  // eslint检查规则：0/off：关闭； 1/warn：警告；2/error:错误
+  // https://cn.eslint.org/docs/rules/
   rules: {
     strict: 2, //使用严格模式
     'linebreak-style': [0, 'unix'], //换行风格
