@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import { Upload, Icon, message } from 'antd';
+import { Upload,  message } from 'antd';
 import { FolderAddOutlined } from '@ant-design/icons';
 import * as XLSX from 'xlsx';
 

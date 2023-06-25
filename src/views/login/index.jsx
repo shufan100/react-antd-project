@@ -1,3 +1,11 @@
+/*
+ * @Author: shufan100 1549248097@qq.com
+ * @Date: 2022-10-23 14:47:47
+ * @LastEditors: shufan100 1549248097@qq.com
+ * @LastEditTime: 2023-02-22 17:51:39
+ * @FilePath: \react-antd-project\src\views\login\index.jsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { Form, Input, Button, message } from 'antd';
@@ -9,14 +17,14 @@ import './index.less';
 const LayoutLogin = props => {
   // 提交表单且数据验证成功后回调事件
   const onFinish = (values) => {
-    // console.log('Success:', values);
+    console.log('Success:', values);
     if (values.username1 === 'admin' || values.username1 === 'editor' || values.username1 === 'guest') {
       store.dispatch(setTokenAction(values.username1));
       message.success('登录成功！');
 
     } else return message.error('登录失败！');
   };
-  // 提交表单且数据验证失败后回调事件
+  // 表单校验回调
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };

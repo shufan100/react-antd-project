@@ -75,7 +75,7 @@ export default function SelectTable({ loading }) {
       ...pagination,
       total: [...tableData, ...arr].length
     })
-  }, [])
+  }, []) // eslint-disable-line
 
   //分页、排序、筛选变化时触发
   const onChange = (pagination, filters, sorter, extra) => {

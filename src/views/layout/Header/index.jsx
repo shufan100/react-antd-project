@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Layout, Dropdown, Avatar, Menu, Modal } from 'antd'
+import { Layout, Dropdown, Avatar, Modal } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 // import store from '@/store';
 import './index.less'
@@ -15,7 +15,6 @@ const { Header } = Layout
 
 const LayoutHeader = props => {
   const { sidebarCollapsed, userInfo } = props //redux属性
-  console.log(userInfo)
   const { toggleSiderBar, toggleAsyncSiderBar, setTitleAction, removeTokenAction } = props //redux方法
 
   const dropdownClick = () => {
@@ -36,31 +35,30 @@ const LayoutHeader = props => {
     })
   }
 
-  const menu = (
-    <Menu
-      items={[
-        {
-          label: (
-            <span>
-              <span>1</span>
-              <Link to='/'>首页</Link>
-            </span>
-          )
-        },
-        {
-          label: (
-            <span onClick={dropdownClick}>
-              <span>2</span>
-              <span>注销</span>
-            </span>
-          )
-        }
-      ]}
-    />
-  )
+  const items = [
+    {
+      key: '1',
+      label: (
+        <span>
+          <span>1</span>
+          <Link to='/'>首页</Link>
+        </span>
+      )
+    },
+    { type: 'divider' },
+    {
+      key: '2',
+      label: (
+        <span onClick={dropdownClick}>
+          <span>2</span>
+          <span>注销</span>
+        </span>
+      )
+    }
+  ]
   return (
     <Header className='hedaer-container'>
-      <div>
+      <div className='hedaer-container_left'>
         <Icons
           iconName={sidebarCollapsed ? 'MenuUnfoldOutlined' : 'MenuFoldOutlined'}
           size={20}
@@ -69,16 +67,16 @@ const LayoutHeader = props => {
         {/* <span>{sidebarCollapsed ? '同步aciton' : '异步aciton500'}</span> */}
         <BreadCrumb />
       </div>
-      <div>
+      <div className='hedaer-container_right'>
         <span style={{ marginRight: '10px' }} onClick={setTitleAction}>
           中/英
         </span>
         <FullScreen />
-        <Dropdown overlay={menu} placement='bottom'>
+        <Dropdown menu={{ items }} placement='bottom' trigger={['click']}>
           <div className='avatar'>
             <Avatar size={36} src={userInfo.avatar.default} />
             <span>{userInfo.role}</span>
-            <Icons iconName='CaretDownOutlined' color='#ccc' size={16} top={2} />
+            <Icons iconName='CaretDownOutlined' color='#666' size={16} top={2} />
           </div>
         </Dropdown>
       </div>

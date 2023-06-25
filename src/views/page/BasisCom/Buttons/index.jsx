@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Collapse, Space, Button, Menu, Dropdown, Radio } from 'antd'
 import { SearchOutlined, DownloadOutlined, SettingOutlined } from '@ant-design/icons'
 import { useHistory } from 'react-router-dom'
-const BasisStyle = {
-  padding: 0,
-  background: '#f0f2f5'
-}
+// const BasisStyle = {
+//   padding: 0,
+//   background: '#f0f2f5'
+// }
 const onMenuClick = e => {
   console.log('click', e)
 }
@@ -52,7 +52,7 @@ export default function Basis() {
               禁用按钮
             </Button>
             <Button danger>危险按钮</Button>
-            <Dropdown.Button overlay={menu}>多选按钮</Dropdown.Button>
+            <Dropdown.Button menu={menu}>多选按钮</Dropdown.Button>
           </Space>
         </Collapse.Panel>
       </Collapse>

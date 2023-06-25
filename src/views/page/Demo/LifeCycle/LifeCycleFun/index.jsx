@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import ReactDOM from 'react-dom';
+import React, { useEffect, useState, useRef } from 'react'
+import ReactDOM from 'react-dom'
 import effectImg from '@/assets/images/Effect.png'
 
 const LifeCycleFun = () => {
@@ -15,26 +15,27 @@ const LifeCycleFun = () => {
   // 初始化
   useEffect(() => {
     console.log('组件挂载完毕')
-    const data = { ...states }
-    data.title = '生命周期(函数)'
-    setStates(data)
+    setStates({
+      ...states,
+      title: '生命周期(函数)'
+    })
     return () => {
       console.log('组件卸载之前')
     }
-  }, [])
+  }, []) // eslint-disable-line
   // 渐变
-  let timer1;
+  let timer1 = useRef(null)
   useEffect(() => {
-    timer1 = setInterval(() => {
+    timer1.current = setInterval(() => {
       setOpacity(opacity - 0.1)
       if (opacity < 0.8) setColor('#000')
       if (opacity < 0.1) {
         setOpacity(1)
         setColor('red')
       }
-    }, 200);
-    return () => clearInterval(timer1);
-  }, [opacity])
+    }, 200)
+    return () => clearInterval(timer1.current)
+  }, [opacity]) // eslint-disable-line
   // 时间
   useEffect(() => {
     let timer = setInterval(() => {
@@ -48,15 +49,13 @@ const LifeCycleFun = () => {
       let str = `${y}-${m}-${d} ${hh}:${mm}:${ss}`
       console.log(str)
       setDate(str)
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [date])
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [date]) // eslint-disable-line
   //卸载组件
   const unMount = () => {
-    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'))
   }
-
-
 
   // -------------------------------------------------------------
   //计算
@@ -69,12 +68,11 @@ const LifeCycleFun = () => {
       if (data.count < 0) data.count = 0
     }
     setStates(data)
-
-  };
+  }
   // 清除计时器
-  const clear = (e) => {
-    clearInterval(timer1)
-  };
+  const clear = e => {
+    clearInterval(timer1.current)
+  }
 
   return (
     <div>
@@ -83,21 +81,20 @@ const LifeCycleFun = () => {
       <button onClick={e => add(e, '+')}>加</button>&nbsp;&nbsp;
       <button onClick={e => add(e, '-')}>减</button> &nbsp;&nbsp;
       <button onClick={e => setNum(num / 2)}>{num}</button>&nbsp;&nbsp;
-      <button onClick={() => unMount()}>卸载组件</button><br /> &nbsp;
-
-
+      <button onClick={() => unMount()}>卸载组件</button>
+      <br /> &nbsp;
       <div>
         <h3>初始化、更新、卸载前：</h3>
-        <img src={effectImg} alt="" />
-      </div>&nbsp;
-
+        <img src={effectImg} alt='' />
+      </div>
+      &nbsp;
       <div>
         <h3>Demo</h3>
         <span style={{ opacity: opacity, color: colors }}>DEMODEMODEMODEMODEMODEMODEMO</span>
         <button onClick={() => clear()}>暂停渐变</button>
         <span>时间：{date}</span>
       </div>
-    </div >
+    </div>
   )
 }
-export default LifeCycleFun;
+export default LifeCycleFun

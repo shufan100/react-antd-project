@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Tooltip, message, Button, Space } from 'antd'
+import { Table, Tooltip, Button, Space } from 'antd'
 import { useRequest } from 'ahooks'
 
 // 接口
@@ -34,7 +34,7 @@ const columns = [
     title: '性别',
     dataIndex: 'sex',
     key: 'sex',
-    render: (text, record, index) => (text == 1 ? '男' : '女')
+    render: (text, record, index) => (text === 1 ? '男' : '女')
   },
   {
     title: '号码',
@@ -59,15 +59,15 @@ export default function HooksWriting() {
   const [loading, setLoading] = useState(false)
   const [tableData, setTableData] = useState([])
 
-  useEffect(() => {}, [])
-  const init = async () => {
-    setLoading(true)
-    const { data } = await getFetchList()
-    console.log(data, '111')
-    setTableData(data.data)
-    setLoading(false)
-  }
-  const { data, run } = useRequest(getFetchList, {
+  useEffect(() => { }, [])
+  // const init = async () => {
+  //   setLoading(true)
+  //   const { data } = await getFetchList()
+  //   console.log(data, '111')
+  //   setTableData(data.data)
+  //   setLoading(false)
+  // }
+  const { run } = useRequest(getFetchList, {
     manual: false,
     onBefore: params => {
       // 请求之前触发

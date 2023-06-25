@@ -5,6 +5,10 @@ import { deleteTags } from '@/store/actions'
 import { Tag } from 'antd'
 import './index.less'
 class Tags extends Component {
+  componentDidMount() {
+    // console.log(11)
+  }
+  // 关闭
   close = (e, item) => {
     e.preventDefault()
     console.log(e, item, '--')
@@ -28,6 +32,7 @@ class Tags extends Component {
     // 先跳转路由，再修改state树的taglist
     deleteTags(item)
   }
+  // 点击tag切换
   handleClick = key => {
     console.log(key)
     this.props.history.push(key)
@@ -35,11 +40,18 @@ class Tags extends Component {
   render() {
     const { taglist, history } = this.props
     const currentPath = history.location.pathname
+    // console.log(taglist, history.location, 'taglist', currentPath)
     return (
       <div className='tagsView-container'>
         {taglist &&
           taglist.map(i => (
-            <Tag key={i.key} closable={i.key !== '/home' || taglist.length === 0} onClose={e => this.close(e, i)} color={currentPath === i.key ? 'gold' : 'geekblue'} onClick={() => this.handleClick(i.key)}>
+            <Tag
+              key={i.key}
+              closable={i.key !== '/home' || taglist.length === 0}
+              onClose={e => this.close(e, i)}
+              color={currentPath === i.key ? 'gold' : 'geekblue'}
+              onClick={() => this.handleClick(i.key)}
+            >
               {i.label}
             </Tag>
           ))}

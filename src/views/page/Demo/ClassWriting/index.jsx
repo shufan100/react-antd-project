@@ -33,7 +33,8 @@ class LayoutContentClass extends Component {
     address: '中国北京。。。',
     count: 0,
     newsArr: [],
-    hasError: ''
+    hasError: '',
+    count1: 0
   }
 
   // {/************************* setState *****************************************************************/}
@@ -106,8 +107,11 @@ class LayoutContentClass extends Component {
     return (
       //下面的结构不是真正的html，是jsx,虚拟dom，需要ReactDOMx渲染成真实的html标签显示在页面
       <div className='layoutContent' id='LayoutContentClass'>
+        <div> {this.state.count1} --</div>
+        <button onClick={() => this.setState({ count1: this.state.count1 + 1 })}>点击</button>
+
         <h1 style={{ color: 'red', textAlign: 'center' }}>类式组件写法</h1>
-        {/*************************  事例+getSnapshotBeforeUpdate *****************************************************************/}
+        {/*************************  事例+getSnapshotBeforeUpdate ****************************************************************/}
         {/* <div className='list' ref='list'> */}
         <div className='list' ref={c => (this.listRef = c)}>
           {this.state.newsArr.map((n, index) => (

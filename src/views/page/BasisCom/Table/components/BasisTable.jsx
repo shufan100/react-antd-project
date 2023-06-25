@@ -145,14 +145,14 @@ export default function BasisTable(props) {
   }
 
   useEffect(() => {
-    setTableData([...tableData, ...arr])
+    setTableData(t => [...tableData, ...arr])
 
-    setPagination({
+    setPagination(t => ({
       ...pagination,
       total: [...tableData, ...arr].length
-    })
-    console.log(pagination, '==')
-  }, [])
+    }))
+    // console.log(pagination, '==')
+  }, []) // eslint-disable-line
 
   //分页、排序、筛选变化时触发
   const onChange = (pagination, filters, sorter, extra) => {

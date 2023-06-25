@@ -1,3 +1,11 @@
+/*
+ * @Author: shufan100 1549248097@qq.com
+ * @Date: 2022-10-23 14:47:47
+ * @LastEditors: shufan100 1549248097@qq.com
+ * @LastEditTime: 2023-02-22 21:16:16
+ * @FilePath: \react-antd-project\.eslintrc.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 const { TRUE } = require('node-sass')
 
 // 修改需要重启项目
@@ -27,7 +35,7 @@ module.exports = {
     React: true
   },
   // 第三方插件
-  plugins: ['react', 'jsx-a11y'],
+  plugins: ['react', 'jsx-a11y', 'react-hooks'],
 
   // eslint检查规则：0/off：关闭； 1/warn：警告；2/error:错误
   // https://cn.eslint.org/docs/rules/
@@ -88,6 +96,8 @@ module.exports = {
         allowLiteral: true, //export default 123
         allowObject: true //export default {}
       }
-    ]
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn' // <--- THIS IS THE NEW RULE
   }
 }

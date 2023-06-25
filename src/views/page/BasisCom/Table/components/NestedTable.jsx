@@ -54,7 +54,7 @@ const NestedTable = ({ loading }) => {
           <Space size='middle'>
             <span style={style}>Pause</span>
             <span style={style}>Stop</span>
-            <Dropdown overlay={menu}>
+            <Dropdown menu={menu}>
               <span style={style}>
                 More <DownOutlined />
               </span>
