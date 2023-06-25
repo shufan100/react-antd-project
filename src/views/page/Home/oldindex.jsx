@@ -1,71 +1,78 @@
-import React, { useEffect } from 'react';
-import { getUser1, getUser2, getCars } from '@/api';
-import axios from 'axios';
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
-export default function Home () {
-
+/*
+ * @Author: shufan100 1549248097@qq.com
+ * @Date: 2022-10-23 14:47:47
+ * @LastEditors: shufan100 1549248097@qq.com
+ * @LastEditTime: 2023-06-25 17:59:44
+ * @FilePath: \react-antd-project\src\views\page\Home\oldindex.jsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+import React, { useEffect } from 'react'
+import { getUser1, getUser2, getCars } from '@/api'
+import axios from 'axios'
+const CancelToken = axios.CancelToken
+const source = CancelToken.source()
+export default function Home() {
   useEffect(() => {
-    console.log('home组件已经挂载');
+    console.log('home组件已经挂载')
     return () => {
-      console.log('home卸载组件前');
+      console.log('home卸载组件前')
     }
   }, [])
 
   const getDatas = async () => {
-    const result = await axios.get('https://api.apiopen.top/getJoke');
-    console.log(result);
-  };
+    const result = await axios.get('https://api.apiopen.top/getJoke')
+    console.log(result)
+  }
   const getNodeUser1 = async () => {
-    const result = await getUser1(1);
-    console.log(result);
-  };
+    const result = await getUser1(1)
+    console.log(result)
+  }
   const getNodeUser2 = async () => {
-    const result = await getUser2();
-    console.log(result);
-  };
+    const result = await getUser2()
+    console.log(result)
+  }
   const getNode2Cars = async () => {
-    const result = await getCars();
-    console.log(result);
-  };
+    const result = await getCars()
+    console.log(result)
+  }
 
   // 解决回调地狱
   const getP = e => {
     getUser2()
       .then(res => {
-        console.log(res, 'getUser2');
-        return getUser1(1);
+        console.log(res, 'getUser2')
+        return getUser1(1)
       })
       .then(res => {
-        console.log(res, 'getUser1');
-        return getCars();
+        console.log(res, 'getUser1')
+        return getCars()
       })
       .then(res => {
-        console.log(res, 'getCars');
+        console.log(res, 'getCars')
       })
       .catch(err => {
-        console.log(err, '捕获接口的错误');
-      });
-  };
+        console.log(err, '捕获接口的错误')
+      })
+  }
   // 发起axios请求
   const getAxios = e => {
     axios.get(`/api1/search/users?q=${'1'}`, {
       cancelToken: source.token
-    });
-  };
+    })
+  }
   // 取消axios请求
   const cancelAxios = e => {
-    source.cancel('取消请求');
-  };
+    source.cancel('取消请求')
+  }
   // ---------------
   const get = e => {
     // axios.get()
-  };
+  }
   return (
     <div>
       <h1>首页页面</h1>
-      <h3>公共环境变量：{process.env.REACT_APP_DOEM}</h3>
-      <h3>REACT_APP_TIP（根据不同环境）：{process.env.REACT_APP_TIP}</h3>
+      {/* <h3>公共环境变量：{process.env.REACT_APP_DOEM}</h3>
+      <h3>REACT_APP_TIP（根据不同环境）：{process.env.REACT_APP_TIP}</h3> */}
       <button onClick={getDatas}>axios1</button>
       <button onClick={getNodeUser1}>node1--5000</button>
       <button onClick={getNodeUser2}>node2--5000</button>
@@ -77,5 +84,5 @@ export default function Home () {
       <br />
       <button onClick={get}>测试请求</button>
     </div>
-  );
+  )
 }

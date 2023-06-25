@@ -2,7 +2,7 @@
  * @Author: shufan100 1549248097@qq.com
  * @Date: 2022-10-23 14:47:47
  * @LastEditors: shufan100 1549248097@qq.com
- * @LastEditTime: 2023-06-25 17:45:46
+ * @LastEditTime: 2023-06-25 18:04:10
  * @FilePath: \react-antd-project\src\views\page\BasisCom\Table\components\AlertForm.jsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -55,7 +55,7 @@ export default function AlertForm({ title, isModalVisible, rows, handleOk, handl
 
   return (
     // onCancel: 取消按钮 和 X  onOk：确定
-    <Modal forceRender width={500} title={title} visible={isModalVisible} footer={footers} onOk={onOk} onCancel={onCancel}>
+    <Modal forceRender width={500} title={title} open={isModalVisible} footer={footers} onOk={onOk} onCancel={onCancel}>
       <Form form={form} layout='vertical' initialValues={initialValues} disabled={title === '查看'}>
         <Form.Item name='name' label='姓名' rules={[{ required: true, message: '请输入姓名!' }]}>
           <Input placeholder='请输入姓名' />

@@ -6,6 +6,7 @@ function resolve(dir) {
 
 const addCustomize = () => config => {
   if (config.output.publicPath) {
+    console.log(process, '----')
     config.output.publicPath = process.env.NODE_ENV === 'production' ? '/' : '/'
   }
   if (config.resolve) {
