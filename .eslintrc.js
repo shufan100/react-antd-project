@@ -6,13 +6,13 @@
  * @FilePath: \react-antd-project\.eslintrc.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-const { TRUE } = require('node-sass')
+
 
 // 修改需要重启项目
 module.exports = {
   // 设置环境
   env: {
-    browser: true,
+    browser: ·,
     commonjs: true,
     es6: true
   },
