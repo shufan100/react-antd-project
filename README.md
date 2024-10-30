@@ -1,4 +1,20 @@
-# 目录结构
+提示：本项目为个人项目，仅供学习交流使用，请勿用于商业用途。
+
+# 项目简介
+
+- node>=16.20.2
+- pnpm>=7.1.2
+- react
+- antd
+- typescript
+- react-router-dom
+- redux
+- react-redux
+- axios
+- less
+- echarts
+
+### 目录结构
 
 ```bash
 # ├─ public                     # 静态资源

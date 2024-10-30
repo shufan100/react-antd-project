@@ -2,6 +2,16 @@
   "name": "react-adtd-project",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "build:dev": "dotenv -e .env.development react-app-rewired build",
+    "build:test": "dotenv -e .env.test react-app-rewired build",
+    "build:prod": "dotenv -e .env.prodution react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "postinstall": "npx only-allow pnpm"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -27,33 +37,6 @@
     "redux": "^4.1.1",
     "redux-thunk": "^2.4.0",
     "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "build:dev": "dotenv -e .env.development react-app-rewired build",
-    "build:test": "dotenv -e .env.test react-app-rewired build",
-    "build:prod": "dotenv -e .env.prodution react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "array-move": "^4.0.0",
@@ -83,9 +66,28 @@
     "react-sortable-hoc": "^2.0.0",
     "react-transition-group": "^4.4.2",
     "redux-devtools-extension": "^2.13.9",
+    "sass": "^1.80.5",
     "sass-loader": "8.0.2",
     "screenfull": "^5.0.2",
     "script-loader": "^0.7.2",
     "xlsx": "^0.18.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

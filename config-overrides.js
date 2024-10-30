@@ -1,3 +1,8 @@
+/**
+ * @author SHUF
+ * @date 2024-10-30 10:05:27
+ * @Description react配置文件
+ */
 const { override, addWebpackAlias, fixBabelImports, addLessLoader } = require('customize-cra')
 const path = require('path')
 function resolve(dir) {
@@ -6,7 +11,7 @@ function resolve(dir) {
 
 const addCustomize = () => config => {
   if (config.output.publicPath) {
-    console.log(process, '----')
+    // console.log(process, '----')
     config.output.publicPath = process.env.NODE_ENV === 'production' ? '/' : '/'
   }
   if (config.resolve) {
